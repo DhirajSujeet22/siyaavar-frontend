@@ -6,11 +6,8 @@ export const FetchProductsById = async (id) => {
   console.log(id);
   try {
     const data = await axios.get(`http://localhost:3000/clothes/${id}`, {
-      withCredentials: true,
+      // withCredentials: true,
     });
-
-    console.log(data.data);
-
     return data.data;
   } catch (error) {
     console.log(error);
@@ -22,9 +19,8 @@ export const FetchProductsById = async (id) => {
 export const FetchProducts = async () => {
   try {
     const data = await axios.get("http://localhost:3000/clothes", {
-      withCredentials: true,
+      // withCredentials: true,
     });
-
     return data.data;
   } catch (error) {
     console.log(error);

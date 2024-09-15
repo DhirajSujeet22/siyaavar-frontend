@@ -1,7 +1,7 @@
 {
   "clothes": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Men's Elegant Blue Kurta Pajama",
       "description": "Celebrate in style with our Blue Festive Charm Kurta Pajama. This intricate Chikankari and sequin-embellished viscose set is perfect for engagements or weddings. Stand out during festivities with this elegant pairing.",
       "tag": "men's clothing",
@@ -9,15 +9,25 @@
       "price": 19.99,
       "rating": 4.94,
       "stock": 55,
-      "sizes": ["All Size", "S", "M", "L", "XL", "XXL", "XXXL"],
-      "color": ["blue"],
+      "sizes": [
+        "All Size",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "colors": [
+        "blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Men's Classic Black Sherwani",
       "description": "A timeless black sherwani with golden embroidery for the modern groom. Crafted in premium fabric for special occasions.",
       "tag": "men's clothing",
@@ -25,31 +35,45 @@
       "price": 59.99,
       "rating": 4.85,
       "stock": 25,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": ["black"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "black"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Women's Red Embellished Anarkali",
-      "description": "This Anarkali features intricate threadwork and stone embellishments. The red color complements every festive occasion.",
+      "description": "This Anarkali features intricate threadwork and stone embellishments. The red colors complements every festive occasion.",
       "tag": "women's clothing",
       "category": "anarkali",
       "price": 49.99,
       "rating": 4.72,
       "stock": 40,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": ["red"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "red"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Men's Traditional White Kurta",
       "description": "Classic white kurta in soft cotton for traditional events. Comfortable and stylish for all-day wear.",
       "tag": "men's clothing",
@@ -57,31 +81,44 @@
       "price": 15.99,
       "rating": 4.65,
       "stock": 70,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": ["white"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "white"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Women's Peach Lehenga Choli",
-      "description": "Embrace tradition with our peach-colored lehenga choli. Perfect for weddings and grand celebrations.",
+      "description": "Embrace tradition with our peach-colorsed lehenga choli. Perfect for weddings and grand celebrations.",
       "tag": "women's clothing",
       "category": "lehenga",
       "price": 99.99,
       "rating": 4.89,
       "stock": 15,
-      "sizes": ["S", "M", "L"],
-      "color": ["peach"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "peach"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Men's Gray Casual Suit",
       "description": "This modern gray casual suit is perfect for semi-formal events. It pairs well with both dress shirts and casual tees.",
       "tag": "men's clothing",
@@ -89,15 +126,21 @@
       "price": 79.99,
       "rating": 4.91,
       "stock": 35,
-      "sizes": ["M", "L", "XL"],
-      "color": ["gray"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "gray"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Women's Green Silk Saree",
       "description": "This silk saree in a striking green hue is perfect for weddings and traditional ceremonies.",
       "tag": "women's clothing",
@@ -105,15 +148,19 @@
       "price": 39.99,
       "rating": 4.77,
       "stock": 60,
-      "sizes": ["Free Size"],
-      "color": ["green"],
+      "sizes": [
+        "Free Size"
+      ],
+      "colors": [
+        "green"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Men's Royal Blue Bandhgala",
       "description": "A royal blue bandhgala with silver detailing. Perfect for formal occasions and events.",
       "tag": "men's clothing",
@@ -121,15 +168,21 @@
       "price": 89.99,
       "rating": 4.83,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "color": ["blue"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Women's Maroon Sharara Set",
       "description": "Elegant maroon sharara set with golden embroidery, perfect for festive celebrations.",
       "tag": "women's clothing",
@@ -137,16 +190,21 @@
       "price": 59.99,
       "rating": 4.68,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "color": ["maroon"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "maroon"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
-
     {
-      "id": 10,
+      "id": "10",
       "title": "Men's Olive Green Nehru Jacket",
       "description": "A stylish olive green Nehru jacket to pair with traditional kurta or western attire.",
       "tag": "men's clothing",
@@ -154,15 +212,21 @@
       "price": 29.99,
       "rating": 4.58,
       "stock": 45,
-      "sizes": ["M", "L", "XL"],
-      "color": ["olive green"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "olive green"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Women's Light Blue Denim Kurti",
       "description": "A casual yet chic light blue denim kurti. Perfect for everyday wear or casual outings.",
       "tag": "women's clothing",
@@ -170,15 +234,22 @@
       "price": 24.99,
       "rating": 4.72,
       "stock": 50,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": ["light blue"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "light blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Men's Charcoal Grey Waistcoat",
       "description": "A classic charcoal grey waistcoat to add sophistication to any formal outfit.",
       "tag": "men's clothing",
@@ -186,15 +257,21 @@
       "price": 39.99,
       "rating": 4.8,
       "stock": 30,
-      "sizes": ["M", "L", "XL"],
-      "color": ["charcoal grey"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "charcoal grey"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Women's Yellow Cotton Salwar Kameez",
       "description": "Bright yellow cotton salwar kameez with simple embroidery. Ideal for casual events and daily wear.",
       "tag": "women's clothing",
@@ -202,15 +279,21 @@
       "price": 19.99,
       "rating": 4.65,
       "stock": 60,
-      "sizes": ["S", "M", "L"],
-      "color": ["yellow"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "yellow"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Men's Brown Corduroy Blazer",
       "description": "A stylish brown corduroy blazer perfect for both formal and casual occasions.",
       "tag": "men's clothing",
@@ -218,15 +301,21 @@
       "price": 49.99,
       "rating": 4.78,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "color": ["brown"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "brown"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Women's Purple Georgette Gown",
       "description": "Elegant purple georgette gown suitable for evening events and parties.",
       "tag": "women's clothing",
@@ -234,15 +323,21 @@
       "price": 79.99,
       "rating": 4.85,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "color": ["purple"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "purple"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Men's Maroon Velvet Jacket",
       "description": "Luxurious maroon velvet jacket that adds a touch of elegance to any outfit.",
       "tag": "men's clothing",
@@ -250,15 +345,21 @@
       "price": 89.99,
       "rating": 4.92,
       "stock": 15,
-      "sizes": ["M", "L", "XL"],
-      "color": ["maroon"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "maroon"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Women's Black Ankle-Length Skirt",
       "description": "Chic black ankle-length skirt made from soft, comfortable fabric for everyday wear.",
       "tag": "women's clothing",
@@ -266,15 +367,22 @@
       "price": 14.99,
       "rating": 4.66,
       "stock": 70,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": ["black"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "black"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Men's Navy Blue Chino Pants",
       "description": "Versatile navy blue chinos suitable for both casual and semi-formal settings.",
       "tag": "men's clothing",
@@ -282,15 +390,22 @@
       "price": 29.99,
       "rating": 4.73,
       "stock": 40,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": ["navy blue"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "navy blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Women's Beige Trouser Suit",
       "description": "Sophisticated beige trouser suit with a tailored fit for a polished look.",
       "tag": "women's clothing",
@@ -298,15 +413,21 @@
       "price": 64.99,
       "rating": 4.88,
       "stock": 20,
-      "sizes": ["S", "M", "L"],
-      "color": ["beige"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "beige"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Men's Burgundy Formal Shirt",
       "description": "A sleek burgundy formal shirt made from high-quality fabric. Perfect for office wear or formal events.",
       "tag": "men's clothing",
@@ -314,15 +435,21 @@
       "price": 34.99,
       "rating": 4.77,
       "stock": 50,
-      "sizes": ["M", "L", "XL"],
-      "color": ["burgundy"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "burgundy"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "Women's Blue Floral Maxi Dress",
       "description": "Flowy blue floral maxi dress, perfect for summer outings and casual events.",
       "tag": "women's clothing",
@@ -330,15 +457,21 @@
       "price": 54.99,
       "rating": 4.79,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "color": ["blue"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Men's Green Linen Shirt",
       "description": "Casual green linen shirt ideal for warm weather. Breathable and stylish for everyday wear.",
       "tag": "men's clothing",
@@ -346,15 +479,22 @@
       "price": 25.99,
       "rating": 4.68,
       "stock": 45,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": ["green"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "green"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Women's White Off-Shoulder Top",
       "description": "Elegant white off-shoulder top with delicate lace details. Perfect for summer evenings.",
       "tag": "women's clothing",
@@ -362,13 +502,21 @@
       "price": 29.99,
       "rating": 4.82,
       "stock": 40,
-      "sizes": ["S", "M", "L"],
-      "color": ["white"],
-      "images": ["https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "white"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "Men's Light Grey Suit",
       "description": "A sleek light grey suit, ideal for weddings and formal occasions. Tailored to perfection.",
       "tag": "men's clothing",
@@ -376,15 +524,21 @@
       "price": 89.99,
       "rating": 4.84,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "color": ["light grey"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "light grey"
+      ],
       "images": [
         "https://fakestoreapi.com/img/81-M5gmP6bL._AC_UL640_QL65_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/81-M5gmP6bL._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 25,
+      "id": "25",
       "title": "Women's Red Ruffled Skirt",
       "description": "Bright red ruffled skirt that adds a fun and flirty touch to any outfit.",
       "tag": "women's clothing",
@@ -392,13 +546,21 @@
       "price": 22.99,
       "rating": 4.71,
       "stock": 35,
-      "sizes": ["S", "M", "L"],
-      "color": ["red"],
-      "images": ["https://fakestoreapi.com/img/81-l3zB4rF._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "red"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-l3zB4rF._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-l3zB4rF._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 26,
+      "id": "26",
       "title": "Men's Casual Beige Shorts",
       "description": "Comfortable and stylish beige shorts for casual outings and relaxed weekends.",
       "tag": "men's clothing",
@@ -406,13 +568,21 @@
       "price": 18.99,
       "rating": 4.67,
       "stock": 50,
-      "sizes": ["M", "L", "XL"],
-      "color": ["beige"],
-      "images": ["https://fakestoreapi.com/img/81-FKqde1k._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "beige"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-FKqde1k._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-FKqde1k._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 27,
+      "id": "27",
       "title": "Women's Navy Blue Blazer",
       "description": "A versatile navy blue blazer that pairs well with both formal and casual outfits.",
       "tag": "women's clothing",
@@ -420,13 +590,21 @@
       "price": 49.99,
       "rating": 4.74,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "color": ["navy blue"],
-      "images": ["https://fakestoreapi.com/img/81-SWjH6rE._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "navy blue"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-SWjH6rE._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-SWjH6rE._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 28,
+      "id": "28",
       "title": "Men's Beige Casual Jacket",
       "description": "A light beige casual jacket, ideal for layering during cool weather.",
       "tag": "men's clothing",
@@ -434,13 +612,21 @@
       "price": 42.99,
       "rating": 4.76,
       "stock": 25,
-      "sizes": ["M", "L", "XL"],
-      "color": ["beige"],
-      "images": ["https://fakestoreapi.com/img/81-BZG5D0a._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "beige"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-BZG5D0a._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-BZG5D0a._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 29,
+      "id": "29",
       "title": "Women's Olive Green Jumpsuit",
       "description": "Chic olive green jumpsuit perfect for a variety of occasions. Comfortable and stylish.",
       "tag": "women's clothing",
@@ -448,13 +634,21 @@
       "price": 64.99,
       "rating": 4.83,
       "stock": 20,
-      "sizes": ["S", "M", "L"],
-      "color": ["olive green"],
-      "images": ["https://fakestoreapi.com/img/81-O4hb2g3._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "olive green"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-O4hb2g3._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-O4hb2g3._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 30,
+      "id": "30",
       "title": "Men's White Dress Pants",
       "description": "Elegant white dress pants that add a touch of class to any formal outfit.",
       "tag": "men's clothing",
@@ -462,13 +656,21 @@
       "price": 39.99,
       "rating": 4.71,
       "stock": 30,
-      "sizes": ["M", "L", "XL"],
-      "color": ["white"],
-      "images": ["https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "white"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 31,
+      "id": "31",
       "title": "Women's Maroon Silk Sari",
       "description": "Traditional maroon silk sari with intricate embroidery. Perfect for festive occasions.",
       "tag": "women's clothing",
@@ -476,13 +678,19 @@
       "price": 99.99,
       "rating": 4.89,
       "stock": 15,
-      "sizes": ["One Size"],
-      "color": ["maroon"],
-      "images": ["https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "One Size"
+      ],
+      "colors": [
+        "maroon"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 32,
+      "id": "32",
       "title": "Men's Dark Grey Suit",
       "description": "Elegant dark grey suit, perfect for business and formal events. Tailored for a sharp look.",
       "tag": "men's clothing",
@@ -490,13 +698,21 @@
       "price": 89.99,
       "rating": 4.8,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "color": ["dark grey"],
-      "images": ["https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "dark grey"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 33,
+      "id": "33",
       "title": "Women's Black Leather Jacket",
       "description": "Stylish black leather jacket with a modern cut. Perfect for adding edge to any outfit.",
       "tag": "women's clothing",
@@ -504,13 +720,21 @@
       "price": 89.99,
       "rating": 4.85,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "color": ["black"],
-      "images": ["https://fakestoreapi.com/img/81-xX0S9gj._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "black"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-xX0S9gj._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-xX0S9gj._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 34,
+      "id": "34",
       "title": "Men's Navy Blue Blazer",
       "description": "A sophisticated navy blue blazer ideal for formal and business settings.",
       "tag": "men's clothing",
@@ -518,13 +742,21 @@
       "price": 59.99,
       "rating": 4.78,
       "stock": 30,
-      "sizes": ["M", "L", "XL"],
-      "color": ["navy blue"],
-      "images": ["https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "navy blue"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 35,
+      "id": "35",
       "title": "Women's Yellow Summer Dress",
       "description": "Bright and cheerful yellow summer dress perfect for a day out or a casual gathering.",
       "tag": "women's clothing",
@@ -532,13 +764,21 @@
       "price": 39.99,
       "rating": 4.73,
       "stock": 40,
-      "sizes": ["S", "M", "L"],
-      "color": ["yellow"],
-      "images": ["https://fakestoreapi.com/img/81-ZT8UJ7N._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "yellow"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-ZT8UJ7N._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-ZT8UJ7N._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 36,
+      "id": "36",
       "title": "Men's White Polo Shirt",
       "description": "Classic white polo shirt made from breathable cotton. Great for casual wear and summer outings.",
       "tag": "men's clothing",
@@ -546,13 +786,22 @@
       "price": 24.99,
       "rating": 4.7,
       "stock": 50,
-      "sizes": ["S", "M", "L", "XL"],
-      "color": ["white"],
-      "images": ["https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "white"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 37,
+      "id": "37",
       "title": "Women's Grey Wool Coat",
       "description": "Elegant grey wool coat, perfect for keeping warm in style during the colder months.",
       "tag": "women's clothing",
@@ -560,13 +809,21 @@
       "price": 79.99,
       "rating": 4.86,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "color": ["grey"],
-      "images": ["https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "grey"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 38,
+      "id": "38",
       "title": "Men's Casual Black Sweatshirt",
       "description": "Comfy black sweatshirt perfect for casual wear or lounging at home.",
       "tag": "men's clothing",
@@ -574,13 +831,21 @@
       "price": 34.99,
       "rating": 4.72,
       "stock": 40,
-      "sizes": ["M", "L", "XL"],
-      "color": ["black"],
-      "images": ["https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "black"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 39,
+      "id": "39",
       "title": "Women's Pink Ruffled Blouse",
       "description": "Cute pink blouse with ruffled details, perfect for adding a touch of fun to any outfit.",
       "tag": "women's clothing",
@@ -588,13 +853,21 @@
       "price": 27.99,
       "rating": 4.75,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "color": ["pink"],
-      "images": ["https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "pink"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 41,
+      "id": "41",
       "title": "Women's Coral Pink Cardigan",
       "description": "Soft coral pink cardigan with a cozy fit, perfect for layering during cool weather.",
       "tag": "women's clothing",
@@ -602,15 +875,21 @@
       "price": 35.99,
       "rating": 4.77,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "color": ["coral pink"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "coral pink"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 42,
+      "id": "42",
       "title": "Men's Grey Cargo Pants",
       "description": "Versatile grey cargo pants with multiple pockets. Ideal for casual outings or outdoor activities.",
       "tag": "men's clothing",
@@ -618,15 +897,21 @@
       "price": 39.99,
       "rating": 4.7,
       "stock": 40,
-      "sizes": ["M", "L", "XL"],
-      "color": ["grey"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "grey"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
       "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },
     {
-      "id": 43,
+      "id": "43",
       "title": "Women's Black Wrap Dress",
       "description": "Elegant black wrap dress with a flattering silhouette, perfect for both formal and casual occasions.",
       "tag": "women's clothing",
@@ -634,13 +919,21 @@
       "price": 49.99,
       "rating": 4.84,
       "stock": 20,
-      "sizes": ["S", "M", "L"],
-      "color": ["black"],
-      "images": ["https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "black"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 44,
+      "id": "44",
       "title": "Men's Light Beige Vest",
       "description": "Light beige vest suitable for layering over shirts or sweaters for a polished look.",
       "tag": "men's clothing",
@@ -648,13 +941,21 @@
       "price": 27.99,
       "rating": 4.72,
       "stock": 35,
-      "sizes": ["M", "L", "XL"],
-      "color": ["light beige"],
-      "images": ["https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "light beige"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 45,
+      "id": "45",
       "title": "Women's Green A-Line Skirt",
       "description": "Stylish green A-line skirt that adds a touch of elegance to any outfit. Great for both work and casual settings.",
       "tag": "women's clothing",
@@ -662,13 +963,21 @@
       "price": 32.99,
       "rating": 4.78,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "color": ["green"],
-      "images": ["https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "green"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 46,
+      "id": "46",
       "title": "Men's Casual Navy Sweatpants",
       "description": "Comfortable navy sweatpants, ideal for lounging or casual outings.",
       "tag": "men's clothing",
@@ -676,13 +985,21 @@
       "price": 28.99,
       "rating": 4.75,
       "stock": 45,
-      "sizes": ["M", "L", "XL"],
-      "color": ["navy"],
-      "images": ["https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "navy"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 47,
+      "id": "47",
       "title": "Women's Beige Trench Coat",
       "description": "Classic beige trench coat, perfect for transitioning between seasons. Stylish and practical.",
       "tag": "women's clothing",
@@ -690,13 +1007,21 @@
       "price": 74.99,
       "rating": 4.82,
       "stock": 20,
-      "sizes": ["S", "M", "L"],
-      "color": ["beige"],
-      "images": ["https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "beige"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 48,
+      "id": "48",
       "title": "Men's Blue Denim Jacket",
       "description": "Classic blue denim jacket with a relaxed fit. Perfect for casual wear or layering.",
       "tag": "men's clothing",
@@ -704,13 +1029,21 @@
       "price": 42.99,
       "rating": 4.79,
       "stock": 30,
-      "sizes": ["M", "L", "XL"],
-      "color": ["blue"],
-      "images": ["https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "blue"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 49,
+      "id": "49",
       "title": "Women's Lilac Pleated Skirt",
       "description": "Elegant lilac pleated skirt, perfect for adding a touch of grace to any outfit.",
       "tag": "women's clothing",
@@ -718,13 +1051,21 @@
       "price": 31.99,
       "rating": 4.76,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "color": ["lilac"],
-      "images": ["https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "lilac"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"
     },
     {
-      "id": 50,
+      "id": "50",
       "title": "Men's Charcoal Grey Turtleneck Sweater",
       "description": "Cozy charcoal grey turtleneck sweater, perfect for cold weather and layering.",
       "tag": "men's clothing",
@@ -732,10 +1073,134 @@
       "price": 37.99,
       "rating": 4.8,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "color": ["charcoal grey"],
-      "images": ["https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "charcoal grey"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
+    }
+  ],
+  "carts": [
+    {
+      "id": "2091",
+      "quantity": 1,
+      "product": {
+        "title": "Men's Burgundy Formal Shirt",
+        "price": 34.99,
+        "stock": 50,
+        "rating": 4.77,
+        "breadcrumbs": [
+          {
+            "id": 1,
+            "name": "men's clothing",
+            "href": "#"
+          },
+          {
+            "id": 2,
+            "name": "formal shirt",
+            "href": "#"
+          }
+        ],
+        "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+        "images": [
+          [
+            "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+          ]
+        ],
+        "colors": [
+          {
+            "name": "burgundy",
+            "class": "bg-burgundy",
+            "selectedClass": "ring-gray-400"
+          }
+        ],
+        "sizes": [
+          {
+            "name": "M",
+            "inStock": true
+          },
+          {
+            "name": "L",
+            "inStock": true
+          },
+          {
+            "name": "XL",
+            "inStock": true
+          }
+        ],
+        "description": "A sleek burgundy formal shirt made from high-quality fabric. Perfect for office wear or formal events.",
+        "highlights": [
+          "Hand cut and sewn locally",
+          "Dyed with our proprietary colors",
+          "Pre-washed & pre-shrunk",
+          "Ultra-soft 100% cotton"
+        ],
+        "details": "A sleek burgundy formal shirt made from high-quality fabric. Perfect for office wear or formal events."
+      }
+    },
+    {
+      "id": "dec1",
+      "quantity": 1,
+      "product": {
+        "title": "Men's Olive Green Nehru Jacket",
+        "price": 29.99,
+        "stock": 45,
+        "rating": 4.58,
+        "breadcrumbs": [
+          {
+            "id": 1,
+            "name": "men's clothing",
+            "href": "#"
+          },
+          {
+            "id": 2,
+            "name": "nehru jacket",
+            "href": "#"
+          }
+        ],
+        "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+        "images": [
+          [
+            "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+          ]
+        ],
+        "colors": [
+          {
+            "name": "olive green",
+            "class": "bg-olive green",
+            "selectedClass": "ring-gray-400"
+          }
+        ],
+        "sizes": [
+          {
+            "name": "M",
+            "inStock": true
+          },
+          {
+            "name": "L",
+            "inStock": true
+          },
+          {
+            "name": "XL",
+            "inStock": true
+          }
+        ],
+        "description": "A stylish olive green Nehru jacket to pair with traditional kurta or western attire.",
+        "highlights": [
+          "Hand cut and sewn locally",
+          "Dyed with our proprietary colors",
+          "Pre-washed & pre-shrunk",
+          "Ultra-soft 100% cotton"
+        ],
+        "details": "A stylish olive green Nehru jacket to pair with traditional kurta or western attire."
+      }
     }
   ]
 }

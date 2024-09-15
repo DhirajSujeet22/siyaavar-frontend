@@ -17,8 +17,8 @@ const user = {
 };
 const navigation = [
   { name: "Dashboard", href: "/", current: true },
-  { name: "Team", href: "/ProductsDetailsPage", current: false },
-  { name: "Projects", href: "#", current: false },
+  { name: "Team", href: "/ProductsDetails/5", current: false },
+  { name: "Projects", href: "/cart", current: false },
   { name: "Calendar", href: "#", current: false },
   { name: "Reports", href: "#", current: false },
 ];
@@ -196,7 +196,7 @@ const Navbar = ({ Children }) => {
           </div>
         </header>
         <main>
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             {Children}
           </div>
         </main>
