@@ -6,6 +6,8 @@ import ProductsDetailsPage from "./Pages/ProductsDetailsPage";
 import Cart from "./features/Cart/Cart";
 import { useDispatch } from "react-redux";
 import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
+import UserProfilePage from "./Pages/UserProfilePage";
+import { fetchLoggedInUserAsync } from "./features/User/UserSlice";
 
 // ===========================================
 
@@ -14,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+  },
+  {
+    path: "/userProfile",
+    element: <UserProfilePage />,
   },
   {
     path: "/ProductsDetails/:id",
@@ -35,6 +41,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchCartByUserIdAsync("2019"));
+    dispatch(fetchLoggedInUserAsync());
   }, [dispatch]);
 
   // useEffect(() => {

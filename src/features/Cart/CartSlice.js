@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
   AddToCart,
   fetchCartByUserId,
-  //   UpdateCart,
-  //   DeleteCartItem,
+  UpdateCart,
+  DeleteCartItem,
   //   ResetCart,
 } from "./CartAPI";
 
@@ -37,23 +37,23 @@ export const fetchCartByUserIdAsync = createAsyncThunk(
 
 // ============================================================================
 
-// export const UpdateCartAsync = createAsyncThunk(
-//   "cart/UpdateCart",
-//   async (update) => {
-//     const response = await UpdateCart(update);
-//     return response.data;
-//   }
-// );
+export const UpdateCartAsync = createAsyncThunk(
+  "cart/UpdateCart",
+  async (update) => {
+    const response = await UpdateCart(update);
+    return response;
+  }
+);
 
 // ============================================================================
 
-// export const DeleteCartItemAsync = createAsyncThunk(
-//   "cart/DeleteCartItem",
-//   async (itemId) => {
-//     const response = await DeleteCartItem(itemId);
-//     return response.data;
-//   }
-// );
+export const DeleteCartItemAsync = createAsyncThunk(
+  "cart/DeleteCartItem",
+  async (itemId) => {
+    const response = await DeleteCartItem(itemId);
+    return response;
+  }
+);
 
 // ============================================================================
 
@@ -103,43 +103,44 @@ export const CartSlice = createSlice({
       .addCase(fetchCartByUserIdAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
+      })
+
+      // ===================================================
+
+      .addCase(UpdateCartAsync.pending, (state) => {
+        state.status = true;
+      })
+      .addCase(UpdateCartAsync.fulfilled, (state, action) => {
+        state.status = false;
+        const index = state.carts.findIndex(
+          (item) => item.id === action.payload.id
+        );
+
+        state.carts[index] = action.payload;
+      })
+      .addCase(UpdateCartAsync.rejected, (state, action) => {
+        state.status = false;
+        state.error = action.error;
+      })
+
+      // ===================================================
+
+      .addCase(DeleteCartItemAsync.pending, (state) => {
+        state.status = true;
+      })
+      .addCase(DeleteCartItemAsync.fulfilled, (state, action) => {
+        state.status = false;
+        console.log(action.payload.id);
+        const index = state.carts.findIndex(
+          (item) => item.id === action.payload.id
+        );
+
+        state.carts.splice(index, 1);
+      })
+      .addCase(DeleteCartItemAsync.rejected, (state, action) => {
+        state.status = false;
+        state.error = action.error;
       });
-
-    // ===================================================
-
-    //   .addCase(UpdateCartAsync.pending, (state) => {
-    //     state.status = true;
-    //   })
-    //   .addCase(UpdateCartAsync.fulfilled, (state, action) => {
-    //     state.status = false;
-    //     const index = state.carts.findIndex(
-    //       (item) => item.id === action.payload.id
-    //     );
-
-    //     state.carts[index] = action.payload;
-    //   })
-    //   .addCase(UpdateCartAsync.rejected, (state, action) => {
-    //     state.status = false;
-    //     state.error = action.error;
-    //   })
-
-    // ===================================================
-
-    //   .addCase(DeleteCartItemAsync.pending, (state) => {
-    //     state.status = true;
-    //   })
-    //   .addCase(DeleteCartItemAsync.fulfilled, (state, action) => {
-    //     state.status = false;
-    //     const index = state.carts.findIndex(
-    //       (item) => item.id === action.payload.id
-    //     );
-
-    //     state.carts.splice(index, 1);
-    //   })
-    //   .addCase(DeleteCartItemAsync.rejected, (state, action) => {
-    //     state.status = false;
-    //     state.error = action.error;
-    //   })
 
     // ===================================================
 

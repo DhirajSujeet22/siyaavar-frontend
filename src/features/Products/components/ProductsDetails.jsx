@@ -101,9 +101,9 @@ const ProductsDetails = () => {
 
   // to check product is already in cart or not : to implement duplicate problem
 
-  // const CheckingProductInCart = GetAddToCart.filter(
-  //   (items) => items.product.id === ProductData.id
-  // );
+  const CheckingProductInCart = GetAddToCart.filter(
+    (items) => items.product.title === ProductData.title
+  );
 
   // ==========================================================================
 
@@ -170,7 +170,7 @@ const ProductsDetails = () => {
   // =============================================================================
 
   useEffect(() => {
-    dispatch(FetchProductsByIdAsync("10"));
+    dispatch(FetchProductsByIdAsync("1"));
   }, [dispatch]);
 
   // =============================================================================
@@ -554,26 +554,37 @@ const ProductsDetails = () => {
                       </div>
                     </RadioGroup>
                   </div>
-                  {product.stock <= 5 ? null : (
+                  {product.stock <= 0 ? null : (
                     <div className="flex gap-[1rem] justify-around">
-                      <button
-                        onClick={handleAddToCart}
-                        type="button"
-                        className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        {cartStatus ? (
-                          <div
-                            role="status"
-                            class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                      {ProductData && CheckingProductInCart.length > 0 ? (
+                        <NavLink to="/cart">
+                          <button
+                            type="button"
+                            className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                           >
-                            <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
-                          </div>
-                        ) : (
-                          "Add to Card"
-                        )}
-                      </button>
-
-                      {/* {ProductData && CheckingProductInCart.length > 0 ? (
+                            Go to Card
+                          </button>
+                        </NavLink>
+                      ) : (
+                        <button
+                          onClick={handleAddToCart}
+                          disabled={cartStatus}
+                          type="button"
+                          className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        >
+                          {cartStatus ? (
+                            <div
+                              role="status"
+                              class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                            >
+                              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                            </div>
+                          ) : (
+                            "Add to Card"
+                          )}
+                        </button>
+                      )}
+                      {ProductData && CheckingProductInCart.length > 0 ? (
                         <NavLink to="/checkout">
                           <button
                             type="button"
@@ -585,14 +596,14 @@ const ProductsDetails = () => {
                       ) : (
                         <NavLink to="/checkout">
                           <button
-                            onClick={handleBuyProduct}
+                            // onClick={handleBuyProduct}
                             type="button"
                             className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                           >
                             Buy now
                           </button>
                         </NavLink>
-                      )} */}
+                      )}
                     </div>
                   )}
                 </form>

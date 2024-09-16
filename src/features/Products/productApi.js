@@ -3,7 +3,6 @@ import axios from "axios";
 // ---------------------------------
 
 export const FetchProductsById = async (id) => {
-  console.log(id);
   try {
     const data = await axios.get(`http://localhost:3000/clothes/${id}`, {
       // withCredentials: true,

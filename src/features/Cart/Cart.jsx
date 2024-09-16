@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   fetchCartByUserIdAsync,
-  // DeleteCartItemAsync,
-  // UpdateCartAsync,
+  DeleteCartItemAsync,
+  UpdateCartAsync,
   selectCarts,
   selectCartsStatus,
 } from "./CartSlice";
@@ -30,38 +30,28 @@ const Cart = () => {
   //   dispatch(fetchCartByUserIdAsync("2019"));
   // }, [dispatch]);
 
-  console.log(GetAddToCart);
-
-  const daat = GetAddToCart.map((item) => {
-    return item.product.price;
-  });
-
-  console.log(daat);
-
   const totalAmount = GetAddToCart.reduce(
     (amount, cart) => cart.product.price * cart.quantity + amount,
     0
   );
-  console.log(totalAmount);
 
   const totalItemsCount = GetAddToCart.reduce(
     (total, cart) => cart.quantity + total,
     0
   );
-  console.log(totalItemsCount);
 
   // ===================================================================
 
-  //   const handleQuantity = (e, item) => {
-  //     dispatch(UpdateCartAsync({ id: item.id, quantity: +e.target.value }));
-  //   };
+  const handleQuantity = (e, item) => {
+    dispatch(UpdateCartAsync({ id: item.id, quantity: +e.target.value }));
+  };
 
   // ===================================================================
   const [openDialog, setOpenDialog] = useState(null);
-  //   const handleDeleteItems = (item) => {
-  //     dispatch(DeleteCartItemAsync(item.id));
-  //     toast.success(<h3 className="font-bold">{item.product.title} Deleted</h3>);
-  //   };
+  const handleDeleteItems = (item) => {
+    dispatch(DeleteCartItemAsync(item.id));
+    // toast.success(<h3 className="font-bold">{item.product.title} Deleted</h3>);
+  };
 
   // ===================================================================
 
@@ -140,15 +130,11 @@ const Cart = () => {
                                     dangerAction={() =>
                                       handleDeleteItems(cartInfo)
                                     }
-                                    showDialogs={
-                                      openDialog === cartInfo.product.id
-                                    }
+                                    showDialogs={openDialog === cartInfo.id}
                                   ></Dialogs>
                                 }
                                 <button
-                                  onClick={() =>
-                                    setOpenDialog(cartInfo.product.id)
-                                  }
+                                  onClick={() => setOpenDialog(cartInfo.id)}
                                   type="button"
                                   className="font-medium text-indigo-600 hover:text-indigo-500"
                                 >
