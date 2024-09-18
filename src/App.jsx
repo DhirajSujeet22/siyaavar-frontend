@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import ProductsDetailsPage from "./Pages/ProductsDetailsPage";
 import Cart from "./features/Cart/Cart";
-import { useDispatch } from "react-redux";
-import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
 import UserProfilePage from "./Pages/UserProfilePage";
+import ErrorBoundary from "./features/common/ErrorBoundary";
+import ProductsPage from "./Pages/ProductsPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { fetchLoggedInUserAsync } from "./features/User/UserSlice";
+import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
 
 // ===========================================
 
@@ -19,15 +20,35 @@ const router = createBrowserRouter([
   },
   {
     path: "/userProfile",
-    element: <UserProfilePage />,
+    element: (
+      <ErrorBoundary>
+        <UserProfilePage />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: "/Products",
+    element: (
+      // <ErrorBoundary>
+      // </ErrorBoundary>
+      <ProductsPage />
+    ),
   },
   {
     path: "/ProductsDetails/:id",
-    element: <ProductsDetailsPage />,
+    element: (
+      <ErrorBoundary>
+        <ProductsDetailsPage />,
+      </ErrorBoundary>
+    ),
   },
   {
     path: "/cart",
-    element: <Cart />,
+    element: (
+      <ErrorBoundary>
+        <Cart />,
+      </ErrorBoundary>
+    ),
   },
 ]);
 

@@ -19,7 +19,6 @@ const UserProfile = () => {
   //   const userCheck = useSelector(selectUserCheck);
   const dispatch = useDispatch();
 
-  console.log(user);
   // ==================================================================
 
   const [showAddedForm, setShowAddedForm] = useState(false);
@@ -65,7 +64,7 @@ const UserProfile = () => {
 
   // ==================================================================
 
-  const [openDialog, setOpenDialog] = useState(-1);
+  const [openDialog, setOpenDialog] = useState(null);
 
   const DeleteAddress = (index, name) => {
     const newUser = { ...user, addresses: [...user.addresses] }; // for shallow copy issue
@@ -520,7 +519,7 @@ const UserProfile = () => {
                               title={`Delete ${address.name}`}
                               message="Are you sure you want to delete this address ?"
                               dangerOption="Delete"
-                              cancelAction={() => setOpenDialog(1)}
+                              cancelAction={() => setOpenDialog(-1)}
                               dangerAction={() =>
                                 DeleteAddress(index, address.name)
                               }

@@ -22,8 +22,9 @@ import { selectCarts } from "../Cart/CartSlice";
 // ============================================================================
 
 const navigation = [
-  { name: "Product", link: "/ProductsDetails/5", current: false, user: true },
-  { name: "Product", link: "/userProfile", current: false, user: true },
+  { name: "userProfile", link: "/userProfile", current: false, user: true },
+  { name: "ProductDetails", link: "/ProductsDetails/5", current: false, user: true },
+  { name: "Products", link: "/Products", current: false, user: true },
   // { name: "Products", link: "/admin", current: false, admin: true },
   // { name: "Orders", link: "/admin/orders", current: false, admin: true },
 ];
@@ -283,7 +284,7 @@ const Navbar = ({ Children }) => {
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
             <h1 className="text-[1.9rem]  font-[900]  tracking-tight text-violet-700">
-              Apanee Dukaan
+            Siyaavar-Siya
             </h1>
           </div>
         </header>

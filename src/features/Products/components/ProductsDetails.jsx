@@ -170,7 +170,7 @@ const ProductsDetails = () => {
   // =============================================================================
 
   useEffect(() => {
-    dispatch(FetchProductsByIdAsync("1"));
+    dispatch(FetchProductsByIdAsync("2"));
   }, [dispatch]);
 
   // =============================================================================

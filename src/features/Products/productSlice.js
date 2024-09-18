@@ -15,8 +15,8 @@ const initialState = {
 
 export const FetchProductsByFilterAsync = createAsyncThunk(
   "Products/FetchProducts",
-  async () => {
-    const response = await FetchProducts();
+  async (page) => {
+    const response = await FetchProducts(page);
     return response;
   }
 );
@@ -50,7 +50,7 @@ export const ProductsSlice = createSlice({
         state.status = true;
       })
       .addCase(FetchProductsByFilterAsync.fulfilled, (state, action) => {
-        state.products = action.payload.products;
+        state.products = action.payload;
         state.totalPages = action.payload.totalPages;
         state.status = false;
       })
@@ -79,8 +79,8 @@ export const ProductsSlice = createSlice({
 
 // export const {} = ProductsSlice.actions;+
 
-export const selectProducts = (state) => state.product;
-// export const selectTotalProductsPage = (state) => state.product.totalPages;
+export const selectProducts = (state) => state.product.products;
+export const selectTotalProductsPage = (state) => state.product.totalPages;
 // export const selectCategories = (state) => state.product.categories;
 // export const selectBrands = (state) => state.product.brands;
 export const selectProductsById = (state) => state.product.productsById;
