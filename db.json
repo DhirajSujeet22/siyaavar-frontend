@@ -9,9 +9,21 @@
       "price": 19.99,
       "rating": 4.94,
       "stock": 55,
-      "sizes": ["All Size", "S", "M", "L", "XL", "XXL", "XXXL"],
-      "colors": ["blue"],
-      "images": ["https://i.imgur.com/SP1VHjX.jpeg"],
+      "sizes": [
+        "All Size",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "colors": [
+        "blue"
+      ],
+      "images": [
+        "https://i.imgur.com/SP1VHjX.jpeg"
+      ],
       "thumbnail": "https://i.imgur.com/SP1VHjX.jpeg"
     },
     {
@@ -23,9 +35,18 @@
       "price": 59.99,
       "rating": 4.85,
       "stock": 25,
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["black"],
-      "images": ["https://i.imgur.com/bRQPhXu.jpeg"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "black"
+      ],
+      "images": [
+        "https://i.imgur.com/bRQPhXu.jpeg"
+      ],
       "thumbnail": "https://i.imgur.com/bRQPhXu.jpeg"
     },
     {
@@ -37,9 +58,18 @@
       "price": 49.99,
       "rating": 4.72,
       "stock": 40,
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["red"],
-      "images": ["https://i.imgur.com/G2lh4im.jpeg"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "red"
+      ],
+      "images": [
+        "https://i.imgur.com/G2lh4im.jpeg"
+      ],
       "thumbnail": "https://i.imgur.com/G2lh4im.jpeg"
     },
     {
@@ -51,9 +81,18 @@
       "price": 15.99,
       "rating": 4.65,
       "stock": 70,
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["white"],
-      "images": ["https://i.imgur.com/VcTSTzm.jpeg"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "white"
+      ],
+      "images": [
+        "https://i.imgur.com/VcTSTzm.jpeg"
+      ],
       "thumbnail": "https://i.imgur.com/VcTSTzm.jpeg"
     },
     {
@@ -65,8 +104,14 @@
       "price": 99.99,
       "rating": 4.89,
       "stock": 15,
-      "sizes": ["S", "M", "L"],
-      "colors": ["peach"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "peach"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -81,8 +126,14 @@
       "price": 79.99,
       "rating": 4.91,
       "stock": 35,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["gray"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "gray"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -97,8 +148,12 @@
       "price": 39.99,
       "rating": 4.77,
       "stock": 60,
-      "sizes": ["Free Size"],
-      "colors": ["green"],
+      "sizes": [
+        "Free Size"
+      ],
+      "colors": [
+        "green"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -113,8 +168,14 @@
       "price": 89.99,
       "rating": 4.83,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["blue"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -129,8 +190,14 @@
       "price": 59.99,
       "rating": 4.68,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "colors": ["maroon"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "maroon"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -145,8 +212,14 @@
       "price": 29.99,
       "rating": 4.58,
       "stock": 45,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["olive green"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "olive green"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -161,8 +234,15 @@
       "price": 24.99,
       "rating": 4.72,
       "stock": 50,
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["light blue"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "light blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -177,8 +257,14 @@
       "price": 39.99,
       "rating": 4.8,
       "stock": 30,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["charcoal grey"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "charcoal grey"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -193,8 +279,14 @@
       "price": 19.99,
       "rating": 4.65,
       "stock": 60,
-      "sizes": ["S", "M", "L"],
-      "colors": ["yellow"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "yellow"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -209,8 +301,14 @@
       "price": 49.99,
       "rating": 4.78,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["brown"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "brown"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -225,8 +323,14 @@
       "price": 79.99,
       "rating": 4.85,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "colors": ["purple"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "purple"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -241,8 +345,14 @@
       "price": 89.99,
       "rating": 4.92,
       "stock": 15,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["maroon"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "maroon"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -257,8 +367,15 @@
       "price": 14.99,
       "rating": 4.66,
       "stock": 70,
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["black"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "black"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -273,8 +390,15 @@
       "price": 29.99,
       "rating": 4.73,
       "stock": 40,
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["navy blue"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "navy blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -289,8 +413,14 @@
       "price": 64.99,
       "rating": 4.88,
       "stock": 20,
-      "sizes": ["S", "M", "L"],
-      "colors": ["beige"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "beige"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -305,8 +435,14 @@
       "price": 34.99,
       "rating": 4.77,
       "stock": 50,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["burgundy"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "burgundy"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -321,8 +457,14 @@
       "price": 54.99,
       "rating": 4.79,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "colors": ["blue"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "blue"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -337,8 +479,15 @@
       "price": 25.99,
       "rating": 4.68,
       "stock": 45,
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["green"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "green"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -353,9 +502,17 @@
       "price": 29.99,
       "rating": 4.82,
       "stock": 40,
-      "sizes": ["S", "M", "L"],
-      "colors": ["white"],
-      "images": ["https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "white"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
     },
     {
@@ -367,8 +524,14 @@
       "price": 89.99,
       "rating": 4.84,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["light grey"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "light grey"
+      ],
       "images": [
         "https://fakestoreapi.com/img/81-M5gmP6bL._AC_UL640_QL65_.jpg"
       ],
@@ -383,9 +546,17 @@
       "price": 22.99,
       "rating": 4.71,
       "stock": 35,
-      "sizes": ["S", "M", "L"],
-      "colors": ["red"],
-      "images": ["https://fakestoreapi.com/img/81-l3zB4rF._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "red"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-l3zB4rF._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-l3zB4rF._AC_UL640_QL65_.jpg"
     },
     {
@@ -397,9 +568,17 @@
       "price": 18.99,
       "rating": 4.67,
       "stock": 50,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["beige"],
-      "images": ["https://fakestoreapi.com/img/81-FKqde1k._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "beige"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-FKqde1k._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-FKqde1k._AC_UL640_QL65_.jpg"
     },
     {
@@ -411,9 +590,17 @@
       "price": 49.99,
       "rating": 4.74,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "colors": ["navy blue"],
-      "images": ["https://fakestoreapi.com/img/81-SWjH6rE._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "navy blue"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-SWjH6rE._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-SWjH6rE._AC_UL640_QL65_.jpg"
     },
     {
@@ -425,9 +612,17 @@
       "price": 42.99,
       "rating": 4.76,
       "stock": 25,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["beige"],
-      "images": ["https://fakestoreapi.com/img/81-BZG5D0a._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "beige"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-BZG5D0a._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-BZG5D0a._AC_UL640_QL65_.jpg"
     },
     {
@@ -439,9 +634,17 @@
       "price": 64.99,
       "rating": 4.83,
       "stock": 20,
-      "sizes": ["S", "M", "L"],
-      "colors": ["olive green"],
-      "images": ["https://fakestoreapi.com/img/81-O4hb2g3._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "olive green"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-O4hb2g3._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-O4hb2g3._AC_UL640_QL65_.jpg"
     },
     {
@@ -453,9 +656,17 @@
       "price": 39.99,
       "rating": 4.71,
       "stock": 30,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["white"],
-      "images": ["https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "white"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"
     },
     {
@@ -467,9 +678,15 @@
       "price": 99.99,
       "rating": 4.89,
       "stock": 15,
-      "sizes": ["One Size"],
-      "colors": ["maroon"],
-      "images": ["https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "One Size"
+      ],
+      "colors": [
+        "maroon"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-4CKL03X._AC_UL640_QL65_.jpg"
     },
     {
@@ -481,9 +698,17 @@
       "price": 89.99,
       "rating": 4.8,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["dark grey"],
-      "images": ["https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "dark grey"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"
     },
     {
@@ -495,9 +720,17 @@
       "price": 89.99,
       "rating": 4.85,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "colors": ["black"],
-      "images": ["https://fakestoreapi.com/img/81-xX0S9gj._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "black"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-xX0S9gj._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-xX0S9gj._AC_UL640_QL65_.jpg"
     },
     {
@@ -509,9 +742,17 @@
       "price": 59.99,
       "rating": 4.78,
       "stock": 30,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["navy blue"],
-      "images": ["https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "navy blue"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"
     },
     {
@@ -523,9 +764,17 @@
       "price": 39.99,
       "rating": 4.73,
       "stock": 40,
-      "sizes": ["S", "M", "L"],
-      "colors": ["yellow"],
-      "images": ["https://fakestoreapi.com/img/81-ZT8UJ7N._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "yellow"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-ZT8UJ7N._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-ZT8UJ7N._AC_UL640_QL65_.jpg"
     },
     {
@@ -537,9 +786,18 @@
       "price": 24.99,
       "rating": 4.7,
       "stock": 50,
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["white"],
-      "images": ["https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "white"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"
     },
     {
@@ -551,9 +809,17 @@
       "price": 79.99,
       "rating": 4.86,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "colors": ["grey"],
-      "images": ["https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "grey"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"
     },
     {
@@ -565,9 +831,17 @@
       "price": 34.99,
       "rating": 4.72,
       "stock": 40,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["black"],
-      "images": ["https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "black"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"
     },
     {
@@ -579,9 +853,17 @@
       "price": 27.99,
       "rating": 4.75,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "colors": ["pink"],
-      "images": ["https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "pink"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"
     },
     {
@@ -593,8 +875,14 @@
       "price": 35.99,
       "rating": 4.77,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "colors": ["coral pink"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "coral pink"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -609,8 +897,14 @@
       "price": 39.99,
       "rating": 4.7,
       "stock": 40,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["grey"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "grey"
+      ],
       "images": [
         "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
       ],
@@ -625,9 +919,17 @@
       "price": 49.99,
       "rating": 4.84,
       "stock": 20,
-      "sizes": ["S", "M", "L"],
-      "colors": ["black"],
-      "images": ["https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "black"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
     },
     {
@@ -639,9 +941,17 @@
       "price": 27.99,
       "rating": 4.72,
       "stock": 35,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["light beige"],
-      "images": ["https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "light beige"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-GXek7Zr._AC_UL640_QL65_.jpg"
     },
     {
@@ -653,9 +963,17 @@
       "price": 32.99,
       "rating": 4.78,
       "stock": 30,
-      "sizes": ["S", "M", "L"],
-      "colors": ["green"],
-      "images": ["https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "green"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-KcwDo5W._AC_UL640_QL65_.jpg"
     },
     {
@@ -667,9 +985,17 @@
       "price": 28.99,
       "rating": 4.75,
       "stock": 45,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["navy"],
-      "images": ["https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "navy"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-NjjcDzD._AC_UL640_QL65_.jpg"
     },
     {
@@ -681,9 +1007,17 @@
       "price": 74.99,
       "rating": 4.82,
       "stock": 20,
-      "sizes": ["S", "M", "L"],
-      "colors": ["beige"],
-      "images": ["https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "beige"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-tBDu0Z6._AC_UL640_QL65_.jpg"
     },
     {
@@ -695,9 +1029,17 @@
       "price": 42.99,
       "rating": 4.79,
       "stock": 30,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["blue"],
-      "images": ["https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "blue"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-FJ8K4Fk._AC_UL640_QL65_.jpg"
     },
     {
@@ -709,9 +1051,17 @@
       "price": 31.99,
       "rating": 4.76,
       "stock": 25,
-      "sizes": ["S", "M", "L"],
-      "colors": ["lilac"],
-      "images": ["https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "lilac"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-3Jkcs3y._AC_UL640_QL65_.jpg"
     },
     {
@@ -723,132 +1073,21 @@
       "price": 37.99,
       "rating": 4.8,
       "stock": 20,
-      "sizes": ["M", "L", "XL"],
-      "colors": ["charcoal grey"],
-      "images": ["https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "charcoal grey"
+      ],
+      "images": [
+        "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
+      ],
       "thumbnail": "https://fakestoreapi.com/img/81-2Xw2u3N._AC_UL640_QL65_.jpg"
     }
   ],
-  "carts": [
-    {
-      "quantity": 3,
-      "product": {
-        "title": "Men's Burgundy Formal Shirt",
-        "price": 34.99,
-        "stock": 50,
-        "rating": 4.77,
-        "breadcrumbs": [
-          {
-            "id": 1,
-            "name": "men's clothing",
-            "href": "#"
-          },
-          {
-            "id": 2,
-            "name": "formal shirt",
-            "href": "#"
-          }
-        ],
-        "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-        "images": [
-          [
-            "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-          ]
-        ],
-        "colors": [
-          {
-            "name": "burgundy",
-            "class": "bg-burgundy",
-            "selectedClass": "ring-gray-400"
-          }
-        ],
-        "sizes": [
-          {
-            "name": "M",
-            "inStock": true
-          },
-          {
-            "name": "L",
-            "inStock": true
-          },
-          {
-            "name": "XL",
-            "inStock": true
-          }
-        ],
-        "description": "A sleek burgundy formal shirt made from high-quality fabric. Perfect for office wear or formal events.",
-        "highlights": [
-          "Hand cut and sewn locally",
-          "Dyed with our proprietary colors",
-          "Pre-washed & pre-shrunk",
-          "Ultra-soft 100% cotton"
-        ],
-        "details": "A sleek burgundy formal shirt made from high-quality fabric. Perfect for office wear or formal events."
-      },
-      "id": "OX_hN4j"
-    },
-    {
-      "quantity": 1,
-      "product": {
-        "title": "Men's Classic Black Sherwani",
-        "price": 59.99,
-        "stock": 25,
-        "rating": 4.85,
-        "breadcrumbs": [
-          {
-            "id": 1,
-            "name": "men's clothing",
-            "href": "#"
-          },
-          {
-            "id": 2,
-            "name": "sherwani",
-            "href": "#"
-          }
-        ],
-        "thumbnail": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-        "images": [
-          [
-            "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-          ]
-        ],
-        "colors": [
-          {
-            "name": "black",
-            "class": "bg-black",
-            "selectedClass": "ring-gray-400"
-          }
-        ],
-        "sizes": [
-          {
-            "name": "S",
-            "inStock": true
-          },
-          {
-            "name": "M",
-            "inStock": true
-          },
-          {
-            "name": "L",
-            "inStock": true
-          },
-          {
-            "name": "XL",
-            "inStock": true
-          }
-        ],
-        "description": "A timeless black sherwani with golden embroidery for the modern groom. Crafted in premium fabric for special occasions.",
-        "highlights": [
-          "Hand cut and sewn locally",
-          "Dyed with our proprietary colors",
-          "Pre-washed & pre-shrunk",
-          "Ultra-soft 100% cotton"
-        ],
-        "details": "A timeless black sherwani with golden embroidery for the modern groom. Crafted in premium fabric for special occasions."
-      },
-      "id": "_YQkrFp"
-    }
-  ],
+  "carts": [],
   "users": [
     {
       "name": "Nitesh",

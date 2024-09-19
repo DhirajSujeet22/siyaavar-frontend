@@ -1,29 +1,35 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { IoSearchOutline, IoNotifications } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
-// import { selectUserInfo } from "../User/UserSlice";
+import { selectUserInfo } from "../User/UserSlice";
 // import DarkMode from "../Common/colorMode/DarkMode";
 
 // ============================================================================
 
-// const userNavigation = [
-//   { name: "My Profile", link: "/profile" },
-//   { name: "My Orders", link: "/orders" },
-//   { name: "Sign out", link: "/logout" },
-// ];
+const userNavigation = [
+  { name: "My Profile", link: "/userProfile" },
+  { name: "My Orders", link: "/orders" },
+  { name: "Sign out", link: "/logout" },
+];
 
 // ============================================================================
 
 const navigation = [
-  { name: "userProfile", link: "/userProfile", current: false, user: true },
-  { name: "ProductDetails", link: "/ProductsDetails/5", current: false, user: true },
+  // { name: "userProfile", link: "/userProfile", current: false, user: true },
+  {
+    name: "ProductDetails",
+    link: "/ProductsDetails/5",
+    current: false,
+    user: true,
+  },
   { name: "Products", link: "/Products", current: false, user: true },
   // { name: "Products", link: "/admin", current: false, admin: true },
   // { name: "Orders", link: "/admin/orders", current: false, admin: true },
@@ -38,23 +44,24 @@ function classNames(...classes) {
 const Navbar = ({ Children }) => {
   // const user = useSelector(selectUserInfo);
   const GetAddToCart = useSelector(selectCarts);
-
+  const user = useSelector(selectUserInfo);
+  const [isOpen, setIsOpen] = useState(false);
   // ============================================================================
 
   return (
     <>
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-gray-800">
+        <Disclosure as="nav" className="bg-[#F8F9FA]">
           {({ open }) => (
             <>
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex h-16 items-center justify-between">
-                  <div className="flex items-center">
+              <div className="mx-auto max-w-7xl px-4 sm:px-0 lg:px-0">
+                <div className="flex h-[5rem] items-center justify-between">
+                  <div className="flex items-center justify-between">
                     <div className="flex-shrink-0">
                       <Link to="/">
                         <img
-                          className="h-8 w-8"
-                          src="https://cdn1.iconfinder.com/data/icons/business-mix-3/100/business-27-256.png"
+                          className="h-auto w-[15rem]"
+                          src="https://i.imgur.com/HfWWL7R.png"
                           alt="Our Company"
                         />
                       </Link>
@@ -88,7 +95,7 @@ const Navbar = ({ Children }) => {
                                 className={classNames(
                                   item.current
                                     ? "bg-blue-900 text-white"
-                                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                                    : "text-[#9a9d9f] hover:bg-gray-700 hover:text-white",
                                   "rounded-md px-3 py-2 text-sm font-medium"
                                 )}
                                 aria-current={item.current ? "page" : undefined}
@@ -102,7 +109,73 @@ const Navbar = ({ Children }) => {
                   </div>
 
                   <div className="hidden md:block">
-                    <div className="ml-4 flex items-center md:ml-6">
+                    <div className="flex items-center gap-3">
+                      {/* serach*/}
+                      <div className="relative">
+                        <button
+                          type="button"
+                          className="relative mt-2 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                          onClick={() => setIsOpen(true)}
+                        >
+                          <span className="absolute -inset-1.5" />
+                          <IoSearchOutline
+                            className="h-6 w-6"
+                            aria-hidden="true"
+                          />
+                        </button>
+
+                        {/* Dialog Box */}
+                        {isOpen && (
+                          <div className="fixed inset-0 flex items-center justify-center z-50">
+                            <div className="absolute inset-0 bg-black opacity-50"></div>
+
+                            <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 z-10">
+                              <div className="flex justify-between items-center">
+                                <h2 className="text-lg font-semibold text-gray-700">
+                                  Search
+                                </h2>
+                                <button
+                                  className="text-gray-500 hover:text-gray-800"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  <svg
+                                    className="w-6 h-6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="2"
+                                      d="M6 18L18 6M6 6l12 12"
+                                    ></path>
+                                  </svg>
+                                </button>
+                              </div>
+
+                              <div className="mt-4">
+                                <input
+                                  type="text"
+                                  placeholder="Type to search..."
+                                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                                />
+                              </div>
+
+                              <div className="mt-4 flex justify-end">
+                                <button
+                                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  Search
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      {/* cart*/}
                       <Link to="/cart">
                         <button
                           type="button"
@@ -120,14 +193,31 @@ const Navbar = ({ Children }) => {
                           </span>
                         )}
                       </Link>
-
+                      {/* notification*/}
+                      <Link to="#">
+                        <button
+                          type="button"
+                          className="relative mt-2 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        >
+                          <span className="absolute -inset-1.5" />
+                          <IoNotifications
+                            className="h-6 w-6"
+                            aria-hidden="true"
+                          />
+                        </button>
+                        {GetAddToCart.length > 0 && (
+                          <span className="inline-flex bottom-4 right-2 relative items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                            {GetAddToCart.length}
+                          </span>
+                        )}
+                      </Link>
                       {/* Profile dropdown */}
-                      <Menu as="div" className="relative ml-3">
+                      <Menu as="div" className="relative">
                         <div>
                           <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Open user menu</span>
-                            {/* <img
+                            <img
                               className="h-8 w-8 rounded-full"
                               src={
                                 user.image
@@ -135,7 +225,7 @@ const Navbar = ({ Children }) => {
                                   : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
                               }
                               alt="profile_img"
-                            /> */}
+                            />
                           </Menu.Button>
                         </div>
                         <Transition
@@ -148,7 +238,7 @@ const Navbar = ({ Children }) => {
                           leaveTo="transform opacity-0 scale-95"
                         >
                           <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            {/* {userNavigation.map((item) => (
+                            {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
                                   <Link
@@ -162,7 +252,7 @@ const Navbar = ({ Children }) => {
                                   </Link>
                                 )}
                               </Menu.Item>
-                            ))} */}
+                            ))}
                           </Menu.Items>
                         </Transition>
                       </Menu>
@@ -232,7 +322,7 @@ const Navbar = ({ Children }) => {
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      {/* <img
+                      <img
                         className="h-10 w-10 rounded-full"
                         src={
                           user.image
@@ -240,7 +330,7 @@ const Navbar = ({ Children }) => {
                             : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
                         }
                         alt="profile_img"
-                      /> */}
+                      />
                     </div>
                     <Link to="/cart">
                       <button
@@ -262,7 +352,7 @@ const Navbar = ({ Children }) => {
                     {/* <DarkMode /> */}
                   </div>
                   <div className="mt-3 space-y-1 px-2">
-                    {/* {userNavigation.map((item) => (
+                    {userNavigation.map((item) => (
                       <div key={item.name}>
                         <Link
                           to={item.link}
@@ -273,7 +363,7 @@ const Navbar = ({ Children }) => {
                           {item.name}
                         </Link>
                       </div>
-                    ))} */}
+                    ))}
                   </div>
                 </div>
               </Disclosure.Panel>
@@ -282,14 +372,12 @@ const Navbar = ({ Children }) => {
         </Disclosure>
 
         <header className="bg-white shadow">
-          <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-            <h1 className="text-[1.9rem]  font-[900]  tracking-tight text-violet-700">
-            Siyaavar-Siya
-            </h1>
-          </div>
+          {/* <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+            <h1 className="text-[1.9rem]  font-[900]  tracking-tight text-violet-700"></h1>
+          </div> */}
         </header>
         <main>
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl py-3 px-3 sm:px-0 sm:py-3 lg:px-0">
             {Children}
           </div>
         </main>

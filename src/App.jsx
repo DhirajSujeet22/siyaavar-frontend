@@ -29,9 +29,9 @@ const router = createBrowserRouter([
   {
     path: "/Products",
     element: (
-      // <ErrorBoundary>
-      // </ErrorBoundary>
-      <ProductsPage />
+      <ErrorBoundary>
+        <ProductsPage />
+      </ErrorBoundary>
     ),
   },
   {
