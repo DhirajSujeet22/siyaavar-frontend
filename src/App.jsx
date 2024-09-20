@@ -16,7 +16,12 @@ import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+
+    element: (
+      <ErrorBoundary>
+        <HomePage />
+      </ErrorBoundary>
+    ),
   },
   {
     path: "/userProfile",
