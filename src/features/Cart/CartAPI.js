@@ -1,10 +1,10 @@
 import axios from "axios";
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 // =======================================
 
 export const AddToCart = async (CartInfo) => {
   try {
-    const data = await axios.post(`http://localhost:3000/carts`, CartInfo, {
+    const data = await axios.post(`${backendUrl}/carts`, CartInfo, {
       // withCredentials: true,
     });
     return data.data;
@@ -20,7 +20,7 @@ export const AddToCart = async (CartInfo) => {
 export const fetchCartByUserId = async (id) => {
   console.log(id);
   try {
-    const data = await axios.get(`http://localhost:3000/carts`, {
+    const data = await axios.get(`${backendUrl}/carts`, {
       // withCredentials: true,
     });
     return data.data;
@@ -36,7 +36,7 @@ export const fetchCartByUserId = async (id) => {
 export const UpdateCart = async (update) => {
   try {
     const data = await axios.patch(
-      `http://localhost:3000/carts/${update.id}`,
+      `${backendUrl}/carts/${update.id}`,
       update,
       {
         // withCredentials: true,
@@ -54,7 +54,7 @@ export const UpdateCart = async (update) => {
 
 export const DeleteCartItem = async (itemId) => {
   try {
-    const data = await axios.delete(`http://localhost:3000/carts/${itemId}`, {
+    const data = await axios.delete(`${backendUrl}/carts/${itemId}`, {
       // withCredentials: true,
     });
     return { id: itemId };

@@ -187,7 +187,7 @@ const Navbar = ({ Children }) => {
                             aria-hidden="true"
                           />
                         </button>
-                        {GetAddToCart.length > 0 && (
+                        {GetAddToCart && GetAddToCart.length > 0 && (
                           <span className="inline-flex bottom-4 right-2 relative items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
                             {GetAddToCart.length}
                           </span>
@@ -205,7 +205,7 @@ const Navbar = ({ Children }) => {
                             aria-hidden="true"
                           />
                         </button>
-                        {GetAddToCart.length > 0 && (
+                        {GetAddToCart && GetAddToCart.length > 0 && (
                           <span className="inline-flex bottom-4 right-2 relative items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
                             {GetAddToCart.length}
                           </span>
@@ -217,7 +217,7 @@ const Navbar = ({ Children }) => {
                           <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Open user menu</span>
-                            <img
+                            {/* <img
                               className="h-8 w-8 rounded-full"
                               src={
                                 user.image
@@ -225,7 +225,7 @@ const Navbar = ({ Children }) => {
                                   : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
                               }
                               alt="profile_img"
-                            />
+                            /> */}
                           </Menu.Button>
                         </div>
                         <Transition
@@ -322,7 +322,7 @@ const Navbar = ({ Children }) => {
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      <img
+                      {/* <img
                         className="h-10 w-10 rounded-full"
                         src={
                           user.image
@@ -330,7 +330,7 @@ const Navbar = ({ Children }) => {
                             : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
                         }
                         alt="profile_img"
-                      />
+                      /> */}
                     </div>
                     <Link to="/cart">
                       <button
@@ -342,7 +342,7 @@ const Navbar = ({ Children }) => {
                           className="h-6 w-6"
                           aria-hidden="true"
                         />
-                        {GetAddToCart.length > 0 && (
+                        {GetAddToCart && GetAddToCart.length > 0 && (
                           <span className="inline-flex bottom-4 left-5  absolute items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
                             {GetAddToCart.length}
                           </span>
