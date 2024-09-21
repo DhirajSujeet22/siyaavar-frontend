@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { Autoplay, EffectFade, FreeMode } from "swiper/modules";
+import WhatsAppIcon from "../../common/WhatsAppIcon";
 
 const images = {
   men: [
@@ -51,6 +52,7 @@ const Product_home = () => {
   return (
     <>
       {/* ===================== Banner  ==================== */}
+
       <main>
         <Swiper
           spaceBetween={30}
@@ -66,50 +68,55 @@ const Product_home = () => {
         >
           <SwiperSlide>
             <img
-              className="rounded-lg w-full h-auto"
+              className="rounded-lg w-full  h-[15rem] sm:h-auto"
               src="https://i.imgur.com/fj5NLNu.jpeg"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="rounded-lg w-full h-auto"
+              className="rounded-lg w-full  h-[15rem] sm:h-auto"
               src="https://i.imgur.com/OAopDgm.png"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="rounded-lg w-full h-auto"
+              className="rounded-lg w-full  h-[15rem] sm:h-auto"
               src="https://i.imgur.com/24yt1S1.png"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="rounded-lg w-full h-auto"
+              className="rounded-lg w-full  h-[15rem] sm:h-auto"
               src="https://i.imgur.com/TRjZmbp.png"
               alt="banner_img"
             />
           </SwiperSlide>
         </Swiper>
       </main>
+
       {/* ===================== Choose Your Groove ==================== */}
-      <section className="p-3 bg-gray-100">
+
+      <WhatsAppIcon />
+
+      {/* ===================== Choose Your Groove ==================== */}
+      <section className="p-3 bg-gray-100 mt-5">
         <div className="flex flex-col items-center">
           {/* Title Section */}
-          <h2 className="font-baskervville text-3xl py-6 font-semibold text-gray-800 mb-8 text-center">
+          <h2 className="font-baskervville text-[1.8rem] sm:text-3xl py-6 font-semibold text-gray-800 mb-8 text-center">
             "Choose Your Groove"
           </h2>
 
           {/* Image Grid Section */}
-          <div className="flex flex-wrap justify-center gap-6 mt-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-5 justify-center">
             {GrooveImage.map((src, index) => (
               <img
                 key={index}
                 src={src}
                 alt={`Groove_img_${index}`}
-                className="w-72 object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
+                className="w-full object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
               />
             ))}
           </div>
@@ -202,7 +209,7 @@ const Product_home = () => {
           </div>
 
           {/* Image Grid Section */}
-          <div className="flex flex-wrap justify-center mt-6 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-5 justify-center">
             {images[filter].map((src, index) => (
               <img
                 key={index}
@@ -248,7 +255,7 @@ const Product_home = () => {
       </section>
       {/* ===================== Videos ==================== */}
       <section className="p-3 mt-10 bg-gray-100">
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-5 justify-center">
           <div className="flex-shrink-0 w-full sm:w-72 md:w-80 lg:w-[17rem]">
             <video
               className="w-full h-auto rounded-lg shadow-md"
@@ -359,9 +366,12 @@ const Product_home = () => {
           </h2>
 
           {/* Image Grid Section */}
-          <div className="flex flex-wrap justify-center gap-6 mt-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-5 justify-center">
             {WeddingImage.map((item, index) => (
-              <div key={index} className="flex flex-col items-center">
+              <div
+                key={index}
+                className="flex flex-col items-start sm:items-center"
+              >
                 <img
                   src={item}
                   alt={`Groove_img_${index}`}

@@ -1,189 +1,241 @@
 import React from "react";
 
 const Footer = () => {
+  const LogoImage = [
+    { src: "./icons/batchicon.svg", text: "MADE IN INDIA" },
+    { src: "./icons/handsicon.svg", text: "ASSURED QUALITY" },
+    { src: "./icons/newslettericon.svg", text: "SECURE PAYMENTS" },
+    { src: "./icons/tigericon.svg", text: "EMPOWERING WEAVERS" },
+  ];
+
   return (
     <>
-      <>
-        {/* component */}
-        <div className="flex items-end w-full bg-white">
-          <footer className="w-full text-gray-700 bg-gray-100 body-font">
-            <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
-              <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
-                <a className="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
-                  <img className="w-[4rem]" src="https://i.imgur.com/B7mFp1X.png" alt="logo" />
+      <section className="pt-16 pb-7 bg-gray-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-12 pb-12 border-b-2 border-gray-700 max-lg:gap-7">
+            <div className="col-span-12 lg:col-span-7">
+              <img src="https://i.imgur.com/HfWWL7R.png" alt="siyaavar_logo" />
+            </div>
+            <div className="col-span-12 lg:col-span-5 flex flex-col gap-4 items-center">
+              <div className="flex items-center gap-[2rem] bg-gray-800 w-[auto] max-w-md mx-auto lg:mr-0 rounded-full p-2.5 min-[470px]:p-1.5 pl-5 min-[470px]:pl-7 border border-gray-700 transition-all duration-300 hover:border-gray-400 focus-within:border-gray-400">
+                <input
+                  type="text"
+                  className="bg-transparent text-base font-normal text-white placeholder:text-gray-500 focus-within:outline-0"
+                  placeholder="Your email here..."
+                />
+                <button className="py-3 px-7 hidden min-[470px]:block rounded-full bg-violet-500 text-base font-semibold text-white shadow-sm shadow-transparent transition-all duration-500 focus-within:outline-0 hover:bg-violet-700 focus-within:bg-violet-700 ">
+                  Submit
+                </button>
+              </div>
+              <button className="py-3 px-7 min-[470px]:hidden rounded-full bg-violet-500 text-base font-semibold text-white shadow-sm shadow-transparent transition-all duration-500 focus-within:outline-0 hover:bg-violet-700 focus-within:bg-violet-700 ">
+                Submit
+              </button>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-4 gap-y-8 py-14 border-b-2 border-gray-700">
+            <div className="">
+              <h6 className="text-xl font-bold text-white mb-7">About Us</h6>
+              <ul className="flex flex-col gap-6">
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Our Story
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Sustainability
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Press
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Blog
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="">
+              <h6 className="text-xl font-bold text-white mb-7">
+                Customer Services
+              </h6>
+              <ul className="flex flex-col gap-6">
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Shipping Information
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Return and Exchanges
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    FAQ's
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Size Guide
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="">
+              <h6 className="text-xl font-bold text-white mb-7">Shop</h6>
+              <ul className="flex flex-col gap-6">
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    New Arrivals
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Men's Clothing
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Women's Clothing
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Accessories
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Sale
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="">
+              <h6 className="text-xl font-bold text-white mb-7">
+                Get In Touch
+              </h6>
+              <ul className="flex flex-col gap-6">
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    Shop No : 97, Anupam Textile Market Ring Road, SURAT -
+                    395002
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    +91 8825135770
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="javascript:;"
+                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                  >
+                    imsonu2007@gmail.com
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-7 flex flex-wrap min-[500px]:flex-row items-center gap-5 justify-between ">
+            <div className="flex gap-5 flex-wrap">
+              <li class="list-none">
+                <a
+                  href="javascript:;"
+                  className="text-md font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                >
+                  Terms of Use
                 </a>
-                <p className="mt-2 text-sm text-gray-500">
-                  Design, Code and Ship!
-                </p>
-                <div className="mt-4">
-                  <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
-                    <a className="text-gray-500 cursor-pointer hover:text-gray-700">
-                      <svg
-                        fill="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                      </svg>
-                    </a>
-                    <a className="ml-3 text-gray-500 cursor-pointer hover:text-gray-700">
-                      <svg
-                        fill="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-3 text-gray-500 cursor-pointer hover:text-gray-700">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <rect
-                          width={20}
-                          height={20}
-                          x={2}
-                          y={2}
-                          rx={5}
-                          ry={5}
-                        />
-                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-                      </svg>
-                    </a>
-                    <a className="ml-3 text-gray-500 cursor-pointer hover:text-gray-700">
-                      <svg
-                        fill="currentColor"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={0}
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke="none"
-                          d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                        ></path>
-                        <circle cx={4} cy={4} r={2} stroke="none" />
-                      </svg>
-                    </a>
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
-                <div className="w-full px-4 lg:w-1/4 md:w-1/2">
-                  <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                    About
-                  </h2>
-                  <nav className="mb-10 list-none">
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Company
-                      </a>
-                    </li>
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Careers
-                      </a>
-                    </li>
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Blog
-                      </a>
-                    </li>
-                  </nav>
-                </div>
-                <div className="w-full px-4 lg:w-1/4 md:w-1/2">
-                  <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                    Support
-                  </h2>
-                  <nav className="mb-10 list-none">
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Contact Support
-                      </a>
-                    </li>
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Help Resources
-                      </a>
-                    </li>
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Release Updates
-                      </a>
-                    </li>
-                  </nav>
-                </div>
-                <div className="w-full px-4 lg:w-1/4 md:w-1/2">
-                  <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                    Platform
-                  </h2>
-                  <nav className="mb-10 list-none">
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Terms &amp; Privacy
-                      </a>
-                    </li>
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Pricing
-                      </a>
-                    </li>
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        FAQ
-                      </a>
-                    </li>
-                  </nav>
-                </div>
-                <div className="w-full px-4 lg:w-1/4 md:w-1/2">
-                  <h2 className="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font">
-                    Contact
-                  </h2>
-                  <nav className="mb-10 list-none">
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        Shop No : 97, Anupam Textile Market Ring Road, SURAT -
-                        395002
-                      </a>
-                    </li>
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        imsonu2007@gmail.com
-                      </a>
-                    </li>
-                    <li className="mt-3">
-                      <a className="text-gray-500 cursor-pointer hover:text-gray-900">
-                        +91 8825135770
-                      </a>
-                    </li>
-                  </nav>
-                </div>
-              </div>
+              </li>
+              <li class="list-none">
+                <a
+                  href="javascript:;"
+                  className="text-md font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li class="list-none">
+                <a
+                  href="javascript:;"
+                  className="text-md font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                >
+                  Help
+                </a>
+              </li>
             </div>
-            <div className="bg-gray-300">
-              <div className="container px-5 py-4 mx-auto">
-                <p className="text-sm text-gray-700 capitalize xl:text-center">
-                  © 2020 All rights reserved{" "}
-                </p>
-              </div>
-            </div>
-          </footer>
+            <p className="text-base font-normal text-gray-400">
+              ©, All Rights Reserved. Developed & Maintained By reserved.
+            </p>
+          </div>
         </div>
-      </>
+      </section>
     </>
   );
 };

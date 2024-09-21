@@ -50,7 +50,7 @@ const ProductsDetails = () => {
   const status = useSelector(selectStatus);
   const cartStatus = useSelector(selectCartsStatus);
   const GetAddToCart = useSelector(selectCarts);
-
+  console.log(ProductData);
   // Check if ProductData and ProductData.sizes are defined
   const sizesWithStock =
     ProductData && ProductData.sizes
@@ -101,9 +101,9 @@ const ProductsDetails = () => {
 
   // to check product is already in cart or not : to implement duplicate problem
 
-  const CheckingProductInCart = GetAddToCart.filter(
-    (items) => items.product.title === ProductData.title
-  );
+  // const CheckingProductInCart = GetAddToCart.filter(
+  //   (items) => items.product.title === ProductData.title
+  // );
 
   // ==========================================================================
 
@@ -168,9 +168,9 @@ const ProductsDetails = () => {
   };
 
   // =============================================================================
-
+  console.log(id);
   useEffect(() => {
-    dispatch(FetchProductsByIdAsync("2"));
+    dispatch(FetchProductsByIdAsync(id));
   }, [dispatch]);
 
   // =============================================================================
@@ -556,7 +556,7 @@ const ProductsDetails = () => {
                   </div>
                   {product.stock <= 0 ? null : (
                     <div className="flex gap-[1rem] justify-around">
-                      {ProductData && CheckingProductInCart.length > 0 ? (
+                      {ProductData ? (
                         <NavLink to="/cart">
                           <button
                             type="button"
@@ -584,7 +584,7 @@ const ProductsDetails = () => {
                           )}
                         </button>
                       )}
-                      {ProductData && CheckingProductInCart.length > 0 ? (
+                      {ProductData && 0 ? (
                         <NavLink to="/checkout">
                           <button
                             type="button"

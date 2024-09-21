@@ -17,11 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
 
-    element: (
-      <ErrorBoundary>
-        <HomePage />
-      </ErrorBoundary>
-    ),
+    element: <HomePage />,
   },
   {
     path: "/userProfile",
