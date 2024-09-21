@@ -31,6 +31,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingSpinner from "../../common/LoadingSpinner";
 import { ITEMS_PER_PAGE } from "../../../app/Constant";
 import { Link } from "react-router-dom";
+import ProductSkeleton from "../../common/ProductSkeleton";
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
   { name: "Best Rating", href: "#", current: false },
@@ -116,7 +117,7 @@ const Products = () => {
     if (Products.length > 0) {
       fetchProducts();
     }
-  }, []);
+  }, [Products]);
 
   console.log(pagination);
 
@@ -367,61 +368,59 @@ const Products = () => {
                       {/* {infin scrll} */}
 
                       <InfiniteScroll
-                        dataLength={allProducts.length} // Current total number of loaded products
-                        next={fetchProducts} // Fetch the next batch of products
-                        hasMore={hasMore} // Whether there are more products to load
-                        loader={
-                          <>
-                            <div className="flex justify-center items-center flex-row gap-2">
-                              <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]" />
-                              <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]" />
-                              <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]" />
-                            </div>
-                          </>
-                        }
+                        dataLength={allProducts.length}
+                        next={fetchProducts}
+                        hasMore={hasMore}
+                        // loader={
+                        //   <div className="flex justify-center">
+                        //     <h3 className="text-center">Loading....</h3>
+                        //   </div>
+                        // }
                         endMessage={
                           <p style={{ textAlign: "center" }}>
                             <b>Yay! You have seen it all</b>
                           </p>
                         }
                       >
-                        {/* ======================================================== */}
-
                         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                          {allProducts.map((product, index) => (
-                            <>
-                              <Link to={`/ProductsDetails/${product.id}`}>
-                                <div key={index} className="group relative">
-                                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                                    <img
-                                      alt={product.title}
-                                      src={product.images}
-                                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                                    />
-                                  </div>
-                                  <div className="mt-4 flex justify-between">
-                                    <div>
-                                      <h3 className="text-sm text-gray-700">
-                                        <a href={product.href}>
+                          {allProducts.length === 0
+                            ? // Render skeletons if there are no products yet
+                              Array.from({ length: 6 }).map((_, index) => (
+                                <ProductSkeleton key={index} />
+                              ))
+                            : allProducts.map((product) => (
+                                <Link
+                                  key={product.id}
+                                  to={`/ProductsDetails/${product.id}`}
+                                >
+                                  <div className="group relative">
+                                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none">
+                                      <img
+                                        alt={product.title}
+                                        src={product.images}
+                                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                      />
+                                    </div>
+                                    <div className="mt-4 flex justify-between">
+                                      <div>
+                                        <h3 className="text-sm text-gray-700">
                                           <span
                                             aria-hidden="true"
                                             className="absolute inset-0"
                                           />
                                           {product.title}
-                                        </a>
-                                      </h3>
-                                      <p className="mt-3 text-sm text-gray-500">
-                                        {product.category}
+                                        </h3>
+                                        <p className="mt-3 text-sm text-gray-500">
+                                          {product.category}
+                                        </p>
+                                      </div>
+                                      <p className="text-sm font-medium text-gray-900">
+                                        {product.price}
                                       </p>
                                     </div>
-                                    <p className="text-sm font-medium text-gray-900">
-                                      {product.price}
-                                    </p>
                                   </div>
-                                </div>
-                              </Link>
-                            </>
-                          ))}
+                                </Link>
+                              ))}
                         </div>
                       </InfiniteScroll>
                     </div>
