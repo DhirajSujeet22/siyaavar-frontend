@@ -5,7 +5,7 @@ const WhatsAppIcon = () => {
   return (
     <>
       <div className="flex flex-col items-center text-white">
-        <Link to="/">
+        <Link to="https://wa.me/8825135770">
           <img
             src="https://i.imgur.com/LAuedkX.gif"
             alt="Icon 1"

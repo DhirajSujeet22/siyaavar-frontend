@@ -1,5 +1,7 @@
 import React from "react";
-
+import { MdOutlineMail } from "react-icons/md";
+import { IoLocationOutline } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
 const Footer = () => {
   const LogoImage = [
     { src: "./icons/batchicon.svg", text: "MADE IN INDIA" },
@@ -17,19 +19,17 @@ const Footer = () => {
               <img src="https://i.imgur.com/HfWWL7R.png" alt="siyaavar_logo" />
             </div>
             <div className="col-span-12 lg:col-span-5 flex flex-col gap-4 items-center">
-              <div className="flex items-center gap-[2rem] bg-gray-800 w-[auto] max-w-md mx-auto lg:mr-0 rounded-full p-2.5 min-[470px]:p-1.5 pl-5 min-[470px]:pl-7 border border-gray-700 transition-all duration-300 hover:border-gray-400 focus-within:border-gray-400">
+              <div className="flex items-center gap-[2rem] bg-gray-800 w-[auto] max-w-md mx-auto lg:mr-0 rounded-full p-2.5 min-[470px]:p-1.5 pl-5 min-[470px]:pl-7 border border-gray-700\ transition-all duration-300 hover:border-gray-400 focus-within:border-gray-400">
                 <input
                   type="text"
-                  className="bg-transparent text-base font-normal text-white placeholder:text-gray-500 focus-within:outline-0"
+                  className="bg-transparent text-base border-0
+                   font-normal text-white placeholder:text-gray-00 focus-within:outline-0"
                   placeholder="Your email here..."
                 />
-                <button className="py-3 px-7 hidden min-[470px]:block rounded-full bg-violet-500 text-base font-semibold text-white shadow-sm shadow-transparent transition-all duration-500 focus-within:outline-0 hover:bg-violet-700 focus-within:bg-violet-700 ">
+                <button className="py-3 px-7 hidden min-[470px]:block rounded-full bg-violet-500 text-base font-semibold text-white shadow-sm shadow-transparent transition-all duration-500 focus-within:outline-0 hover:bg-violet-700">
                   Submit
                 </button>
               </div>
-              <button className="py-3 px-7 min-[470px]:hidden rounded-full bg-violet-500 text-base font-semibold text-white shadow-sm shadow-transparent transition-all duration-500 focus-within:outline-0 hover:bg-violet-700 focus-within:bg-violet-700 ">
-                Submit
-              </button>
             </div>
           </div>
           <div className="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-4 gap-y-8 py-14 border-b-2 border-gray-700">
@@ -177,27 +177,30 @@ const Footer = () => {
               <ul className="flex flex-col gap-6">
                 <li>
                   <a
-                    href="javascript:;"
-                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                    href="https://maps.app.goo.gl/TndqEUyTM8QHXEiW9"
+                    className="text-lg flex gap-5  font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
+                    <IoLocationOutline className="text-[3rem]" />
                     Shop No : 97, Anupam Textile Market Ring Road, SURAT -
                     395002
                   </a>
                 </li>
                 <li>
                   <a
-                    href="javascript:;"
-                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                    href="tel:+918825135770"
+                    className="text-lg flex gap-5 items-center font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
+                    <FaPhoneAlt />
                     +91 8825135770
                   </a>
                 </li>
                 <li>
                   <a
-                    href="javascript:;"
-                    className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
+                    href="mailto:nitinkumarankit@gmail.com"
+                    className="text-lg flex gap-5 items-center font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
-                    imsonu2007@gmail.com
+                    <MdOutlineMail className="text-[1.5rem]" />
+                    nitinkumarankit95@gmail.com
                   </a>
                 </li>
               </ul>
