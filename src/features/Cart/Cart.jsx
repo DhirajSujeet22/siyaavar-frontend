@@ -26,17 +26,13 @@ const Cart = () => {
   //   0
   // );
 
-  // useEffect(() => {
-  //   dispatch(fetchCartByUserIdAsync("2019"));
-  // }, [dispatch]);
-
   const totalAmount = GetAddToCart.reduce(
-    (amount, cart) => cart.product.price * cart.quantity + amount,
+    (amount, cart) => cart?.product.price * cart?.quantity + amount,
     0
   );
 
   const totalItemsCount = GetAddToCart.reduce(
-    (total, cart) => cart.quantity + total,
+    (total, cart) => cart?.quantity + total,
     0
   );
 
@@ -54,6 +50,10 @@ const Cart = () => {
   };
 
   // ===================================================================
+
+  useEffect(() => {
+    dispatch(fetchCartByUserIdAsync());
+  }, [dispatch]);
 
   return (
     <>

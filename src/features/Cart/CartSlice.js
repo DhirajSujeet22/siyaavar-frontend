@@ -20,6 +20,7 @@ const initialState = {
 export const AddToCartAsync = createAsyncThunk(
   "cart/AddToCart",
   async (CartInfo) => {
+    console.log(CartInfo);
     const response = await AddToCart(CartInfo);
     return response;
   }
@@ -84,6 +85,7 @@ export const CartSlice = createSlice({
       })
       .addCase(AddToCartAsync.fulfilled, (state, action) => {
         state.status = false;
+        console.log(action.payload);
         state.carts.push(action.payload);
       })
       .addCase(AddToCartAsync.rejected, (state, action) => {

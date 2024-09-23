@@ -9,6 +9,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchLoggedInUserAsync } from "./features/User/UserSlice";
 import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
+import SignUp from "./features/Auth/components/SignUp";
+import Login from "./features/Auth/components/Login";
 
 // ===========================================
 
@@ -16,8 +18,23 @@ import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
 const router = createBrowserRouter([
   {
     path: "/",
-
     element: <HomePage />,
+  },
+  {
+    path: "/signUp",
+    element: (
+      <ErrorBoundary>
+        <SignUp />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: "/logIn",
+    element: (
+      <ErrorBoundary>
+        <Login />
+      </ErrorBoundary>
+    ),
   },
   {
     path: "/userProfile",
@@ -39,7 +56,7 @@ const router = createBrowserRouter([
     path: "/ProductsDetails/:id",
     element: (
       <ErrorBoundary>
-        <ProductsDetailsPage />,
+        <ProductsDetailsPage />
       </ErrorBoundary>
     ),
   },
@@ -62,7 +79,7 @@ const App = () => {
   // ===========================================
 
   useEffect(() => {
-    dispatch(fetchCartByUserIdAsync("2019"));
+    dispatch(fetchCartByUserIdAsync());
     dispatch(fetchLoggedInUserAsync());
   }, [dispatch]);
 

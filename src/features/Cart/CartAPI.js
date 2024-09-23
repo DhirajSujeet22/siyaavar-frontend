@@ -3,10 +3,14 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 // =======================================
 
 export const AddToCart = async (CartInfo) => {
+  console.log(CartInfo);
   try {
-    const data = await axios.post(`${backendUrl}/carts`, CartInfo, {
+    const data = await axios.post(`${backendUrl}/cart`, CartInfo, {
       // withCredentials: true,
     });
+
+    console.log(data);
+
     return data.data;
   } catch (error) {
     console.log(error);
@@ -20,9 +24,10 @@ export const AddToCart = async (CartInfo) => {
 export const fetchCartByUserId = async (id) => {
   console.log(id);
   try {
-    const data = await axios.get(`${backendUrl}/carts`, {
+    const data = await axios.get(`${backendUrl}/cart`, {
       // withCredentials: true,
     });
+    console.log(data.data);
     return data.data;
   } catch (error) {
     console.log(error);
@@ -35,13 +40,9 @@ export const fetchCartByUserId = async (id) => {
 
 export const UpdateCart = async (update) => {
   try {
-    const data = await axios.patch(
-      `${backendUrl}/carts/${update.id}`,
-      update,
-      {
-        // withCredentials: true,
-      }
-    );
+    const data = await axios.patch(`${backendUrl}/cart/${update.id}`, update, {
+      // withCredentials: true,
+    });
     return data.data;
   } catch (error) {
     console.log(error);
@@ -54,7 +55,7 @@ export const UpdateCart = async (update) => {
 
 export const DeleteCartItem = async (itemId) => {
   try {
-    const data = await axios.delete(`${backendUrl}/carts/${itemId}`, {
+    const data = await axios.delete(`${backendUrl}/cart/${itemId}`, {
       // withCredentials: true,
     });
     return { id: itemId };

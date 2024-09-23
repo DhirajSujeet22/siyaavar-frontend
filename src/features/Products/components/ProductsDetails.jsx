@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import {
   AddToCartAsync,
+  fetchCartByUserIdAsync,
   selectCarts,
   selectCartsStatus,
 } from "../../Cart/CartSlice";
@@ -50,12 +51,15 @@ const ProductsDetails = () => {
   const status = useSelector(selectStatus);
   const cartStatus = useSelector(selectCartsStatus);
   const GetAddToCart = useSelector(selectCarts);
-  console.log(ProductData);
+  const [itemSelect, setItemSelect] = useState("");
+  // console.log(ProductData);
+  console.log(GetAddToCart);
   // Check if ProductData and ProductData.sizes are defined
   const sizesWithStock =
     ProductData && ProductData.sizes
       ? ProductData.sizes.map((size) => ({
           name: size,
+          tag: "sizes",
           inStock: true, // You can add logic here to set stock dynamically based on your requirements
         }))
       : [];
@@ -64,16 +68,18 @@ const ProductsDetails = () => {
 
   const colorsWithStock =
     ProductData && ProductData.colors
-      ? ProductData.colors.map((size) => ({
-          name: size,
-          class: `bg-${size}`,
-          selectedClass: "ring-gray-400",
+      ? ProductData.colors.map((color) => ({
+          name: color,
+          tag: "colors",
+          class: `bg-${color}-400`,
+          selectedClass: `ring-${color}-400`,
         }))
       : [];
 
   // -------------------------------------
 
   const product = {
+    id: ProductData?.id,
     title: ProductData?.title || "",
     price: ProductData?.price || 0,
     stock: ProductData?.stock,
@@ -107,16 +113,29 @@ const ProductsDetails = () => {
 
   // ==========================================================================
 
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
 
+  console.log(selectedColor);
+  console.log(selectedSize);
+
+  const handleSelectColor = (e) => {
+    setSelectedColor(e.name);
+  };
+
+  const handleSelectSizes = (e) => {
+    setSelectedSize(e.name);
+  };
+
+  console.log(itemSelect);
   const handleAddToCart = () => {
     dispatch(
       AddToCartAsync({
         quantity: 1,
-        product: product,
+        product: { ...ProductData, sizes: selectedSize, colors: selectedColor },
       })
     );
+
     // TODO : it will be based on the server response
     // toast.success(<h3 className="font-bold"> 🛒 item added to cart</h3>);
   };
@@ -171,7 +190,8 @@ const ProductsDetails = () => {
   console.log(id);
   useEffect(() => {
     dispatch(FetchProductsByIdAsync(id));
-  }, [dispatch]);
+    dispatch(fetchCartByUserIdAsync());
+  }, [dispatch, id]);
 
   // =============================================================================
 
@@ -234,7 +254,7 @@ const ProductsDetails = () => {
                     <Menu.Button
                       className={`${
                         darkMode ? bg_white : bg_black
-                      } relative p-[0.5rem] flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 `}
+                      } bg-white relative p-[0.5rem] flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 `}
                     >
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
@@ -430,7 +450,7 @@ const ProductsDetails = () => {
 
                     <RadioGroup
                       value={selectedColor}
-                      onChange={setSelectedColor}
+                      onChange={handleSelectColor}
                       className="mt-4"
                     >
                       <RadioGroup.Label className="sr-only">
@@ -487,7 +507,7 @@ const ProductsDetails = () => {
 
                     <RadioGroup
                       value={selectedSize}
-                      onChange={setSelectedSize}
+                      onChange={handleSelectSizes}
                       className="mt-4"
                     >
                       <RadioGroup.Label className="sr-only">
@@ -500,17 +520,17 @@ const ProductsDetails = () => {
                               key={size.name}
                               value={size}
                               disabled={!size.inStock}
-                              className={({ active }) =>
+                              className={({ isActive }) =>
                                 classNames(
                                   size.inStock
                                     ? "cursor-pointer bg-white text-gray-900 shadow-sm"
                                     : "cursor-not-allowed bg-gray-50 text-gray-200",
-                                  active ? "ring-2 ring-indigo-500" : "",
+                                  isActive ? "ring-2 ring-indigo-500" : "",
                                   "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
                                 )
                               }
                             >
-                              {({ active, checked }) => (
+                              {({ isActive, checked }) => (
                                 <>
                                   <RadioGroup.Label as="span">
                                     {size.name}
@@ -518,7 +538,7 @@ const ProductsDetails = () => {
                                   {size.inStock ? (
                                     <span
                                       className={classNames(
-                                        active ? "border" : "border-2",
+                                        isActive ? "border" : "border-2",
                                         checked
                                           ? "border-indigo-500"
                                           : "border-transparent",
@@ -556,34 +576,24 @@ const ProductsDetails = () => {
                   </div>
                   {product.stock <= 0 ? null : (
                     <div className="flex gap-[1rem] justify-around">
-                      {ProductData ? (
-                        <NavLink to="/cart">
-                          <button
-                            type="button"
-                            className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      <button
+                        onClick={handleAddToCart}
+                        disabled={cartStatus}
+                        type="button"
+                        className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      >
+                        {cartStatus ? (
+                          <div
+                            role="status"
+                            class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                           >
-                            Go to Card
-                          </button>
-                        </NavLink>
-                      ) : (
-                        <button
-                          onClick={handleAddToCart}
-                          disabled={cartStatus}
-                          type="button"
-                          className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        >
-                          {cartStatus ? (
-                            <div
-                              role="status"
-                              class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                            >
-                              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
-                            </div>
-                          ) : (
-                            "Add to Card"
-                          )}
-                        </button>
-                      )}
+                            <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                          </div>
+                        ) : (
+                          "Add to Card"
+                        )}
+                      </button>
+
                       {ProductData && 0 ? (
                         <NavLink to="/checkout">
                           <button
