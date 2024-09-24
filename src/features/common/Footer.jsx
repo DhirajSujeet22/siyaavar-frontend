@@ -196,7 +196,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="mailto:nitinkumarankit@gmail.com"
+                    href="mailto:nitinkumarankit95@gmail.com"
                     className="text-lg flex gap-5 items-center font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
                     <MdOutlineMail className="text-[1.5rem]" />

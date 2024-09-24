@@ -20,7 +20,7 @@ const initialState = {
 export const AddToCartAsync = createAsyncThunk(
   "cart/AddToCart",
   async (CartInfo) => {
-    console.log(CartInfo);
+    console.log({CartInfo});
     const response = await AddToCart(CartInfo);
     return response;
   }

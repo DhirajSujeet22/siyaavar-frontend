@@ -64,28 +64,42 @@ export const loginUser = async (loginInfo) => {
 
 // this is function for getting user information to check use to login our E-commerce App
 
-export const CheckAuth = () => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/auth/check`,
+// export const CheckAuth = () => {
+//   return new Promise(async (resolve, reject) => {
+//     try {
+//       const response = await fetch(
+//         `${process.env.REACT_APP_API_URL}/auth/check`,
 
-        {
-          credentials: "include",
-        }
-      );
+//         {
+//           credentials: "include",
+//         }
+//       );
 
-      if (response.ok) {
-        const data = await response.json();
-        resolve({ data });
-      } else {
-        const error = await response.text();
-        reject(error);
-      }
-    } catch (error) {
-      reject(error);
-    }
-  });
+//       if (response.ok) {
+//         const data = await response.json();
+//         resolve({ data });
+//       } else {
+//         const error = await response.text();
+//         reject(error);
+//       }
+//     } catch (error) {
+//       reject(error);
+//     }
+//   });
+// };
+
+export const CheckAuth = async () => {
+  try {
+    const data = await axios.get(`${backendUrl}/auth/check`, {
+      withCredentials: true,
+    });
+
+    console.log(data);
+
+    return data.data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // ===========================================================================
@@ -153,20 +167,14 @@ export const ResetPassword = (UserInfo) => {
 
 // this is function for  signOut
 
-export const UserSignOut = () => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/auth/logout`,
+export const UserSignOut = async () => {
+  try {
+    const data = await axios.post(`${backendUrl}/auth/logout`, {
+      withCredentials: true,
+    });
 
-        {
-          method: "POST",
-          credentials: "include",
-        }
-      );
-      resolve("USER SignOut");
-    } catch (error) {
-      reject(error);
-    }
-  });
+    return { message: "user SignOUt" };
+  } catch (error) {
+    console.log(error);
+  }
 };

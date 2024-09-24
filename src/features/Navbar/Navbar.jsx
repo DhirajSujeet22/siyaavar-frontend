@@ -11,13 +11,6 @@ import { useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
 import { selectUserInfo } from "../User/UserSlice";
 // import DarkMode from "../Common/colorMode/DarkMode";
-// ============================================================================
-
-const userNavigation = [
-  { name: "My Profile", link: "/userProfile" },
-  { name: "My Orders", link: "/orders" },
-  { name: "Sign out", link: "/logout" },
-];
 
 // ============================================================================
 
@@ -93,7 +86,30 @@ function classNames(...classes) {
 // ============================================================================
 
 const Navbar = ({ Children }) => {
+  const User = useSelector(selectUserInfo);
   const [openDropdown, setOpenDropdown] = useState(null);
+  console.log(User);
+  // ============================================================================
+
+  const userNavigation = [
+    ...(User
+      ? [
+          {
+            name: "My Profile",
+            link: "/userProfile",
+            current: false,
+            user: true,
+          },
+          { name: "Log Out", link: "/logOut", current: false, user: true },
+        ]
+      : [
+          // If the User is not logged in
+          { name: "Sign Up", link: "/signUp", current: false, user: false },
+        ]),
+
+    // { name: "My Orders", link: "/orders" },
+    // { name: "Sign out", link: "/logout" },
+  ];
 
   const handleDropdownToggle = (index) => {
     if (openDropdown === index) {
@@ -115,9 +131,9 @@ const Navbar = ({ Children }) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-  // const user = useSelector(selectUserInfo);
-  const GetAddToCart = useSelector(selectCarts);
   const user = useSelector(selectUserInfo);
+  const GetAddToCart = useSelector(selectCarts);
+  // const user = useSelector(selectUserInfo);
   const [isOpen, setIsOpen] = useState(false);
   // ============================================================================
 
@@ -287,15 +303,15 @@ const Navbar = ({ Children }) => {
                           <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Open user menu</span>
-                            {/* <img
+                            <img
                               className="h-8 w-8 rounded-full"
                               src={
-                                user.image
-                                  ? user.image
+                                user?.image
+                                  ? user?.image
                                   : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
                               }
                               alt="profile_img"
-                            /> */}
+                            />
                           </Menu.Button>
                         </div>
                         <Transition
@@ -496,15 +512,15 @@ const Navbar = ({ Children }) => {
                     </Link>
 
                     <div className="flex-shrink-0">
-                      {/* <img
+                      <img
                         className="h-10 w-10 rounded-full"
                         src={
-                          user.image
-                            ? user.image
+                          user?.image
+                            ? user?.image
                             : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
                         }
                         alt="profile_img"
-                      /> */}
+                      />
                     </div>
 
                     {/* <DarkMode /> */}

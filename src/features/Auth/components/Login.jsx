@@ -7,6 +7,7 @@ import {
   loginUserAsync,
   selectError,
   selectLoggedInUserToken,
+  selectLoginStatus,
   //   selectLoginStatus,
   selectStatus,
 } from "../AuthSlice";
@@ -20,7 +21,7 @@ const Login = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const Status = useSelector(selectStatus);
-  //   const LoginStatus = useSelector(selectLoginStatus);
+  const LoginStatus = useSelector(selectLoginStatus);
   const error = useSelector(selectError);
   const user = useSelector(selectLoggedInUserToken);
   const dispatch = useDispatch();

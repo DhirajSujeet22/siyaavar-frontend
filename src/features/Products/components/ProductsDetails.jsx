@@ -129,6 +129,7 @@ const ProductsDetails = () => {
 
   console.log(itemSelect);
   const handleAddToCart = () => {
+    console.log("asdffffffff",{ ...ProductData, sizes: selectedSize, colors: selectedColor });
     dispatch(
       AddToCartAsync({
         quantity: 1,

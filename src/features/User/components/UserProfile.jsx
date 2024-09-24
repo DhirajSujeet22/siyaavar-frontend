@@ -12,12 +12,15 @@ import { FaRegEdit } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Dialogs from "../../common/Dialogs";
 import LoadingSpinner from "../../common/LoadingSpinner";
+import { useNavigate } from "react-router-dom";
 // import { toast } from "react-toastify";
 const UserProfile = () => {
   const user = useSelector(selectUserInfo);
+  console.log(user);
   const status = useSelector(selectUserStatus);
   //   const userCheck = useSelector(selectUserCheck);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // ==================================================================
 
@@ -75,10 +78,17 @@ const UserProfile = () => {
 
   // ==================================================================
 
+  // useEffect(() => {
+  //   // dispatch(fetchCartByUserIdAsync("2019"));
+  //   dispatch(fetchLoggedInUserAsync());
+  // }, [dispatch]);
+
   useEffect(() => {
-    // dispatch(fetchCartByUserIdAsync("2019"));
-    dispatch(fetchLoggedInUserAsync());
-  }, [dispatch]);
+    if (!user) {
+      // If user is not found, redirect to the home page
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <>
@@ -91,22 +101,22 @@ const UserProfile = () => {
               <img
                 className="m-auto p-2 rounded-full  h-[7rem] w-[7rem]"
                 src={
-                  user.image
-                    ? user.image
+                  user?.image
+                    ? user?.image
                     : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
                 }
                 alt="Profile_img"
               />
 
               <h3 className="text-[1.5rem] my-5 font-bold tracking-tight text-gray-500">
-                Name : {user.name ? user.name : "Guest User"}
+                Name : {user?.name ? user?.name : "Guest User"}
               </h3>
               <h3 className="text-[1.5rem] my-5 font-bold tracking-tight text-gray-500">
-                Email : {user.email}
+                Email : {user?.email}
               </h3>
-              {user.role === "admin" && (
+              {user?.role === "admin" && (
                 <h3 className="text-[1.5rem] my-5 font-bold tracking-tight text-gray-500">
-                  Role : {user.role}
+                  Role : {user?.role}
                 </h3>
               )}
 

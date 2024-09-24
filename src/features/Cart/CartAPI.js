@@ -3,14 +3,10 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 // =======================================
 
 export const AddToCart = async (CartInfo) => {
-  console.log(CartInfo);
   try {
     const data = await axios.post(`${backendUrl}/cart`, CartInfo, {
-      // withCredentials: true,
+      withCredentials: true,
     });
-
-    console.log(data);
-
     return data.data;
   } catch (error) {
     console.log(error);
@@ -25,7 +21,7 @@ export const fetchCartByUserId = async (id) => {
   console.log(id);
   try {
     const data = await axios.get(`${backendUrl}/cart`, {
-      // withCredentials: true,
+      withCredentials: true,
     });
     console.log(data.data);
     return data.data;

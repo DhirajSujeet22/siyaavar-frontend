@@ -62,6 +62,7 @@ export const userSlice = createSlice({
       .addCase(fetchLoggedInUserAsync.fulfilled, (state, action) => {
         state.status = false;
         // this info is to much bigger of loggedIn user
+        console.log({ userSlice: action.payload });
         state.userInfo = action.payload;
         // state.userCheck = true;
       })

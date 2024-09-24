@@ -6,12 +6,17 @@ import UserProfilePage from "./Pages/UserProfilePage";
 import ErrorBoundary from "./features/common/ErrorBoundary";
 import ProductsPage from "./Pages/ProductsPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchLoggedInUserAsync } from "./features/User/UserSlice";
 import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
 import SignUp from "./features/Auth/components/SignUp";
 import Login from "./features/Auth/components/Login";
-
+import {
+  CheckAuthAsync,
+  loginUserAsync,
+  selectLoginUserInfo,
+} from "./features/Auth/AuthSlice";
+import LogOut from "./features/Auth/components/LogOut";
 // ===========================================
 
 // Define route configuration
@@ -33,6 +38,14 @@ const router = createBrowserRouter([
     element: (
       <ErrorBoundary>
         <Login />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: "/logOut",
+    element: (
+      <ErrorBoundary>
+        <LogOut />
       </ErrorBoundary>
     ),
   },
@@ -76,19 +89,26 @@ const router = createBrowserRouter([
 
 const App = () => {
   const dispatch = useDispatch();
+  const User = useSelector(selectLoginUserInfo);
+  console.log(User);
   // ===========================================
+
+  // useEffect(() => {
+  //   dispatch(fetchCartByUserIdAsync());
+  //   // dispatch(loginUserAsync());
+  //   dispatch(CheckAuthAsync());
+  //   dispatch(fetchLoggedInUserAsync());
+  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchCartByUserIdAsync());
     dispatch(fetchLoggedInUserAsync());
-  }, [dispatch]);
+    // dispatch(fetchLoggedInUserOrdersAsync());
+  }, [dispatch, User]);
 
-  // useEffect(() => {
-  //   dispatch(fetchCartByUserIdAsync());
-  //   // we can get req.user by token on backend so we don't need to give in frontend
-  //   dispatch(fetchLoggedInUserAsync());
-  //   dispatch(fetchLoggedInUserOrdersAsync());
-  // }, [dispatch, User]);
+  useEffect(() => {
+    dispatch(CheckAuthAsync());
+  }, [dispatch]);
 
   return (
     <>
