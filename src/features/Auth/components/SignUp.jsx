@@ -8,6 +8,7 @@ import {
   selectStatus,
 } from "../AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
+
 const SignUp = () => {
   const {
     register,
@@ -17,27 +18,19 @@ const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const Status = useSelector(selectStatus);
-  const user = useSelector(selectLoggedInUserToken);
+  const UserKey = useSelector(selectLoggedInUserToken);
   const dispatch = useDispatch();
 
   return (
     <>
-      {/* {user && <Navigate to="/" replace={true}></Navigate>} */}
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            className="mx-auto h-10 w-auto"
-            src="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/34-Father-512.png"
-            alt="Your Company"
-          />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      {!!UserKey && <Navigate to="/" replace={true} />}
+      <div className="min-h-screen flex flex-col lg:flex-row justify-center items-center bg-ghostWhite px-6 py-12">
+        <div className="w-full lg:w-1/2 px-1 py-10 sm:px-[5rem]">
+          <h2 className="text-center text-3xl font-bold text-gray-900 mb-6">
             Create Your Account
           </h2>
-        </div>
-
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
-            className="space-y-6"
+            className="mt-8 space-y-6"
             onSubmit={handleSubmit((data) => {
               dispatch(
                 CreateUserAsync({
@@ -46,7 +39,6 @@ const SignUp = () => {
                   password: data.password,
                   addresses: [],
                   role: "user",
-                  // this role can be changed directly by given backend
                 })
               );
             })}
@@ -54,161 +46,139 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium text-gray-700"
               >
                 Name
               </label>
-              <div className="mt-2">
-                <input
-                  id="name"
-                  {...register("name", {
-                    required: "Name is Required",
-                  })}
-                  type="text"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-                <p className="text-red-600 font-[700]">
-                  {errors.name && errors.name.message}
-                </p>
-              </div>
+              <input
+                id="name"
+                {...register("name", {
+                  required: "Name is Required",
+                })}
+                type="text"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm"
+              />
+              <p className="text-red-500 text-xs mt-1">
+                {errors.name && errors.name.message}
+              </p>
             </div>
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium text-gray-700"
               >
-                Email address
+                Email Address
               </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  {...register("email", {
-                    required: "Email is Required",
-                    pattern: {
-                      value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                      message: "Email is not valid",
-                    },
-                  })}
-                  type="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-                <p className="text-red-600 font-[700]">
-                  {errors.email && errors.email.message}
-                </p>
-              </div>
+              <input
+                id="email"
+                {...register("email", {
+                  required: "Email is Required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: "Email is not valid",
+                  },
+                })}
+                type="email"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm"
+              />
+              <p className="text-red-500 text-xs mt-1">
+                {errors.email && errors.email.message}
+              </p>
             </div>
             <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Password
-                </label>
-              </div>
-              <div className="mt-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Password
+              </label>
+              <div className="relative">
                 <input
                   id="password"
                   {...register("password", {
-                    required: "Password in Required",
+                    required: "Password is Required",
                     pattern: {
                       value:
                         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
-                      message: `at least 8 characters\n
-                      must contain at least 1 uppercase letter,\n
-                      1 lowercase letter, and 1 number\n
-                      Can contain special characters`,
+                      message:
+                        "Password must be at least 8 characters, contain 1 uppercase, 1 lowercase, and 1 number",
                     },
                   })}
                   type={showPassword ? "text" : "password"}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm"
                 />
-                <div className=" relative left-[93%] bottom-[1.5rem] cursor-pointer">
-                  {showPassword ? (
-                    <FaEye onClick={() => setShowPassword(!showPassword)} />
-                  ) : (
-                    <FaEyeSlash
-                      onClick={() => setShowPassword(!showPassword)}
-                    />
-                  )}
-                </div>
-
-                <p className="text-red-600 font-[700]">
-                  {errors.password && errors.password.message}
-                </p>
-              </div>
-            </div>{" "}
-            <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="confirm-password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                <div
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
                 >
-                  Confirm Password
-                </label>
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+                </div>
               </div>
-              <div className="mt-2 relative">
+              <p className="text-red-500 text-xs mt-1">
+                {errors.password && errors.password.message}
+              </p>
+            </div>
+            <div>
+              <label
+                htmlFor="confirm-password"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Confirm Password
+              </label>
+              <div className="relative">
                 <input
                   id="confirm_password"
                   {...register("confirm_password", {
-                    required: "confirm password is required",
-
+                    required: "Confirm password is required",
                     validate: (value, formValues) =>
-                      value === formValues.password ||
-                      "password is not matching",
+                      value === formValues.password || "Passwords do not match",
                   })}
                   type={showPassword ? "text" : "password"}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm"
                 />
-                <div className=" relative left-[93%] bottom-[1.5rem] cursor-pointer">
-                  {showPassword ? (
-                    <FaEye onClick={() => setShowPassword(!showPassword)} />
-                  ) : (
-                    <FaEyeSlash
-                      onClick={() => setShowPassword(!showPassword)}
-                    />
-                  )}
+                <div
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
                 </div>
-
-                <p className="text-red-600 font-[700]">
-                  {errors.confirm_password && errors.confirm_password.message}
-                </p>
               </div>
+              <p className="text-red-500 text-xs mt-1">
+                {errors.confirm_password && errors.confirm_password.message}
+              </p>
             </div>
             <div>
-              {/* <button
+              <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="w-full rounded-md bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-600"
+                disabled={Status}
               >
                 {Status ? (
-                  <div
-                    role="status"
-                    class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                  >
-                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
-                  </div>
+                  <div className="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-2 border-solid border-current border-r-transparent" />
                 ) : (
                   "Sign Up"
                 )}
-              </button> */}
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                "Sign Up"
               </button>
             </div>
           </form>
 
-          <p className="mt-10 text-center text-sm text-gray-500">
-            Already a member ?{" "}
+          <p className="mt-10 text-center text-sm text-gray-600">
+            Already a member?{" "}
             <Link
               to="/login"
-              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              className="font-semibold text-indigo-600 hover:text-indigo-500"
             >
               Login
             </Link>
           </p>
+        </div>
+
+        <div className="w-full lg:w-1/3 flex justify-center items-center">
+          <img
+            src="https://i.imgur.com/WzVRbsc.png"
+            alt="Sign Up Illustration"
+            className="w-full"
+          />
         </div>
       </div>
     </>

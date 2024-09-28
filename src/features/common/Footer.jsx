@@ -208,7 +208,7 @@ const Footer = () => {
           </div>
           <div className="pt-7 flex flex-wrap min-[500px]:flex-row items-center gap-5 justify-between ">
             <div className="flex gap-5 flex-wrap">
-              <li class="list-none">
+              <li className="list-none">
                 <a
                   href="javascript:;"
                   className="text-md font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
@@ -216,7 +216,7 @@ const Footer = () => {
                   Terms of Use
                 </a>
               </li>
-              <li class="list-none">
+              <li className="list-none">
                 <a
                   href="javascript:;"
                   className="text-md font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
@@ -224,7 +224,7 @@ const Footer = () => {
                   Privacy Policy
                 </a>
               </li>
-              <li class="list-none">
+              <li className="list-none">
                 <a
                   href="javascript:;"
                   className="text-md font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"

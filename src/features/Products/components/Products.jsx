@@ -95,31 +95,38 @@ const Products = () => {
   const [Page, setPage] = useState(1);
   const [allProducts, setAllProducts] = useState([]);
 
-  const pagination = { _page: Page, _limit: ITEMS_PER_PAGE };
+  const TotalPages = Math.ceil(TotalProductsLength / ITEMS_PER_PAGE);
+  // console.log(TotalProductsLength);
+  // console.log(TotalPages);
+  // console.log(Page);
+  console.log(TotalPages >= Page);
+  console.log(Products);
+  console.log(Products.length);
+  // console.log(Products.length > 0);
 
-  // Fetch products and append them to the list
+  // -----------------------------------------
+
   const fetchProducts = () => {
-    if (Page <= Math.ceil(TotalProductsLength / ITEMS_PER_PAGE)) {
-      setAllProducts([...allProducts, ...Products]);
+    if (TotalPages >= Page) {
+      setAllProducts((prevProducts) => [...prevProducts, ...Products]);
       setPage(Page + 1);
     } else {
       setHasMore(false);
     }
   };
 
-  // --------------------------------------------------
-
   useEffect(() => {
-    dispatch(FetchProductsByFilterAsync({ pagination }));
-  }, []);
-
-  // --------------------------------------------------
-
-  useEffect(() => {
-    if (Products.length > 0) {
-      fetchProducts();
-    }
+    fetchProducts();
   }, [Products]);
+
+  // -----------------------------------------
+
+  useEffect(() => {
+    const pagination = { _page: Page, _limit: ITEMS_PER_PAGE };
+    dispatch(FetchProductsByFilterAsync({ pagination }));
+  }, [dispatch, Page]);
+
+  // -----------------------------------------
 
   return (
     <>
@@ -375,9 +382,9 @@ const Products = () => {
                       >
                         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                           {Products &&
-                            allProducts.map((product) => (
+                            allProducts.map((product, index) => (
                               <Link
-                                key={product.id}
+                                key={index}
                                 to={`/ProductsDetails/${product.id}`}
                               >
                                 <div className="group relative">

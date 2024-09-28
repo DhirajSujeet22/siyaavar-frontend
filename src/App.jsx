@@ -13,10 +13,12 @@ import SignUp from "./features/Auth/components/SignUp";
 import Login from "./features/Auth/components/Login";
 import {
   CheckAuthAsync,
-  loginUserAsync,
   selectLoginUserInfo,
+  selectUserCheck,
 } from "./features/Auth/AuthSlice";
 import LogOut from "./features/Auth/components/LogOut";
+import { Toaster } from "react-hot-toast";
+import ErrorPage from "./features/common/ErrorPage";
 // ===========================================
 
 // Define route configuration
@@ -77,9 +79,13 @@ const router = createBrowserRouter([
     path: "/cart",
     element: (
       <ErrorBoundary>
-        <Cart />,
+        <Cart />
       </ErrorBoundary>
     ),
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 
@@ -90,29 +96,41 @@ const router = createBrowserRouter([
 const App = () => {
   const dispatch = useDispatch();
   const User = useSelector(selectLoginUserInfo);
-  console.log(User);
-  // ===========================================
+  const check = useSelector(selectUserCheck);
 
-  // useEffect(() => {
-  //   dispatch(fetchCartByUserIdAsync());
-  //   // dispatch(loginUserAsync());
-  //   dispatch(CheckAuthAsync());
-  //   dispatch(fetchLoggedInUserAsync());
-  // }, [dispatch]);
+  // ===========================================
 
   useEffect(() => {
     dispatch(fetchCartByUserIdAsync());
     dispatch(fetchLoggedInUserAsync());
     // dispatch(fetchLoggedInUserOrdersAsync());
-  }, [dispatch, User]);
+  }, [dispatch, User, check]);
 
   useEffect(() => {
     dispatch(CheckAuthAsync());
-  }, [dispatch]);
+  }, [dispatch, check]);
 
   return (
     <>
       <RouterProvider router={router} />
+      <Toaster
+        position="top-left"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{}}
+        toastOptions={{
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
+          iconTheme: {
+            primary: "#713200",
+            secondary: "#FFFAEE",
+          },
+        }}
+      />
     </>
   );
 };

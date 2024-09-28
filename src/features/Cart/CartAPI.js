@@ -18,12 +18,12 @@ export const AddToCart = async (CartInfo) => {
 // this is  function  fetching cart products for particular user
 
 export const fetchCartByUserId = async (id) => {
-  console.log(id);
+  
   try {
     const data = await axios.get(`${backendUrl}/cart`, {
       withCredentials: true,
     });
-    console.log(data.data);
+    
     return data.data;
   } catch (error) {
     console.log(error);

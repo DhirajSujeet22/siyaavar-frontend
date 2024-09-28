@@ -68,28 +68,28 @@ const Product_home = () => {
         >
           <SwiperSlide>
             <img
-              className="rounded-lg w-full  h-[15rem] sm:h-auto"
+              className="rounded-lg w-full  h-[12rem] object-cover sm:h-auto"
               src="https://i.imgur.com/fj5NLNu.jpeg"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="rounded-lg w-full  h-[15rem] sm:h-auto"
+              className="rounded-lg w-full  h-[12rem] object-cover sm:h-auto"
               src="https://i.imgur.com/OAopDgm.png"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="rounded-lg w-full  h-[15rem] sm:h-auto"
+              className="rounded-lg w-full  h-[12rem] object-cover sm:h-auto"
               src="https://i.imgur.com/24yt1S1.png"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="rounded-lg w-full  h-[15rem] sm:h-auto"
+              className="rounded-lg w-full  h-[12rem] object-cover sm:h-auto"
               src="https://i.imgur.com/TRjZmbp.png"
               alt="banner_img"
             />

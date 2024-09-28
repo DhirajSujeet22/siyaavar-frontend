@@ -7,10 +7,11 @@ import {
   ResetPassword,
   UserSignOut,
 } from "./AuthAPI";
+import toast from "react-hot-toast";
 const initialState = {
   loggedInUserToken: null,
   loginUserInfo: null,
-  status: true,
+  status: false,
   LoginStatus: false,
   error: null,
   userCheck: false,
@@ -22,9 +23,13 @@ const initialState = {
 
 export const CreateUserAsync = createAsyncThunk(
   "users/CreateUser",
-  async (UserData) => {
-    const response = await CreateUser(UserData);
-    return response.data;
+  async (UserData, { rejectWithValue }) => {
+    try {
+      const response = await CreateUser(UserData);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 
@@ -32,9 +37,13 @@ export const CreateUserAsync = createAsyncThunk(
 
 export const loginUserAsync = createAsyncThunk(
   "users/CheckUser",
-  async (loginInfo) => {
-    const response = await loginUser(loginInfo);
-    return response;
+  async (loginInfo, { rejectWithValue }) => {
+    try {
+      const response = await loginUser(loginInfo);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 
@@ -69,9 +78,13 @@ export const ResetPasswordAsync = createAsyncThunk(
 
 export const UserSignOutAsync = createAsyncThunk(
   "users/UserSignOut",
-  async () => {
-    const response = await UserSignOut();
-    return response;
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await UserSignOut();
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 
@@ -80,11 +93,7 @@ export const UserSignOutAsync = createAsyncThunk(
 export const AuthSlice = createSlice({
   name: "users",
   initialState,
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder
@@ -93,11 +102,12 @@ export const AuthSlice = createSlice({
       })
       .addCase(CreateUserAsync.fulfilled, (state, action) => {
         state.status = false;
-        state.loggedInUserToken = action.payload;
+        state.loggedInUserToken = action.payload.token;
+        toast.success(action.payload.message);
       })
       .addCase(CreateUserAsync.rejected, (state, action) => {
         state.status = false;
-        state.error = action.error;
+        toast.error(action.payload.message);
       })
 
       // ======================================================================
@@ -109,14 +119,13 @@ export const AuthSlice = createSlice({
       .addCase(loginUserAsync.fulfilled, (state, action) => {
         state.status = false;
         state.LoginStatus = false;
-        state.loggedInUserToken = action.payload;
-        state.loginUserInfo = action.payload;
-        console.log(action.payload);
+        state.loggedInUserToken = action.payload.token;
+        toast.success(action.payload.message);
       })
       .addCase(loginUserAsync.rejected, (state, action) => {
         state.status = false;
         state.LoginStatus = true;
-        state.error = action.error;
+        toast.error(action.payload.message);
       })
 
       // ======================================================================
@@ -127,27 +136,27 @@ export const AuthSlice = createSlice({
       .addCase(UserSignOutAsync.fulfilled, (state, action) => {
         state.status = false;
         state.loggedInUserToken = null;
+        state.loginUserInfo = null;
+        toast.success(action.payload.message);
       })
       .addCase(UserSignOutAsync.rejected, (state, action) => {
         state.status = false;
-        state.error = action.error;
+        toast.error(action.payload.message);
       })
 
       // ======================================================================
 
       .addCase(CheckAuthAsync.pending, (state) => {
-        state.status = true;
+        state.status = false;
       })
       .addCase(CheckAuthAsync.fulfilled, (state, action) => {
         state.status = false;
-        console.log(action.payload);
-        state.loggedInUserToken = action.payload;
-        state.loginUserInfo = action.payload;
         state.userCheck = true;
+        state.loginUserInfo = action.payload;
       })
       .addCase(CheckAuthAsync.rejected, (state, action) => {
         state.status = false;
-        state.userCheck = true;
+        state.userCheck = false;
         state.error = action.error;
       })
 
@@ -184,8 +193,6 @@ export const AuthSlice = createSlice({
       });
   },
 });
-
-// export const { increment } = counterSlice.actions;
 
 export const selectLoggedInUserToken = (state) => state.auth.loggedInUserToken;
 export const selectLoginUserInfo = (state) => state.auth.loginUserInfo;

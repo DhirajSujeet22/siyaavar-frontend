@@ -61,15 +61,13 @@ export const userSlice = createSlice({
       })
       .addCase(fetchLoggedInUserAsync.fulfilled, (state, action) => {
         state.status = false;
-        // this info is to much bigger of loggedIn user
-        console.log({ userSlice: action.payload });
         state.userInfo = action.payload;
-        // state.userCheck = true;
+        state.userCheck = true;
       })
       .addCase(fetchLoggedInUserAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
-        // state.userCheck = true;
+        state.userCheck = true;
       })
 
       // ================================================================
@@ -110,7 +108,7 @@ export const userSlice = createSlice({
 export const { changeMod } = userSlice.actions;
 
 export const selectUserInfo = (state) => state.user.userInfo;
-// export const selectUserCheck = (state) => state.user.userCheck;
+export const selectUserCheck = (state) => state.user.userCheck;
 // export const selectUserOrders = (state) => state.user.orders;
 export const selectUserStatus = (state) => state.user.status;
 

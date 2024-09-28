@@ -1,12 +1,14 @@
 import axios from "axios";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+// --------------------------------------------------------
+
 export const fetchLoggedInUser = async () => {
   try {
     const data = await axios.get(`${backendUrl}/user/own`, {
       withCredentials: true,
     });
-    console.log(data.data);
-    console.log({ userProfile: data.data });
+
     return data.data;
   } catch (error) {
     console.log(error);
@@ -32,11 +34,9 @@ export const fetchLoggedInUser = async () => {
 // this is function for Updating  user information
 
 export const UpdateUser = async (update) => {
-  console.log(update);
-  console.log(update.id);
   try {
     const data = await axios.patch(`${backendUrl}/users/${update.id}`, update, {
-      // withCredentials: true,
+      withCredentials: true,
     });
     return data.data;
   } catch (error) {

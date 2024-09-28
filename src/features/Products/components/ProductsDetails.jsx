@@ -52,9 +52,7 @@ const ProductsDetails = () => {
   const cartStatus = useSelector(selectCartsStatus);
   const GetAddToCart = useSelector(selectCarts);
   const [itemSelect, setItemSelect] = useState("");
-  // console.log(ProductData);
-  console.log(GetAddToCart);
-  // Check if ProductData and ProductData.sizes are defined
+
   const sizesWithStock =
     ProductData && ProductData.sizes
       ? ProductData.sizes.map((size) => ({
@@ -116,9 +114,6 @@ const ProductsDetails = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
 
-  console.log(selectedColor);
-  console.log(selectedSize);
-
   const handleSelectColor = (e) => {
     setSelectedColor(e.name);
   };
@@ -127,13 +122,11 @@ const ProductsDetails = () => {
     setSelectedSize(e.name);
   };
 
-  console.log(itemSelect);
   const handleAddToCart = () => {
-    console.log("asdffffffff",{ ...ProductData, sizes: selectedSize, colors: selectedColor });
     dispatch(
       AddToCartAsync({
         quantity: 1,
-        product: { ...ProductData, sizes: selectedSize, colors: selectedColor },
+        product: { ...ProductData, size: selectedSize, color: selectedColor },
       })
     );
 
@@ -188,7 +181,7 @@ const ProductsDetails = () => {
   };
 
   // =============================================================================
-  console.log(id);
+
   useEffect(() => {
     dispatch(FetchProductsByIdAsync(id));
     dispatch(fetchCartByUserIdAsync());

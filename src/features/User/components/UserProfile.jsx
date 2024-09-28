@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 // import { toast } from "react-toastify";
 const UserProfile = () => {
   const user = useSelector(selectUserInfo);
-  console.log(user);
+
   const status = useSelector(selectUserStatus);
   //   const userCheck = useSelector(selectUserCheck);
   const dispatch = useDispatch();

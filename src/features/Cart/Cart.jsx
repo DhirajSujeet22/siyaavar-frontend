@@ -91,11 +91,15 @@ const Cart = () => {
                                   ₹{cartInfo.product.price}
                                 </p>
                               </div>
-                              {/* <p className="mt-2 text-sm font-[700] text-gray-500">
-                                {cartInfo.product.brand}
-                              </p> */}
-                              <p className="mt-2 text-sm text-gray-500">
-                                Stocks {cartInfo.product.stock}
+                              <p className="mt-2 text-sm font-[500] text-gray-700">
+                                Size :{" "}
+                                <span color="red">{cartInfo.product.size}</span>
+                              </p>
+                              <p className="mt-2 text-sm font-[500] text-gray-700">
+                                Color :{" "}
+                                <span className="text-indigo-400">
+                                  {cartInfo.product.color}
+                                </span>
                               </p>
                             </div>
                             <div className="flex flex-1 items-end justify-between text-sm">

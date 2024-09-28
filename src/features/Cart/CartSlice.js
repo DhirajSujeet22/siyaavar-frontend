@@ -6,6 +6,7 @@ import {
   DeleteCartItem,
   //   ResetCart,
 } from "./CartAPI";
+import toast from "react-hot-toast";
 
 // ============================================================================
 
@@ -20,7 +21,6 @@ const initialState = {
 export const AddToCartAsync = createAsyncThunk(
   "cart/AddToCart",
   async (CartInfo) => {
-    console.log({CartInfo});
     const response = await AddToCart(CartInfo);
     return response;
   }
@@ -85,8 +85,8 @@ export const CartSlice = createSlice({
       })
       .addCase(AddToCartAsync.fulfilled, (state, action) => {
         state.status = false;
-        console.log(action.payload);
         state.carts.push(action.payload);
+        toast.success(`🛒 item added to cart`);
       })
       .addCase(AddToCartAsync.rejected, (state, action) => {
         state.status = false;
@@ -132,7 +132,7 @@ export const CartSlice = createSlice({
       })
       .addCase(DeleteCartItemAsync.fulfilled, (state, action) => {
         state.status = false;
-        console.log(action.payload.id);
+
         const index = state.carts.findIndex(
           (item) => item.id === action.payload.id
         );

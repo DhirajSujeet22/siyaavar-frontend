@@ -7,26 +7,13 @@ import {
 } from "@heroicons/react/24/outline";
 import { IoSearchOutline, IoNotifications } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
 import { selectUserInfo } from "../User/UserSlice";
+import { CheckAuthAsync, selectUserCheck } from "../Auth/AuthSlice";
 // import DarkMode from "../Common/colorMode/DarkMode";
 
 // ============================================================================
-
-// const navigation = [
-//   // { name: "userProfile", link: "/userProfile", current: false, user: true },
-//   // {
-//   //   name: "ProductDetails",
-//   //   link: "/ProductsDetails/5",
-//   //   current: false,
-//   //   user: true,
-//   // },
-//   { name: "Products", link: "/Products", current: false, user: true },
-
-//   // { name: "Products", link: "/admin", current: false, admin: true },
-//   // { name: "Orders", link: "/admin/orders", current: false, admin: true },
-// ];
 
 const navigation = [
   {
@@ -86,13 +73,17 @@ function classNames(...classes) {
 // ============================================================================
 
 const Navbar = ({ Children }) => {
-  const User = useSelector(selectUserInfo);
+  const user = useSelector(selectUserInfo);
+  const check = useSelector(selectUserCheck);
+  const dispatch = useDispatch();
   const [openDropdown, setOpenDropdown] = useState(null);
-  console.log(User);
+  useEffect(() => {
+    dispatch(CheckAuthAsync());
+  }, [dispatch, check]);
   // ============================================================================
 
   const userNavigation = [
-    ...(User
+    ...(user
       ? [
           {
             name: "My Profile",
@@ -100,28 +91,23 @@ const Navbar = ({ Children }) => {
             current: false,
             user: true,
           },
+          { name: "My Orders", link: "/", current: false, user: false },
           { name: "Log Out", link: "/logOut", current: false, user: true },
         ]
-      : [
-          // If the User is not logged in
-          { name: "Sign Up", link: "/signUp", current: false, user: false },
-        ]),
-
-    // { name: "My Orders", link: "/orders" },
-    // { name: "Sign out", link: "/logout" },
+      : []),
   ];
 
   const handleDropdownToggle = (index) => {
     if (openDropdown === index) {
-      setOpenDropdown(null); // Close the dropdown if it's already open
+      setOpenDropdown(null);
     } else {
-      setOpenDropdown(index); // Open the clicked dropdown
+      setOpenDropdown(index);
     }
   };
 
   const handleClickOutside = (event) => {
     if (!event.target.closest(".dropdown-container")) {
-      setOpenDropdown(null); // Close dropdown when clicking outside
+      setOpenDropdown(null);
     }
   };
 
@@ -131,9 +117,8 @@ const Navbar = ({ Children }) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-  const user = useSelector(selectUserInfo);
+
   const GetAddToCart = useSelector(selectCarts);
-  // const user = useSelector(selectUserInfo);
   const [isOpen, setIsOpen] = useState(false);
   // ============================================================================
 
@@ -161,6 +146,7 @@ const Navbar = ({ Children }) => {
                           <div key={item.name} className="relative group">
                             <Link
                               to={item.link}
+                              replace={true}
                               className={classNames(
                                 item.current
                                   ? "bg-blue-900 text-white"
@@ -280,7 +266,7 @@ const Navbar = ({ Children }) => {
                         )}
                       </Link>
                       {/* notification*/}
-                      <Link to="#">
+                      <Link to="/">
                         <button
                           type="button"
                           className="relative mt-2 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -299,21 +285,42 @@ const Navbar = ({ Children }) => {
                       </Link>
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative">
-                        <div>
-                          <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                            <span className="absolute -inset-1.5" />
-                            <span className="sr-only">Open user menu</span>
-                            <img
-                              className="h-8 w-8 rounded-full"
-                              src={
-                                user?.image
-                                  ? user?.image
-                                  : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
-                              }
-                              alt="profile_img"
-                            />
-                          </Menu.Button>
-                        </div>
+                        {!!user ? (
+                          <div>
+                            <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                              <span className="absolute -inset-1.5" />
+                              <span className="sr-only">Open user menu</span>
+                              <img
+                                className="h-8 w-8 rounded-full"
+                                src={
+                                  user?.image
+                                    ? user?.image
+                                    : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
+                                }
+                                alt="profile_img"
+                              />
+                            </Menu.Button>
+                          </div>
+                        ) : (
+                          <Link to="/login">
+                            <button
+                              type="submit"
+                              class="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group text-indigo-700"
+                            >
+                              Login
+                              <svg
+                                class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
+                                viewBox="0 0 16 19"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                                  class="fill-gray-800 group-hover:fill-gray-800"
+                                ></path>
+                              </svg>
+                            </button>
+                          </Link>
+                        )}
                         <Transition
                           as={Fragment}
                           enter="transition ease-out duration-100"
@@ -330,7 +337,9 @@ const Navbar = ({ Children }) => {
                                   <Link
                                     to={item.link}
                                     className={classNames(
-                                      active ? "bg-gray-100" : "",
+                                      item.current
+                                        ? "bg-blue-500 text-white"
+                                        : "text-[#9a9d9f] hover:bg-gray-300  hover:text-white",
                                       "block px-4 py-2 text-sm text-gray-700"
                                     )}
                                   >
@@ -376,6 +385,7 @@ const Navbar = ({ Children }) => {
                       >
                         <Link
                           to={item.link}
+                          replace={true}
                           className={
                             item.current
                               ? "bg-blue-900 text-white rounded-md px-3 py-2 text-sm font-medium"
@@ -493,7 +503,7 @@ const Navbar = ({ Children }) => {
                       </button>
                     </Link>
                     {/* notification*/}
-                    <Link to="#">
+                    <Link to="">
                       <button
                         type="button"
                         className="relative mt-2 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -510,19 +520,38 @@ const Navbar = ({ Children }) => {
                         </span>
                       )}
                     </Link>
-
-                    <div className="flex-shrink-0">
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={
-                          user?.image
-                            ? user?.image
-                            : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
-                        }
-                        alt="profile_img"
-                      />
-                    </div>
-
+                    {!!user ? (
+                      <div className="flex-shrink-0">
+                        <img
+                          className="h-10 w-10 rounded-full"
+                          src={
+                            user?.image
+                              ? user?.image
+                              : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
+                          }
+                          alt="profile_img"
+                        />
+                      </div>
+                    ) : (
+                      <Link to="/login">
+                        <button
+                          type="submit"
+                          class="flex justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group text-indigo-700"
+                        >
+                          Login
+                          <svg
+                            class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
+                            viewBox="0 0 16 19"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                              class="fill-gray-800 group-hover:fill-gray-800"
+                            ></path>
+                          </svg>
+                        </button>
+                      </Link>
+                    )}
                     {/* <DarkMode /> */}
                   </div>
                   <div className="mt-3 space-y-1 px-2">
