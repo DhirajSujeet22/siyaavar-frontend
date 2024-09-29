@@ -7,6 +7,7 @@ const initialState = {
   //   categories: [],
   //   brands: [],
   totalPages: 0,
+
   status: true,
   error: null,
 };
@@ -15,8 +16,10 @@ const initialState = {
 
 export const FetchProductsByFilterAsync = createAsyncThunk(
   "Products/FetchProductsByFilter",
-  async ({ pagination }) => {
-    const response = await FetchProductsByFilter(pagination);
+  async ({ pagination, filterProducts }) => {
+    console.log(pagination);
+    console.log(filterProducts);
+    const response = await FetchProductsByFilter(pagination, filterProducts);
     return response;
   }
 );

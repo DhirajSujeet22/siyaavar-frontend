@@ -26,11 +26,14 @@ const navigation = [
     link: "#",
     current: false,
     children: [
-      { name: "All Collections (Men)", link: "#" },
-      { name: "Sherwanni", link: "#" },
-      { name: "Kurta Pajama", link: "#" },
-      { name: "Nehru jacket", link: "#" },
-      { name: "Suit (Coat Pant)", link: "#" },
+      {
+        name: "All Collections (Men)",
+        link: "/Products?category=",
+      },
+      { name: "Sherwani", link: "/Products?category=Sherwani" },
+      { name: "Kurta Pajama", link: "/Products?category=kurta pajama" },
+      { name: "Nehru Jacket", link: "/Products?category=nehru jacket" },
+      { name: "Suit (Coat Pant)", link: "/Products?category=Suit" },
     ],
   },
 

@@ -30,7 +30,7 @@ import {
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingSpinner from "../../common/LoadingSpinner";
 import { ITEMS_PER_PAGE } from "../../../app/Constant";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
   { name: "Best Rating", href: "#", current: false },
@@ -96,37 +96,55 @@ const Products = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   const TotalPages = Math.ceil(TotalProductsLength / ITEMS_PER_PAGE);
-  // console.log(TotalProductsLength);
-  // console.log(TotalPages);
-  // console.log(Page);
-  console.log(TotalPages >= Page);
+
+  // -----------------------------------------
+  const [searchParams] = useSearchParams();
+  const Men_category = searchParams.get("category");
+
+  console.log(Men_category);
   console.log(Products);
-  console.log(Products.length);
-  // console.log(Products.length > 0);
+  // -----------------------------------------
+
+  // console.log(filterProducts);
+  // console.log(Products);
+  // console.log(allProducts);
+  // console.log(Page);
+  // console.log(TotalPages);
+  // console.log(allProducts.length);
+
+  // Clear products when category changes
+  useEffect(() => {
+    setAllProducts([]); // Reset the product list
+    setPage(1); // Reset page to 1
+    setHasMore(true); // Reset infinite scroll flag
+  }, [Men_category]);
+
+  useEffect(() => {
+    if (Products.length > 0) {
+      setAllProducts((prev) => [
+        ...prev,
+        ...Products.filter((product) => !prev.some((p) => p.id === product.id)),
+      ]);
+    }
+  }, [Products]);
+
+  useEffect(() => {
+    const filterProducts = { category: Men_category };
+    const pagination = { _page: Page, _limit: ITEMS_PER_PAGE };
+    dispatch(FetchProductsByFilterAsync({ pagination, filterProducts }));
+  }, [dispatch, Men_category, Page]);
 
   // -----------------------------------------
 
   const fetchProducts = () => {
-    if (TotalPages >= Page) {
-      setAllProducts((prevProducts) => [...prevProducts, ...Products]);
-      setPage(Page + 1);
+    if (Page < TotalPages) {
+      setPage((prevPage) => prevPage + 1);
     } else {
       setHasMore(false);
     }
   };
 
-  useEffect(() => {
-    fetchProducts();
-  }, [Products]);
-
-  // -----------------------------------------
-
-  useEffect(() => {
-    const pagination = { _page: Page, _limit: ITEMS_PER_PAGE };
-    dispatch(FetchProductsByFilterAsync({ pagination }));
-  }, [dispatch, Page]);
-
-  // -----------------------------------------
+  // ----------------------------------------
 
   return (
     <>
@@ -367,7 +385,7 @@ const Products = () => {
 
                 <div className="lg:col-span-3">
                   <div className="bg-white">
-                    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
+                    <div className="mx-auto h-full max-w-2xl px-4 py-16 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
                       <h2 className="text-2xl font-bold tracking-tight text-gray-900">
                         products
                       </h2>
