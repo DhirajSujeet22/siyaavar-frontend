@@ -17,13 +17,8 @@ import { CheckAuthAsync, selectUserCheck } from "../Auth/AuthSlice";
 
 const navigation = [
   {
-    name: "Products",
-    link: "/Products",
-    // current: true,
-  },
-  {
     name: "Men",
-    link: "#",
+    // link: "#",
     current: false,
     children: [
       {
@@ -31,8 +26,8 @@ const navigation = [
         link: "/Products?category=",
       },
       { name: "Sherwani", link: "/Products?category=Sherwani" },
-      { name: "Kurta Pajama", link: "/Products?category=kurta pajama" },
-      { name: "Nehru Jacket", link: "/Products?category=nehru jacket" },
+      { name: "Kurta Pajama", link: "/Products?category=kurta Pajama" },
+      { name: "Nehru Jacket", link: "/Products?category=Nehru Jacket" },
       { name: "Suit (Coat Pant)", link: "/Products?category=Suit" },
     ],
   },

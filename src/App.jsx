@@ -19,6 +19,7 @@ import {
 import LogOut from "./features/Auth/components/LogOut";
 import { Toaster } from "react-hot-toast";
 import ErrorPage from "./features/common/ErrorPage";
+import CheckoutPage from "./Pages/CheckoutPage";
 // ===========================================
 
 // Define route configuration
@@ -80,6 +81,15 @@ const router = createBrowserRouter([
     element: (
       <ErrorBoundary>
         <Cart />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: "/checkout",
+
+    element: (
+      <ErrorBoundary>
+        <CheckoutPage />,
       </ErrorBoundary>
     ),
   },

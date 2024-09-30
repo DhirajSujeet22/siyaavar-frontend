@@ -27,7 +27,7 @@ export const CreateOrderAsync = createAsyncThunk(
   "create/CreateOrder",
   async (order) => {
     const response = await CreateOrder(order);
-    return response.data;
+    return response;
   }
 );
 

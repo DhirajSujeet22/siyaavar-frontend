@@ -101,16 +101,7 @@ const Products = () => {
   const [searchParams] = useSearchParams();
   const Men_category = searchParams.get("category");
 
-  console.log(Men_category);
-  console.log(Products);
   // -----------------------------------------
-
-  // console.log(filterProducts);
-  // console.log(Products);
-  // console.log(allProducts);
-  // console.log(Page);
-  // console.log(TotalPages);
-  // console.log(allProducts.length);
 
   // Clear products when category changes
   useEffect(() => {

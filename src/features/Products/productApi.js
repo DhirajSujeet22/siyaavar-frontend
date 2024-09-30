@@ -19,8 +19,6 @@ export const FetchProductsById = async (id) => {
 export const FetchProductsByFilter = async (pagination, category) => {
   let queryString = "";
 
-  console.log(pagination);
-  console.log(category);
   // Building query string for filters
   // for (let key in filter) {
   //   const CategoriesValues = filter[key];
@@ -57,16 +55,10 @@ export const FetchProductsByFilter = async (pagination, category) => {
     queryString += `${key}=${category[key]}&`;
   }
 
-  console.log(queryString);
-
-  console.log(pagination);
-  console.log(category);
-
   try {
     const response = await axios.get(`${backendUrl}/product?${queryString}`, {
       withCredentials: true,
     });
-    console.log(response.data);
 
     const totalPages = response.headers.get("X-Total-Count");
     return { products: response.data, totalPages: +totalPages };

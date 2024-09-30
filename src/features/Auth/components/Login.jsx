@@ -39,7 +39,7 @@ const Login = () => {
       {!!UserKey && <Navigate to="/" replace={true} />}
       <div className="min-h-screen flex flex-col lg:flex-row justify-center items-center bg-ghostWhite px-6 py-12">
         <div className="w-full lg:w-1/2 px-1 py-10 sm:px-[5rem]">
-          <h2 className="text-center text-3xl font-bold text-gray-900 mb-6">
+          <h2 className="text-center text-3xl font-bold text-gray-900 mb-10">
             Login to Your Account
           </h2>
 
@@ -123,11 +123,11 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="w-full rounded-md bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-600"
+                className="w-full rounded-md bg-yellow-400 py-2 px-4 text-sm font-semibold text-black shadow-sm  focus-visible:ring-2"
                 disabled={Status}
               >
                 {Status ? (
-                  <div className="h-6 w-6 m-auto border-2 border-current border-t-transparent animate-spin rounded-full"></div>
+                  <div className="h-6 w-6 text-black m-auto border-2 border-current border-t-transparent animate-spin rounded-full" />
                 ) : (
                   "Login"
                 )}
@@ -178,6 +178,15 @@ const Login = () => {
               className="font-semibold text-indigo-600 hover:text-indigo-500"
             >
               Create an Account
+            </Link>
+          </p>
+
+          <p className="mt-3 text-center text-sm text-gray-600">
+            <Link
+              to="/"
+              className="font-semibold text-red-600 hover:text-indigo-500"
+            >
+              Back to Home
             </Link>
           </p>
         </div>

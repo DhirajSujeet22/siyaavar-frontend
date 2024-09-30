@@ -1,16 +1,17 @@
 // this is function to Add User Order Details or etc in order
+import axios from "axios";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-export const CreateOrder = (order) => {
-  return new Promise(async (resolve) => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, {
-      method: "POST",
-      credentials: "include",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(order),
+// -----------------------------------------------------------
+export const CreateOrder = async (order) => {
+  try {
+    const data = await axios.get(`${backendUrl}/order`, order, {
+      withCredentials: true,
     });
-    const data = response.json();
-    resolve({ data });
-  });
+    return data.data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // ============================================================================

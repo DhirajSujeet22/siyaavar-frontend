@@ -18,12 +18,11 @@ export const AddToCart = async (CartInfo) => {
 // this is  function  fetching cart products for particular user
 
 export const fetchCartByUserId = async (id) => {
-  
   try {
     const data = await axios.get(`${backendUrl}/cart`, {
       withCredentials: true,
     });
-    
+
     return data.data;
   } catch (error) {
     console.log(error);
@@ -37,7 +36,7 @@ export const fetchCartByUserId = async (id) => {
 export const UpdateCart = async (update) => {
   try {
     const data = await axios.patch(`${backendUrl}/cart/${update.id}`, update, {
-      // withCredentials: true,
+      withCredentials: true,
     });
     return data.data;
   } catch (error) {
@@ -52,7 +51,7 @@ export const UpdateCart = async (update) => {
 export const DeleteCartItem = async (itemId) => {
   try {
     const data = await axios.delete(`${backendUrl}/cart/${itemId}`, {
-      // withCredentials: true,
+      withCredentials: true,
     });
     return { id: itemId };
   } catch (error) {

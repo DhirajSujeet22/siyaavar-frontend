@@ -150,11 +150,11 @@ const SignUp = () => {
             <div>
               <button
                 type="submit"
-                className="w-full rounded-md bg-indigo-600 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-600"
+                className="w-full rounded-md bg-yellow-400 py-2 px-4 text-sm font-semibold text-black shadow-sm  focus-visible:ring-2 "
                 disabled={Status}
               >
                 {Status ? (
-                  <div className="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-2 border-solid border-current border-r-transparent" />
+                  <div className="inline-block text-black h-6 w-6 mr-2 animate-spin rounded-full border-2 border-solid border-current border-r-transparent" />
                 ) : (
                   "Sign Up"
                 )}
