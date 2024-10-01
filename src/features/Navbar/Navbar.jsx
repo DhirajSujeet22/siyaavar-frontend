@@ -84,6 +84,12 @@ const Navbar = ({ Children }) => {
     ...(user
       ? [
           {
+            name: "Dashboard",
+            link: "/userDashboard",
+            current: false,
+            user: false,
+          },
+          {
             name: "My Profile",
             link: "/userProfile",
             current: false,
@@ -264,7 +270,7 @@ const Navbar = ({ Children }) => {
                         )}
                       </Link>
                       {/* notification*/}
-                      <Link to="/">
+                      {/* <Link to="/">
                         <button
                           type="button"
                           className="relative mt-2 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -280,7 +286,7 @@ const Navbar = ({ Children }) => {
                             {GetAddToCart.length}
                           </span>
                         )}
-                      </Link>
+                      </Link> */}
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative">
                         {!!user ? (
@@ -501,7 +507,7 @@ const Navbar = ({ Children }) => {
                       </button>
                     </Link>
                     {/* notification*/}
-                    <Link to="">
+                    {/* <Link to="">
                       <button
                         type="button"
                         className="relative mt-2 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -517,7 +523,7 @@ const Navbar = ({ Children }) => {
                           {GetAddToCart.length}
                         </span>
                       )}
-                    </Link>
+                    </Link> */}
                     {!!user ? (
                       <div className="flex-shrink-0">
                         <img
@@ -578,7 +584,7 @@ const Navbar = ({ Children }) => {
           </div> */}
         </header>
         <main>
-          <div className="mx-auto max-w-7xl py-3 px-3 sm:px-0 sm:py-3 lg:px-0">
+          <div className="mx-auto pt-5">
             {Children}
           </div>
         </main>

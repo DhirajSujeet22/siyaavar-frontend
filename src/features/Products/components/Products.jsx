@@ -31,6 +31,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingSpinner from "../../common/LoadingSpinner";
 import { ITEMS_PER_PAGE } from "../../../app/Constant";
 import { Link, useSearchParams } from "react-router-dom";
+import Pagination from "../../common/Pagination";
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
   { name: "Best Rating", href: "#", current: false },
@@ -91,11 +92,7 @@ const Products = () => {
   const dispatch = useDispatch();
   const Products = useSelector(selectProducts);
   const TotalProductsLength = useSelector(selectTotalProductsLength);
-  const [hasMore, setHasMore] = useState(true);
   const [Page, setPage] = useState(1);
-  const [allProducts, setAllProducts] = useState([]);
-
-  const TotalPages = Math.ceil(TotalProductsLength / ITEMS_PER_PAGE);
 
   // -----------------------------------------
   const [searchParams] = useSearchParams();
@@ -103,37 +100,11 @@ const Products = () => {
 
   // -----------------------------------------
 
-  // Clear products when category changes
-  useEffect(() => {
-    setAllProducts([]); // Reset the product list
-    setPage(1); // Reset page to 1
-    setHasMore(true); // Reset infinite scroll flag
-  }, [Men_category]);
-
-  useEffect(() => {
-    if (Products.length > 0) {
-      setAllProducts((prev) => [
-        ...prev,
-        ...Products.filter((product) => !prev.some((p) => p.id === product.id)),
-      ]);
-    }
-  }, [Products]);
-
   useEffect(() => {
     const filterProducts = { category: Men_category };
     const pagination = { _page: Page, _limit: ITEMS_PER_PAGE };
     dispatch(FetchProductsByFilterAsync({ pagination, filterProducts }));
   }, [dispatch, Men_category, Page]);
-
-  // -----------------------------------------
-
-  const fetchProducts = () => {
-    if (Page < TotalPages) {
-      setPage((prevPage) => prevPage + 1);
-    } else {
-      setHasMore(false);
-    }
-  };
 
   // ----------------------------------------
 
@@ -381,56 +352,58 @@ const Products = () => {
                         products
                       </h2>
 
-                      {/* {infin scrll} */}
-
-                      <InfiniteScroll
-                        dataLength={allProducts.length}
-                        next={fetchProducts}
-                        hasMore={hasMore}
-                        loader={<LoadingSpinner />}
-                      >
-                        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                          {Products &&
-                            allProducts.map((product, index) => (
-                              <Link
-                                key={index}
-                                to={`/ProductsDetails/${product.id}`}
-                              >
-                                <div className="group relative">
-                                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none">
-                                    <img
-                                      alt={product.title}
-                                      src={product.images}
-                                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                                    />
-                                  </div>
-                                  <div className="mt-4 flex justify-between">
-                                    <div>
-                                      <h3 className="text-sm text-gray-700">
-                                        <span
-                                          aria-hidden="true"
-                                          className="absolute inset-0"
-                                        />
-                                        {product.title}
-                                      </h3>
-                                      <p className="mt-3 text-sm text-gray-500">
-                                        {product.category}
-                                      </p>
-                                    </div>
-                                    <p className="text-sm font-medium text-gray-900">
-                                      {product.price}
+                      <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                        {Products &&
+                          Products.map((product, index) => (
+                            <Link
+                              key={index}
+                              to={`/ProductsDetails/${product.id}`}
+                            >
+                              <div className="group relative">
+                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none">
+                                  <img
+                                    alt={product.title}
+                                    src={product.images}
+                                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                  />
+                                </div>
+                                <div className="mt-4 flex justify-between">
+                                  <div>
+                                    <h3 className="text-sm text-gray-700">
+                                      <span
+                                        aria-hidden="true"
+                                        className="absolute inset-0"
+                                      />
+                                      {product.title}
+                                    </h3>
+                                    <p className="mt-3 text-sm text-gray-500">
+                                      {product.category}
                                     </p>
                                   </div>
+                                  <p className="text-sm font-medium text-gray-900">
+                                    {product.price}
+                                  </p>
                                 </div>
-                              </Link>
-                            ))}
-                        </div>
-                      </InfiniteScroll>
+                              </div>
+                            </Link>
+                          ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </section>
+            {
+              // =========== This is Pagination Layout start ================
+
+              <Pagination
+                Page={Page}
+                setPage={setPage}
+                totalItems={TotalProductsLength}
+              />
+
+              // =========== This is Pagination Layout end ================
+            }
           </main>
         </div>
       </div>

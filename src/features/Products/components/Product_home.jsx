@@ -53,7 +53,7 @@ const Product_home = () => {
     <>
       {/* ===================== Banner  ==================== */}
 
-      <main>
+      <main className="px-5">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}

@@ -5,7 +5,8 @@ import Product_home from "../features/Products/components/Product_home";
 const HomePage = () => {
   return (
     <>
-      <Navbar Children={<Product_home />} />
+      <Navbar />
+      <Product_home />
       <Footer />
     </>
   );

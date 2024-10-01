@@ -20,6 +20,8 @@ import LogOut from "./features/Auth/components/LogOut";
 import { Toaster } from "react-hot-toast";
 import ErrorPage from "./features/common/ErrorPage";
 import CheckoutPage from "./Pages/CheckoutPage";
+import DashboardPage from "./Pages/DashboardPage";
+import OrdersPage from "./Pages/OrdersPage";
 // ===========================================
 
 // Define route configuration
@@ -57,6 +59,22 @@ const router = createBrowserRouter([
     element: (
       <ErrorBoundary>
         <UserProfilePage />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: "/orders",
+    element: (
+      <ErrorBoundary>
+        <OrdersPage />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: "/userDashboard",
+    element: (
+      <ErrorBoundary>
+        <DashboardPage />
       </ErrorBoundary>
     ),
   },
