@@ -14,6 +14,8 @@ const initialState = {
   status: false,
   LoginStatus: false,
   error: null,
+  signUpLoginPopUp: false,
+  signUpPop: false,
   userCheck: false,
   mailSend: false,
   passwordReset: false,
@@ -93,7 +95,14 @@ export const UserSignOutAsync = createAsyncThunk(
 export const AuthSlice = createSlice({
   name: "users",
   initialState,
-  reducers: {},
+  reducers: {
+    signUp_Login_Model: (state, action) => {
+      state.signUpLoginPopUp = action.payload;
+    },
+    signUpModel: (state, action) => {
+      state.signUpPop = action.payload;
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -193,6 +202,8 @@ export const AuthSlice = createSlice({
       });
   },
 });
+
+export const { signUp_Login_Model, signUpModel } = AuthSlice.actions;
 
 export const selectLoggedInUserToken = (state) => state.auth.loggedInUserToken;
 export const selectLoginUserInfo = (state) => state.auth.loginUserInfo;

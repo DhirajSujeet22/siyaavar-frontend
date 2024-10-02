@@ -9,7 +9,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLoggedInUserAsync } from "./features/User/UserSlice";
 import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
-import SignUp from "./features/Auth/components/SignUp";
+// import SignUp from "./features/Auth/components/SignUp";
 import Login from "./features/Auth/components/Login";
 import {
   CheckAuthAsync,
@@ -30,14 +30,14 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomePage />,
   },
-  {
-    path: "/signUp",
-    element: (
-      <ErrorBoundary>
-        <SignUp />
-      </ErrorBoundary>
-    ),
-  },
+  // {
+  //   path: "/signUp",
+  //   element: (
+  //     <ErrorBoundary>
+  //       <SignUp />
+  //     </ErrorBoundary>
+  //   ),
+  // },
   {
     path: "/logIn",
     element: (

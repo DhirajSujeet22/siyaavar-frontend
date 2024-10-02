@@ -11,7 +11,12 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
 import { selectUserInfo } from "../User/UserSlice";
-import { CheckAuthAsync, selectUserCheck } from "../Auth/AuthSlice";
+import {
+  CheckAuthAsync,
+  selectUserCheck,
+  signUp_Login_Model,
+} from "../Auth/AuthSlice";
+import SignUp_Login from "../Auth/components/SignupPages/SignUp_Login";
 // import DarkMode from "../Common/colorMode/DarkMode";
 
 // ============================================================================
@@ -72,6 +77,7 @@ function classNames(...classes) {
 // ============================================================================
 
 const Navbar = ({ Children }) => {
+  const modalIsOpen = useSelector((state) => state.auth.signUpLoginPopUp);
   const user = useSelector(selectUserInfo);
   const check = useSelector(selectUserCheck);
   const dispatch = useDispatch();
@@ -186,7 +192,7 @@ const Navbar = ({ Children }) => {
                   </div>
 
                   <div className="hidden md:block">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-[0.5rem]">
                       {/* serach*/}
                       <div className="relative">
                         <button
@@ -267,10 +273,11 @@ const Navbar = ({ Children }) => {
                           </button>
                         </Link>
                       ) : (
-                        <Link to="/login">
+                        <Link to="#">
                           <button
                             type="button"
                             className="relative mt-2 rounded-full bg-transparent  p-1 text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            onClick={() => dispatch(signUp_Login_Model(true))}
                           >
                             <span className="absolute -inset-1.5" />
                             <LuUser className="h-6 w-6" aria-hidden="true" />
@@ -282,6 +289,8 @@ const Navbar = ({ Children }) => {
                           )}
                         </Link>
                       )}
+
+                      {modalIsOpen && <SignUp_Login />}
 
                       {/* wishlist*/}
                       <Link to="/cart">
@@ -531,10 +540,11 @@ const Navbar = ({ Children }) => {
                         </button>
                       </Link>
                     ) : (
-                      <Link to="/login">
+                      <Link to="/">
                         <button
                           type="button"
                           className="relative mt-2 rounded-full bg-transparent  p-1 text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                          onClick={() => dispatch(signUp_Login_Model(true))}
                         >
                           <span className="absolute -inset-1.5" />
                           <LuUser className="h-6 w-6" aria-hidden="true" />
@@ -546,6 +556,8 @@ const Navbar = ({ Children }) => {
                         )}
                       </Link>
                     )}
+
+                    {modalIsOpen && <SignUp_Login />}
                     {/* wishlist*/}
                     <Link to="/cart">
                       <button
