@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { signUpModel, signUp_Login_Model } from "../../AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaGoogle, FaInstagram } from "react-icons/fa";
@@ -6,11 +6,7 @@ import SignUp from "./SignUp";
 const SignUp_Login = () => {
   const modalIsOpen = useSelector((state) => state.auth.signUpLoginPopUp);
   const modalIsClose = useSelector((state) => state.auth.signUpPop);
-  console.log(modalIsOpen);
-  console.log(modalIsClose);
   const dispatch = useDispatch();
-
-  // const [open, setOpen] = useState(false);
 
   return (
     <div className="flex relative z-10 justify-center items-center h-screen">

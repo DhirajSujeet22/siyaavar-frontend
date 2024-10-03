@@ -259,39 +259,31 @@ const Navbar = ({ Children }) => {
                         )}
                       </div>
                       {/* user*/}
-                      {!!user ? (
-                        <Link to="#">
-                          <button
-                            type="button"
-                            className="relative mt-2 rounded-full bg-transparent  p-1 text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                          >
-                            <span className="absolute -inset-1.5" />
-                            <LuUserCheck
-                              className="h-6 w-6"
-                              aria-hidden="true"
-                            />
-                          </button>
-                        </Link>
-                      ) : (
-                        <Link to="#">
-                          <button
-                            type="button"
-                            className="relative mt-2 rounded-full bg-transparent  p-1 text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                            onClick={() => dispatch(signUp_Login_Model(true))}
-                          >
-                            <span className="absolute -inset-1.5" />
-                            <LuUser className="h-6 w-6" aria-hidden="true" />
-                          </button>
-                          {GetAddToCart && GetAddToCart.length > 0 && (
-                            <span className="inline-flex bottom-4 right-2 relative items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
-                              {GetAddToCart.length}
-                            </span>
-                          )}
-                        </Link>
-                      )}
-
+                      <Link to="/userDashboard">
+                        <button
+                          type="button"
+                          className="relative mt-2 rounded-full bg-transparent  p-1 text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        >
+                          <span className="absolute -inset-1.5" />
+                          <LuUserCheck className="h-6 w-6" aria-hidden="true" />
+                        </button>
+                      </Link>
+                      <Link to="#">
+                        <button
+                          type="button"
+                          className="relative mt-2 rounded-full bg-transparent  p-1 text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                          onClick={() => dispatch(signUp_Login_Model(true))}
+                        >
+                          <span className="absolute -inset-1.5" />
+                          <LuUser className="h-6 w-6" aria-hidden="true" />
+                        </button>
+                        {GetAddToCart && GetAddToCart.length > 0 && (
+                          <span className="inline-flex bottom-4 right-2 relative items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                            {GetAddToCart.length}
+                          </span>
+                        )}
+                      </Link>
                       {modalIsOpen && <SignUp_Login />}
-
                       {/* wishlist*/}
                       <Link to="/cart">
                         <div className="relative mt-2">
@@ -619,7 +611,7 @@ const Navbar = ({ Children }) => {
           </div> */}
         </header>
         <main>
-          <div className="mx-auto pt-5">{Children}</div>
+          <div className="mx-auto">{Children}</div>
         </main>
       </div>
     </>

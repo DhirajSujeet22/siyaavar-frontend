@@ -188,10 +188,12 @@
 // export default SignUp;
 
 import React from "react";
-import { signUpModel } from "../../AuthSlice";
+import { signUpModel, verify_otp } from "../../AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Verify_OTP from "./VerifyUserOtp";
 const SignUp = () => {
   const modalIsOpen = useSelector((state) => state.auth.signUpPop);
+  const verifyOpen = useSelector((state) => state.auth.verifyOtp);
   const dispatch = useDispatch();
 
   return (
@@ -276,10 +278,14 @@ const SignUp = () => {
             <div className="text-center mt-6">
               <button
                 type="button"
+                onClick={() => {
+                  dispatch(verify_otp(true));
+                }}
                 className="bg-orange-500 w-full sm:w-[20rem] text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 hover:bg-orange-600"
               >
                 REQUEST OTP
               </button>
+              {verifyOpen && <Verify_OTP />}
             </div>
           </div>
         </div>

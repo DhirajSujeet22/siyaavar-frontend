@@ -16,6 +16,7 @@ const initialState = {
   error: null,
   signUpLoginPopUp: false,
   signUpPop: false,
+  verifyOtp: false,
   userCheck: false,
   mailSend: false,
   passwordReset: false,
@@ -101,6 +102,10 @@ export const AuthSlice = createSlice({
     },
     signUpModel: (state, action) => {
       state.signUpPop = action.payload;
+    },
+    verify_otp: (state, action) => {
+      console.log({ verify_otp: action.payload });
+      state.verifyOtp = action.payload;
     },
   },
 
@@ -203,7 +208,8 @@ export const AuthSlice = createSlice({
   },
 });
 
-export const { signUp_Login_Model, signUpModel } = AuthSlice.actions;
+export const { signUp_Login_Model, signUpModel, verify_otp } =
+  AuthSlice.actions;
 
 export const selectLoggedInUserToken = (state) => state.auth.loggedInUserToken;
 export const selectLoginUserInfo = (state) => state.auth.loginUserInfo;

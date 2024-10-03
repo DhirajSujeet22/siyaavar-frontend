@@ -21,7 +21,9 @@ import { Toaster } from "react-hot-toast";
 import ErrorPage from "./features/common/ErrorPage";
 import CheckoutPage from "./Pages/CheckoutPage";
 import DashboardPage from "./Pages/DashboardPage";
-import OrdersPage from "./Pages/OrdersPage";
+import OrderHistoryPage from "./Pages/OrderHistoryPage";
+import WishlistPage from "./Pages/WishlistPage";
+// import Wishlist from "./"
 // ===========================================
 
 // Define route configuration
@@ -66,7 +68,7 @@ const router = createBrowserRouter([
     path: "/orders",
     element: (
       <ErrorBoundary>
-        <OrdersPage />
+        <OrderHistoryPage />
       </ErrorBoundary>
     ),
   },
@@ -75,6 +77,14 @@ const router = createBrowserRouter([
     element: (
       <ErrorBoundary>
         <DashboardPage />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: "/wishlist",
+    element: (
+      <ErrorBoundary>
+        <WishlistPage />
       </ErrorBoundary>
     ),
   },
