@@ -64,32 +64,32 @@ const Product_home = () => {
           navigation={true}
           effect="fade"
           modules={[Autoplay, EffectFade]}
-          className="mySwiper"
+          className="mySwiper p-4"
         >
           <SwiperSlide>
             <img
-              className="w-full  h-[12rem] object-cover sm:h-auto"
+              className="w-full  h-[12rem] sm:h-auto rounded-lg"
               src="https://i.imgur.com/fj5NLNu.jpeg"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="w-full  h-[12rem] object-cover sm:h-auto"
+              className="w-full  h-[12rem] sm:h-auto rounded-lg"
               src="https://i.imgur.com/OAopDgm.png"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="w-full  h-[12rem] object-cover sm:h-auto"
+              className="w-full  h-[12rem] sm:h-auto rounded-lg"
               src="https://i.imgur.com/24yt1S1.png"
               alt="banner_img"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
-              className="w-full  h-[12rem] object-cover sm:h-auto"
+              className="w-full  h-[12rem] sm:h-auto rounded-lg"
               src="https://i.imgur.com/TRjZmbp.png"
               alt="banner_img"
             />

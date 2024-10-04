@@ -64,8 +64,8 @@ const navigation = [
     ],
   },
   {
-    name: "About Us",
-    link: "/",
+    name: "Blog",
+    link: "/blog",
     current: false,
   },
 ];

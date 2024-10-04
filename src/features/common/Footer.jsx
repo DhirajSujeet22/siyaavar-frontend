@@ -2,6 +2,7 @@ import React from "react";
 import { MdOutlineMail } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Footer = () => {
   const LogoImage = [
     { src: "./icons/batchicon.svg", text: "MADE IN INDIA" },
@@ -53,12 +54,12 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to="/careers"
                     className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
                     Careers
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
@@ -69,12 +70,12 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to="/aboutUs"
                     className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
-                    Blog
-                  </a>
+                    AboutUs
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -84,36 +85,36 @@ const Footer = () => {
               </h6>
               <ul className="flex flex-col gap-6">
                 <li>
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to="/ContactUs"
                     className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to="/ShippingPolicy"
                     className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
                     Shipping Information
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to="/exchangePolicy"
                     className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
                     Return and Exchanges
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to="/FAQ"
                     className="text-lg font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
                     FAQ's
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
@@ -176,14 +177,15 @@ const Footer = () => {
               </h6>
               <ul className="flex flex-col gap-6">
                 <li>
-                  <a
-                    href="https://maps.app.goo.gl/TndqEUyTM8QHXEiW9"
+                  <Link
+                    to="https://maps.app.goo.gl/2y54eya4tEMKcz4k9"
+                    target="_blank"
                     className="text-lg flex gap-5  font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                   >
                     <IoLocationOutline className="text-[3rem]" />
                     Shop No : 97, Anupam Textile Market Ring Road, SURAT -
                     395002
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
@@ -217,12 +219,12 @@ const Footer = () => {
                 </a>
               </li>
               <li className="list-none">
-                <a
-                  href="javascript:;"
+                <Link
+                  to="/privacypolicy"
                   className="text-md font-normal text-gray-400 transition-all duration-300 hover:text-violet-400 focus-within:outline-0 focus-within:text-violet-400"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li className="list-none">
                 <a

@@ -23,6 +23,15 @@ import CheckoutPage from "./Pages/CheckoutPage";
 import DashboardPage from "./Pages/DashboardPage";
 import OrderHistoryPage from "./Pages/OrderHistoryPage";
 import WishlistPage from "./Pages/WishlistPage";
+import PrivacyPage from "./Pages/PrivacyPage";
+import BlogPage from "./Pages/BlogPage";
+import BlogDetailPage from "./Pages/BlogDetailPage";
+import AboutPage from "./Pages/AboutPage";
+import ContactUsPage from "./Pages/ContactUsPage";
+import FAQPage from "./Pages/FAQPage";
+import ShippingDetailsPage from "./Pages/ShippingDetailsPage";
+import CareersPage from "./Pages/CareersPage";
+import ExchangePolicyPage from "./Pages/ExchangePolicyPage";
 // import Wishlist from "./"
 // ===========================================
 
@@ -120,6 +129,42 @@ const router = createBrowserRouter([
         <CheckoutPage />,
       </ErrorBoundary>
     ),
+  },
+  {
+    path: "/privacypolicy",
+    element: <PrivacyPage />,
+  },
+  {
+    path: "/blog",
+    element: <BlogPage />,
+  },
+  {
+    path: "/blogDetails",
+    element: <BlogDetailPage />,
+  },
+  {
+    path: "/aboutUs",
+    element: <AboutPage />,
+  },
+  {
+    path: "/ContactUs",
+    element: <ContactUsPage />,
+  },
+  {
+    path: "/FAQ",
+    element: <FAQPage />,
+  },
+  {
+    path: "/ShippingPolicy",
+    element: <ShippingDetailsPage />,
+  },
+  {
+    path: "/careers",
+    element: <CareersPage />,
+  },
+  {
+    path: "/exchangePolicy",
+    element: <ExchangePolicyPage />,
   },
   {
     path: "*",
