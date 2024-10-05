@@ -33,30 +33,14 @@ import ShippingDetailsPage from "./Pages/ShippingDetailsPage";
 import CareersPage from "./Pages/CareersPage";
 import ExchangePolicyPage from "./Pages/ExchangePolicyPage";
 import PageOnTop from "./Home/PageonTop";
+import LoadingSpinner from "./features/common/LoadingSpinner";
 // import Wishlist from "./"
 // ===========================================
-
 // Define route configuration
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
-  },
-  // {
-  //   path: "/signUp",
-  //   element: (
-  //     <ErrorBoundary>
-  //       <SignUp />
-  //     </ErrorBoundary>
-  //   ),
-  // },
-  {
-    path: "/logIn",
-    element: (
-      <ErrorBoundary>
-        <Login />
-      </ErrorBoundary>
-    ),
   },
   {
     path: "/logOut",
@@ -135,7 +119,7 @@ const router = createBrowserRouter([
     element: (
       <ErrorBoundary>
         <PageOnTop />
-        <CheckoutPage />,
+        <CheckoutPage />
       </ErrorBoundary>
     ),
   },
