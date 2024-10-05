@@ -32,6 +32,7 @@ import FAQPage from "./Pages/FAQPage";
 import ShippingDetailsPage from "./Pages/ShippingDetailsPage";
 import CareersPage from "./Pages/CareersPage";
 import ExchangePolicyPage from "./Pages/ExchangePolicyPage";
+import PageOnTop from "./Home/PageonTop";
 // import Wishlist from "./"
 // ===========================================
 
@@ -69,6 +70,7 @@ const router = createBrowserRouter([
     path: "/userProfile",
     element: (
       <ErrorBoundary>
+        <PageOnTop />
         <UserProfilePage />
       </ErrorBoundary>
     ),
@@ -77,6 +79,7 @@ const router = createBrowserRouter([
     path: "/orders",
     element: (
       <ErrorBoundary>
+        <PageOnTop />
         <OrderHistoryPage />
       </ErrorBoundary>
     ),
@@ -85,6 +88,7 @@ const router = createBrowserRouter([
     path: "/userDashboard",
     element: (
       <ErrorBoundary>
+        <PageOnTop />
         <DashboardPage />
       </ErrorBoundary>
     ),
@@ -93,6 +97,7 @@ const router = createBrowserRouter([
     path: "/wishlist",
     element: (
       <ErrorBoundary>
+        <PageOnTop />
         <WishlistPage />
       </ErrorBoundary>
     ),
@@ -101,6 +106,7 @@ const router = createBrowserRouter([
     path: "/Products",
     element: (
       <ErrorBoundary>
+        <PageOnTop />
         <ProductsPage />
       </ErrorBoundary>
     ),
@@ -109,6 +115,7 @@ const router = createBrowserRouter([
     path: "/ProductsDetails/:id",
     element: (
       <ErrorBoundary>
+        <PageOnTop />
         <ProductsDetailsPage />
       </ErrorBoundary>
     ),
@@ -117,6 +124,7 @@ const router = createBrowserRouter([
     path: "/cart",
     element: (
       <ErrorBoundary>
+        <PageOnTop />
         <Cart />
       </ErrorBoundary>
     ),
@@ -126,45 +134,91 @@ const router = createBrowserRouter([
 
     element: (
       <ErrorBoundary>
+        <PageOnTop />
         <CheckoutPage />,
       </ErrorBoundary>
     ),
   },
   {
     path: "/privacypolicy",
-    element: <PrivacyPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <PrivacyPage />
+      </>
+    ),
   },
   {
     path: "/blog",
-    element: <BlogPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <BlogPage />
+      </>
+    ),
   },
   {
     path: "/blogDetails",
-    element: <BlogDetailPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <BlogDetailPage />
+      </>
+    ),
   },
   {
     path: "/aboutUs",
-    element: <AboutPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <AboutPage />
+      </>
+    ),
   },
   {
     path: "/ContactUs",
-    element: <ContactUsPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <ContactUsPage />
+      </>
+    ),
   },
   {
     path: "/FAQ",
-    element: <FAQPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <FAQPage />
+      </>
+    ),
   },
   {
     path: "/ShippingPolicy",
-    element: <ShippingDetailsPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <ShippingDetailsPage />
+      </>
+    ),
   },
   {
     path: "/careers",
-    element: <CareersPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <CareersPage />
+      </>
+    ),
   },
   {
     path: "/exchangePolicy",
-    element: <ExchangePolicyPage />,
+    element: (
+      <>
+        <PageOnTop />
+        <ExchangePolicyPage />
+      </>
+    ),
   },
   {
     path: "*",
@@ -196,6 +250,7 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
+
       <Toaster
         position="top-left"
         reverseOrder={false}

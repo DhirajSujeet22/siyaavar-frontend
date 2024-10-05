@@ -7,7 +7,7 @@ import {
   selectStatus,
 } from "../productSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import {
   AddToCartAsync,
   fetchCartByUserIdAsync,
@@ -163,11 +163,13 @@ const ProductsDetails = () => {
 
   // =============================================================================
 
-  const pageUrl = window.location.href;
+  const location = useLocation();
+  const pathname = `${window.location.origin}${location.pathname}`;
+  // ------------------------------------------
   const [copy, setCopy] = useState(false);
   const productShareOption = () => {
     navigator.clipboard
-      .writeText(pageUrl)
+      .writeText(pathname)
       .then(() => {
         setCopy(true);
       })
@@ -272,7 +274,7 @@ const ProductsDetails = () => {
                       <div className="flex flex-col gap-3 py-2">
                         <WhatsappShareButton
                           className="flex gap-4 ml-3 "
-                          url={pageUrl}
+                          url={pathname}
                           title={product.title}
                           separator=" - "
                         >
@@ -282,7 +284,7 @@ const ProductsDetails = () => {
 
                         <FacebookShareButton
                           className="flex gap-4 ml-3 "
-                          url={pageUrl}
+                          url={pathname}
                           title={product.title}
                           separator=" - "
                         >
@@ -292,7 +294,7 @@ const ProductsDetails = () => {
 
                         <EmailShareButton
                           className="flex gap-4 ml-3 "
-                          url={pageUrl}
+                          url={pathname}
                           title={product.title}
                           separator=" - "
                         >
@@ -302,7 +304,7 @@ const ProductsDetails = () => {
 
                         <LinkedinShareButton
                           className="flex gap-4 ml-3 "
-                          url={pageUrl}
+                          url={pathname}
                           title={product.title}
                           separator=" - "
                         >
