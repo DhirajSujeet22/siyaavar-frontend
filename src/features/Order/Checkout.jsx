@@ -8,29 +8,6 @@ import {
 } from "react-icons/fa";
 
 const Checkout = () => {
-  //   const addresses = [
-  //     {
-  //       id: "address1",
-  //       fullName: "John Doe",
-  //       email: "john.doe@email.com",
-  //       mobile: "+1 123 456 7890",
-  //       address: "123 Elm Street",
-  //       city: "Los Angeles",
-  //       state: "CA",
-  //       pincode: "90001",
-  //     },
-  //     {
-  //       id: "address2",
-  //       fullName: "Jane Smith",
-  //       email: "jane.smith@email.com",
-  //       mobile: "+1 987 654 3210",
-  //       address: "456 Oak Avenue",
-  //       city: "San Francisco",
-  //       state: "CA",
-  //       pincode: "94103",
-  //     },
-  //   ];
-
   const products = [
     {
       id: 1,
@@ -351,7 +328,7 @@ const Checkout = () => {
                     {/* Address, Pincode, City, State in one line */}
                     <div className="grid grid-cols-2 gap-5">
                       {/* Address */}
-                      <div>
+                      <div className="col-span-1">
                         <label className="block text-sm font-medium text-gray-700">
                           Address
                         </label>
@@ -365,14 +342,14 @@ const Checkout = () => {
                               address: e.target.value,
                             })
                           }
-                          className="rounded-md border border-gray-300 p-2"
+                          className="rounded-md border border-gray-300 p-2 w-full"
                           placeholder="Enter your address"
                           required
                         />
                       </div>
 
                       {/* Pincode */}
-                      <div>
+                      <div className="col-span-1">
                         <label className="block text-sm font-medium text-gray-700">
                           Pincode
                         </label>
@@ -386,14 +363,14 @@ const Checkout = () => {
                               pincode: e.target.value,
                             })
                           }
-                          className="rounded-md border border-gray-300 p-2"
+                          className="rounded-md border border-gray-300 p-2 w-full"
                           placeholder="Enter your pincode"
                           required
                         />
                       </div>
 
                       {/* City */}
-                      <div>
+                      <div className="col-span-1">
                         <label className="block text-sm font-medium text-gray-700">
                           City
                         </label>
@@ -407,14 +384,14 @@ const Checkout = () => {
                               city: e.target.value,
                             })
                           }
-                          className="rounded-md border border-gray-300 p-2"
+                          className="rounded-md border border-gray-300 p-2 w-full"
                           placeholder="Enter your city"
                           required
                         />
                       </div>
 
                       {/* State */}
-                      <div>
+                      <div className="col-span-1">
                         <label className="block text-sm font-medium text-gray-700">
                           State
                         </label>
@@ -428,7 +405,7 @@ const Checkout = () => {
                               state: e.target.value,
                             })
                           }
-                          className="rounded-md border border-gray-300 p-2"
+                          className="rounded-md border border-gray-300 p-2 w-full"
                           placeholder="Enter your state"
                           required
                         />

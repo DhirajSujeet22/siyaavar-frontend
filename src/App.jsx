@@ -1,134 +1,169 @@
-import React, { useEffect } from "react";
-import HomePage from "./Pages/HomePage";
-import ProductsDetailsPage from "./Pages/ProductsDetailsPage";
-import Cart from "./features/Cart/Cart";
-import UserProfilePage from "./Pages/UserProfilePage";
-import ErrorBoundary from "./features/common/ErrorBoundary";
-import ProductsPage from "./Pages/ProductsPage";
+import React, { Suspense, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLoggedInUserAsync } from "./features/User/UserSlice";
 import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
-// import SignUp from "./features/Auth/components/SignUp";
-import Login from "./features/Auth/components/Login";
 import {
   CheckAuthAsync,
   selectLoginUserInfo,
   selectUserCheck,
 } from "./features/Auth/AuthSlice";
+// ----------------------------------------------------------------
+import ErrorBoundary from "./features/common/ErrorBoundary";
 import LogOut from "./features/Auth/components/LogOut";
-import { Toaster } from "react-hot-toast";
 import ErrorPage from "./features/common/ErrorPage";
-import CheckoutPage from "./Pages/CheckoutPage";
-import DashboardPage from "./Pages/DashboardPage";
-import OrderHistoryPage from "./Pages/OrderHistoryPage";
-import WishlistPage from "./Pages/WishlistPage";
-import PrivacyPage from "./Pages/PrivacyPage";
-import BlogPage from "./Pages/BlogPage";
-import BlogDetailPage from "./Pages/BlogDetailPage";
-import AboutPage from "./Pages/AboutPage";
-import ContactUsPage from "./Pages/ContactUsPage";
-import FAQPage from "./Pages/FAQPage";
-import ShippingDetailsPage from "./Pages/ShippingDetailsPage";
-import CareersPage from "./Pages/CareersPage";
-import ExchangePolicyPage from "./Pages/ExchangePolicyPage";
 import PageOnTop from "./Home/PageonTop";
 import LoadingSpinner from "./features/common/LoadingSpinner";
-// import Wishlist from "./"
+// ----------------------------------------------------------------
+const HomePage = React.lazy(() => import("./Pages/HomePage"));
+const ProductsDetailsPage = React.lazy(() =>
+  import("./Pages/ProductsDetailsPage")
+);
+const ProductsPage = React.lazy(() => import("./Pages/ProductsPage"));
+const Cart = React.lazy(() => import("./features/Cart/Cart"));
+const UserProfilePage = React.lazy(() => import("./Pages/UserProfilePage"));
+const CheckoutPage = React.lazy(() => import("./Pages/CheckoutPage"));
+const DashboardPage = React.lazy(() => import("./Pages/DashboardPage"));
+const OrderHistoryPage = React.lazy(() => import("./Pages/OrderHistoryPage"));
+const WishlistPage = React.lazy(() => import("./Pages/WishlistPage"));
+const PrivacyPage = React.lazy(() => import("./Pages/PrivacyPage"));
+const BlogPage = React.lazy(() => import("./Pages/BlogPage"));
+const BlogDetailPage = React.lazy(() => import("./Pages/BlogDetailPage"));
+const AboutPage = React.lazy(() => import("./Pages/AboutPage"));
+const ContactUsPage = React.lazy(() => import("./Pages/ContactUsPage"));
+const CareersPage = React.lazy(() => import("./Pages/CareersPage"));
+const ExchangePolicyPage = React.lazy(() =>
+  import("./Pages/ExchangePolicyPage")
+);
+const FAQPage = React.lazy(() => import("./Pages/FAQPage"));
+const ShippingDetailsPage = React.lazy(() =>
+  import("./Pages/ShippingDetailsPage")
+);
+
 // ===========================================
 // Define route configuration
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <HomePage />
+        </ErrorBoundary>
+      </Suspense>
+    ),
   },
   {
     path: "/logOut",
     element: (
-      <ErrorBoundary>
-        <LogOut />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <LogOut />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/userProfile",
     element: (
-      <ErrorBoundary>
-        <PageOnTop />
-        <UserProfilePage />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <UserProfilePage />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/orders",
     element: (
-      <ErrorBoundary>
-        <PageOnTop />
-        <OrderHistoryPage />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <OrderHistoryPage />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/userDashboard",
     element: (
-      <ErrorBoundary>
-        <PageOnTop />
-        <DashboardPage />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <DashboardPage />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/wishlist",
     element: (
-      <ErrorBoundary>
-        <PageOnTop />
-        <WishlistPage />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <WishlistPage />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/Products",
     element: (
-      <ErrorBoundary>
-        <PageOnTop />
-        <ProductsPage />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <ProductsPage />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/ProductsDetails/:id",
     element: (
-      <ErrorBoundary>
-        <PageOnTop />
-        <ProductsDetailsPage />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <ProductsDetailsPage />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/cart",
     element: (
-      <ErrorBoundary>
-        <PageOnTop />
-        <Cart />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <Cart />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/checkout",
 
     element: (
-      <ErrorBoundary>
-        <PageOnTop />
-        <CheckoutPage />
-      </ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <PageOnTop />
+          <CheckoutPage />
+        </ErrorBoundary>
+      </Suspense>
     ),
   },
   {
     path: "/privacypolicy",
     element: (
       <>
-        <PageOnTop />
-        <PrivacyPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <PrivacyPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
@@ -136,8 +171,12 @@ const router = createBrowserRouter([
     path: "/blog",
     element: (
       <>
-        <PageOnTop />
-        <BlogPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <BlogPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
@@ -145,8 +184,12 @@ const router = createBrowserRouter([
     path: "/blogDetails",
     element: (
       <>
-        <PageOnTop />
-        <BlogDetailPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <BlogDetailPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
@@ -154,8 +197,12 @@ const router = createBrowserRouter([
     path: "/aboutUs",
     element: (
       <>
-        <PageOnTop />
-        <AboutPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <AboutPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
@@ -163,8 +210,12 @@ const router = createBrowserRouter([
     path: "/ContactUs",
     element: (
       <>
-        <PageOnTop />
-        <ContactUsPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <ContactUsPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
@@ -172,8 +223,12 @@ const router = createBrowserRouter([
     path: "/FAQ",
     element: (
       <>
-        <PageOnTop />
-        <FAQPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <FAQPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
@@ -181,8 +236,12 @@ const router = createBrowserRouter([
     path: "/ShippingPolicy",
     element: (
       <>
-        <PageOnTop />
-        <ShippingDetailsPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <ShippingDetailsPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
@@ -190,8 +249,12 @@ const router = createBrowserRouter([
     path: "/careers",
     element: (
       <>
-        <PageOnTop />
-        <CareersPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <CareersPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
@@ -199,14 +262,24 @@ const router = createBrowserRouter([
     path: "/exchangePolicy",
     element: (
       <>
-        <PageOnTop />
-        <ExchangePolicyPage />
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <ExchangePolicyPage />
+          </ErrorBoundary>
+        </Suspense>
       </>
     ),
   },
   {
     path: "*",
-    element: <ErrorPage />,
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <ErrorBoundary>
+          <ErrorPage />
+        </ErrorBoundary>
+      </Suspense>
+    ),
   },
 ]);
 

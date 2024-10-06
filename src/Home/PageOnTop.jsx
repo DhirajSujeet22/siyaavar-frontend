@@ -2,11 +2,14 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const PageOnTop = () => {
-  const { pathname } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [location.pathname, location.search]);
 
   return null;
 };
