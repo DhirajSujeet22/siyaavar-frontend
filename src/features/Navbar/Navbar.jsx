@@ -135,6 +135,7 @@ const Navbar = ({ Children }) => {
 
   return (
     <>
+      {modalIsOpen && <SignUp_Login />}
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-[#f8ecd6]">
           {({ open }) => (
@@ -283,7 +284,6 @@ const Navbar = ({ Children }) => {
                           </span>
                         )}
                       </Link>
-                      {modalIsOpen && <SignUp_Login />}
                       {/* wishlist*/}
                       <Link to="/cart">
                         <div className="relative mt-2">

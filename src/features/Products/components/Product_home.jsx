@@ -55,6 +55,7 @@ const Product_home = () => {
 
       <main>
         <Swiper
+          style={{ padding: "1rem"}}
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
@@ -64,7 +65,7 @@ const Product_home = () => {
           navigation={true}
           effect="fade"
           modules={[Autoplay, EffectFade]}
-          className="mySwiper p-4"
+          className="mySwiper"
         >
           <SwiperSlide>
             <img
