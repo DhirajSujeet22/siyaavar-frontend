@@ -13,7 +13,7 @@ import {
 import ErrorBoundary from "./features/common/ErrorBoundary";
 import LogOut from "./features/Auth/components/LogOut";
 import ErrorPage from "./features/common/ErrorPage";
-import PageOnTop from "./Home/PageonTop";
+import PageOnTop from "./Home/PageUp";
 import LoadingSpinner from "./features/common/LoadingSpinner";
 // ----------------------------------------------------------------
 const HomePage = React.lazy(() => import("./Pages/HomePage"));

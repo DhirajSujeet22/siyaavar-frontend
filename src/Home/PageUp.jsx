@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const PageOnTop = () => {
+const PageUp = () => {
   const location = useLocation();
 
   useEffect(() => {
@@ -14,4 +14,4 @@ const PageOnTop = () => {
   return null;
 };
 
-export default PageOnTop;
+export default PageUp;
