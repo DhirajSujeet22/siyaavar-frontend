@@ -141,7 +141,7 @@ const Navbar = ({ Children }) => {
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-0 lg:px-0">
-                <div className="flex h-[5rem] items-center justify-between">
+                <div className="flex  h-[5rem] items-center justify-between">
                   <div className="flex items-center justify-between">
                     <div className="flex-shrink-0">
                       <Link to="/">

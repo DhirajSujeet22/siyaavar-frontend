@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         baskervville: ['"Baskervville SC"', "serif"],
+        rufina: ['"Rufina"', "serif"],
       },
     },
   },

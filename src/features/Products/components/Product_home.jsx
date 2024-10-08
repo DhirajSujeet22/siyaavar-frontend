@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { Autoplay, EffectFade, FreeMode } from "swiper/modules";
-import WhatsAppIcon from "../../common/WhatsAppIcon";
 
 const images = {
   men: [
@@ -53,9 +52,9 @@ const Product_home = () => {
     <>
       {/* ===================== Banner  ==================== */}
 
-      <main>
+      <main className="bg-[#f8ecd6]">
         <Swiper
-          style={{ padding: "1rem"}}
+          style={{ padding: "1rem" }}
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
@@ -77,7 +76,7 @@ const Product_home = () => {
           <SwiperSlide>
             <img
               className="w-full  h-[12rem] sm:h-auto rounded-lg"
-              src="https://i.imgur.com/OAopDgm.png"
+              src="https://i.imgur.com/t4LeqKU.png"
               alt="banner_img"
             />
           </SwiperSlide>
@@ -99,11 +98,7 @@ const Product_home = () => {
       </main>
 
       {/* ===================== Choose Your Groove ==================== */}
-
-      <WhatsAppIcon />
-
-      {/* ===================== Choose Your Groove ==================== */}
-      <section className="p-3 bg-gray-100 mt-5">
+      <section className="p-3 sm:px-[8rem] bg-[#f8ecd6]">
         <div className="flex flex-col items-center">
           {/* Title Section */}
           <h2 className="font-baskervville text-[1.8rem] sm:text-3xl py-6 font-semibold text-gray-800 mb-8 text-center">
@@ -124,7 +119,7 @@ const Product_home = () => {
         </div>
       </section>
       {/* ===================== Trending Best Selling Products ==================== */}
-      <section className="p-8 bg-gray-100">
+      <section className="p-3 sm:px-[8rem] bg-[#f8ecd6]">
         <div>
           {/* Title Section */}
           <h2 className="font-baskervville text-3xl py-6 font-semibold text-gray-800 mb-8 text-center">
@@ -168,7 +163,7 @@ const Product_home = () => {
         </div>
       </section>
       {/* ===================== Latest Additions ==================== */}
-      <section className="p-3 bg-gray-100">
+      <section className="p-3 sm:px-[8rem] bg-[#f8ecd6]">
         <div className="flex flex-col items-center">
           {/* Title Section */}
           <h2 className="font-baskervville text-3xl py-6 font-semibold text-gray-800 mb-8 text-center">
@@ -181,8 +176,8 @@ const Product_home = () => {
               onClick={() => setFilter("men")}
               className={`px-4 py-2 rounded-lg transition-colors duration-300 ease-in-out ${
                 filter === "men"
-                  ? "bg-blue-600 text-white"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
+                  ? "bg-[#dc5d2f] text-white"
+                  : "bg-[#dc5d2f] text-white"
               }`}
             >
               Men
@@ -191,8 +186,8 @@ const Product_home = () => {
               onClick={() => setFilter("women")}
               className={`px-4 py-2 rounded-lg transition-colors duration-300 ease-in-out ${
                 filter === "women"
-                  ? "bg-blue-600 text-white"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
+                  ? "bg-[#dc5d2f] text-white"
+                  : "bg-[#dc5d2f] text-white"
               }`}
             >
               Women
@@ -201,8 +196,8 @@ const Product_home = () => {
               onClick={() => setFilter("kids")}
               className={`px-4 py-2 rounded-lg transition-colors duration-300 ease-in-out ${
                 filter === "kids"
-                  ? "bg-blue-600 text-white"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
+                  ? "bg-[#dc5d2f] text-white"
+                  : "bg-[#dc5d2f] text-white"
               }`}
             >
               Kids
@@ -216,15 +211,15 @@ const Product_home = () => {
                 key={index}
                 src={src}
                 alt={`Groove_img_${index}`}
-                className="w-72 object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
+                className="w-full h-[15rem] sm:h-[25rem] object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
               />
             ))}
           </div>
         </div>
       </section>
       {/* ===================== See offers ==================== */}
-      <section className="p-8 my-10 bg-gray-100">
-        <div className="flex flex-col md:flex-row justify-between gap-6">
+      <section className="p-3 sm:px-[8rem] bg-[#f8ecd6]">
+        <div className="flex mt-8 flex-col md:flex-row justify-between gap-6">
           {/* Box 1 */}
           <div className="flex flex-col justify-between border-yellow-400 border-2 bg-white p-6 rounded-lg shadow-md flex-grow">
             <h3 className="text-lg font-medium text-gray-800 mb-4">Siyaavar</h3>
@@ -233,7 +228,7 @@ const Product_home = () => {
               Fashion Collections Now Live!"
             </p>
             <div className="flex justify-end mt-4">
-              <button className="px-4 py-2 text-white rounded-lg bg-blue-600 transition-colors duration-300 ease-in-out">
+              <button className="px-4 py-2  rounded-lg bg-[#dc5d2f] text-white transition-colors duration-300 ease-in-out">
                 See Offers
               </button>
             </div>
@@ -247,7 +242,7 @@ const Product_home = () => {
               Fashion Collections Now Live!"
             </p>
             <div className="flex justify-end mt-4">
-              <button className="px-4 py-2 text-white rounded-lg bg-blue-600 transition-colors duration-300 ease-in-out">
+              <button className="px-4 py-2 rounded-lg bg-[#dc5d2f] text-white transition-colors duration-300 ease-in-out">
                 See Offers
               </button>
             </div>
@@ -255,8 +250,8 @@ const Product_home = () => {
         </div>
       </section>
       {/* ===================== Videos ==================== */}
-      <section className="p-3 mt-10 bg-gray-100">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-5 justify-center">
+      <section className="p-3 sm:px-[7rem] bg-[#f8ecd6]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10 mt-10">
           <div className="flex-shrink-0 w-full sm:w-72 md:w-80 lg:w-[17rem]">
             <video
               className="w-full h-auto rounded-lg shadow-md"
@@ -313,7 +308,7 @@ const Product_home = () => {
         </div>
       </section>
       {/* ===================== "Discover Your Look!" ==================== */}
-      <section className="p-3 bg-gray-100">
+      <section className="p-3 sm:px-[8rem] bg-[#f8ecd6]">
         <div className="flex flex-col items-center">
           {/* Title Section */}
           <h2 className="font-baskervville text-3xl py-6 font-semibold text-gray-800 mb-8 text-center">
@@ -359,7 +354,7 @@ const Product_home = () => {
       </section>
       {/* ===================== "Wedding Collections" ==================== */}
 
-      <section className="p-3 my-10 bg-gray-100">
+      <section className="p-3 sm:px-[8rem] bg-[#f8ecd6]">
         <div className="flex flex-col items-center">
           {/* Title Section */}
           <h2 className="font-baskervville text-3xl py-6 font-semibold text-gray-800 mb-8 text-center">
@@ -378,10 +373,10 @@ const Product_home = () => {
                   alt={`Groove_img_${index}`}
                   className="w-72 object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
                 />
-                <p className="text-lg font-[600] mt-4 font-baskervville">
+                <p className="text-sm sm:text-md font-[600] mt-4 font-rufina">
                   Peach Buta patterned sherwani set
+                  <p className="text-gray-700 text-sm mt-1">₹ 99,999 /-</p>
                 </p>
-                <p className="text-gray-700 mt-5">₹ 99,999 /-</p>
               </div>
             ))}
           </div>
@@ -390,8 +385,8 @@ const Product_home = () => {
 
       {/* ===================== "Kids Collection" ==================== */}
 
-      <section className="p-3 my-10 bg-gray-100">
-        <div className="flex flex-col items-center">
+      <section className="p-3 bg-[#f8ecd6]">
+        <div className="flex flex-col items-center pb-10">
           {/* Title Section */}
           <h2 className="font-baskervville text-3xl py-6 font-semibold text-gray-800 mb-8 text-center">
             Wedding Collections
@@ -400,9 +395,9 @@ const Product_home = () => {
           {/* Image Grid Section */}
           <div className="flex flex-wrap justify-center gap-6 mt-5">
             <img
-              src="https://i.imgur.com/GgfLLJG.png"
+              src="https://www.manyavar.com/on/demandware.static/-/Library-Sites-ManyavarSharedLibrary/default/dw6d360197/images/closet/HP_WeddingCloset_Homepage_D.png"
               alt="kids"
-              className="w-[100%] object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
+              className="w-[90%]   object-cover rounded-lg"
             />
           </div>
         </div>

@@ -115,7 +115,7 @@ const Products = () => {
 
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-[#fffbf2]">
         <div>
           {/* Mobile filter dialog */}
           <Dialog
@@ -168,7 +168,7 @@ const Products = () => {
                       className="border-t border-gray-200 px-4 py-6"
                     >
                       <h3 className="-mx-2 -my-3 flow-root">
-                        <DisclosureButton className="group flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-[#fffbf2] px-2 py-3 text-gray-400 hover:text-gray-500">
                           <span className="font-medium text-gray-900">
                             {section.name}
                           </span>
@@ -306,7 +306,7 @@ const Products = () => {
                         className="border-b border-gray-200 py-6"
                       >
                         <h3 className="-my-3 flow-root">
-                          <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <DisclosureButton className="group flex w-full items-center justify-between bg-[#fffbf2] py-3 text-sm text-gray-400 hover:text-gray-500">
                             <span className="font-medium text-gray-900">
                               {section.name}
                             </span>
@@ -354,13 +354,13 @@ const Products = () => {
                   {/* Product grid products list */}
 
                   <div className="lg:col-span-3">
-                    <div className="bg-white">
+                    <div className="bg-[#fffbf2]">
                       <div className="mx-auto h-full max-w-2xl px-4 py-16 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
                         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
                           products
                         </h2>
 
-                        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                        <div className="mt-6  grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                           {Products &&
                             Products.map((product, index) => (
                               <Link
@@ -368,7 +368,7 @@ const Products = () => {
                                 to={`/ProductsDetails/${product.id}`}
                               >
                                 <div className="group relative">
-                                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none">
+                                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none">
                                     <img
                                       alt={product.title}
                                       src={product.images}
