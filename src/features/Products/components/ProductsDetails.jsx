@@ -1,22 +1,19 @@
 import { Fragment, useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
-import { Menu, RadioGroup, Transition } from "@headlessui/react";
+import { Menu, Radio, RadioGroup, Transition } from "@headlessui/react";
 import {
   selectProductsById,
   FetchProductsByIdAsync,
   selectStatus,
 } from "../productSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useLocation, useParams } from "react-router-dom";
+import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import {
   AddToCartAsync,
   fetchCartByUserIdAsync,
-  selectCarts,
   selectCartsStatus,
 } from "../../Cart/CartSlice";
 
-// import { discountPrice } from "../../../app/Constant";
-// import { toast } from "react-toastify";
 import LoadingSpinner from "../../common/LoadingSpinner";
 import { TbLocationShare } from "react-icons/tb";
 import { FaLink } from "react-icons/fa6";
@@ -42,6 +39,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import { Pagination } from "swiper/modules";
+import Accordion from "../../common/Accordion";
 // ==========================================================================
 
 const ProductsDetails = () => {
@@ -50,15 +51,13 @@ const ProductsDetails = () => {
   const ProductData = useSelector(selectProductsById);
   const status = useSelector(selectStatus);
   const cartStatus = useSelector(selectCartsStatus);
-  const GetAddToCart = useSelector(selectCarts);
-  const [itemSelect, setItemSelect] = useState("");
 
   const sizesWithStock =
     ProductData && ProductData.sizes
       ? ProductData.sizes.map((size) => ({
           name: size,
           tag: "sizes",
-          inStock: true, // You can add logic here to set stock dynamically based on your requirements
+          inStock: true,
         }))
       : [];
 
@@ -75,6 +74,13 @@ const ProductsDetails = () => {
       : [];
 
   // -------------------------------------
+  const Pimages = [
+    "https://teetimeshop.in/cdn/shop/files/c2c9955c-e890-4c8e-8a08-a6a444aa8fe3.jpg?v=1702644878&width=1445", // Image 1
+    "https://contents.mediadecathlon.com/p2567760/06cf21e3f5a8a75af7ac0659729255e7/p2567760.jpg", // Image 2
+    "https://nobero.com/cdn/shop/files/og.jpg?v=1722234051", // Image 3
+    "https://chriscross.in/cdn/shop/files/ChrisCrossPlainBlackcottonT-Shirt.jpg?v=1695634950&width=2048", // Image 4
+    "https://d1xv5jidmf7h0f.cloudfront.net/circleone/images/products_gallery_images/Custom-Printed-T-Shirt-Round-Neck.jpg",
+  ];
 
   const product = {
     id: ProductData?.id,
@@ -87,7 +93,7 @@ const ProductsDetails = () => {
       { id: 2, name: ProductData?.category || "", href: "#" },
     ],
     thumbnail: ProductData?.thumbnail || "",
-    images: ProductData?.images ? [ProductData.images] : [],
+    images: Pimages,
     colors: colorsWithStock,
     sizes: sizesWithStock,
     description: ProductData?.description || "",
@@ -101,13 +107,9 @@ const ProductsDetails = () => {
     details: ProductData?.description || "",
   };
 
-  // ==========================================================================
+  console.log(product.images);
 
-  // to check product is already in cart or not : to implement duplicate problem
-
-  // const CheckingProductInCart = GetAddToCart.filter(
-  //   (items) => items.product.title === ProductData.title
-  // );
+  const [mainImage, setMainImage] = useState(product.images);
 
   // ==========================================================================
 
@@ -129,36 +131,10 @@ const ProductsDetails = () => {
         product: { ...ProductData, size: selectedSize, color: selectedColor },
       })
     );
-
-    // TODO : it will be based on the server response
-    // toast.success(<h3 className="font-bold"> 🛒 item added to cart</h3>);
   };
-
-  // const handleAddToCart = () => {
-  //   dispatch(
-  //     AddToCartAsync({
-  //       quantity: 1,
-  //       product: ProductData.id,
-  //     })
-  //   );
-  //   // TODO : it will be based on the server response
-  //   toast.success(<h3 className="font-bold"> 🛒 item added to cart</h3>);
-  // };
-
-  // const handleBuyProduct = () => {
-  //   dispatch(
-  //     AddToCartAsync({
-  //       quantity: 1,
-  //       product: ProductData.id,
-  //     })
-  //   );
-  //   // TODO : it will be based on the server response
-  //   toast.success(<h3 className="font-bold"> 🛒 item added to cart</h3>);
-  // };
 
   // =============================================================================
 
-  // const darkMode = useSelector((state) => state.user.dark);
   const darkMode = "red" || "";
 
   // =============================================================================
@@ -196,13 +172,10 @@ const ProductsDetails = () => {
       {status ? (
         <LoadingSpinner />
       ) : (
-        <div className={`${darkMode ? bg_black : bg_white} relative`}>
-          <div className="pt-6">
+        <div className={`bg-[#fffbf2] px-2 py-5 relative`}>
+          <div className="p-3 sm:px-[2rem]">
             <nav aria-label="Breadcrumb">
-              <ol
-                role="list"
-                className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-              >
+              <ol role="list" className="mx-auto flex py-3">
                 {product.breadcrumbs &&
                   product.breadcrumbs.map((breadcrumb) => (
                     <li key={breadcrumb.id}>
@@ -214,7 +187,7 @@ const ProductsDetails = () => {
                             href={breadcrumb.href}
                             className={`${
                               darkMode ? blackColor : whiteColor
-                            }  mr-2 text-sm font-medium text-gray-900`}
+                            } mr-2 text-sm font-medium text-gray-900`}
                           >
                             {breadcrumb.name}
                           </a>
@@ -232,454 +205,344 @@ const ProductsDetails = () => {
                       )}
                     </li>
                   ))}
-                {/* <li className="text-sm">
-                  <a
-                    href={product.href}
-                    aria-current="page"
-                    className="font-medium text-gray-400 hover:text-gray-600"
-                  >
-                    {product.title}
-                  </a>
-                </li> */}
-
-                <Menu
-                  as="div"
-                  className="absolute z-10 right-2 top-[5.5rem] sm:top-2 ml-3"
-                >
-                  <div>
-                    <Menu.Button
-                      className={`${
-                        darkMode ? bg_white : bg_black
-                      } bg-white relative p-[0.5rem] flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 `}
-                    >
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
-                      <TbLocationShare
-                        className={`${
-                          darkMode ? whiteColor : blackColor
-                        } text-[1.5rem] rounded-[0.5rem]`}
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-opacity-5 focus:outline-none">
-                      <div className="flex flex-col gap-3 py-2">
-                        <WhatsappShareButton
-                          className="flex gap-4 ml-3 "
-                          url={pathname}
-                          title={product.title}
-                          separator=" - "
-                        >
-                          <WhatsappIcon size={22} round />
-                          WhatsApp
-                        </WhatsappShareButton>
-
-                        <FacebookShareButton
-                          className="flex gap-4 ml-3 "
-                          url={pathname}
-                          title={product.title}
-                          separator=" - "
-                        >
-                          <FacebookIcon size={22} round />
-                          Facebook
-                        </FacebookShareButton>
-
-                        <EmailShareButton
-                          className="flex gap-4 ml-3 "
-                          url={pathname}
-                          title={product.title}
-                          separator=" - "
-                        >
-                          <EmailIcon size={22} round />
-                          Email
-                        </EmailShareButton>
-
-                        <LinkedinShareButton
-                          className="flex gap-4 ml-3 "
-                          url={pathname}
-                          title={product.title}
-                          separator=" - "
-                        >
-                          <LinkedinIcon size={22} round />
-                          Linkedin
-                        </LinkedinShareButton>
-
-                        <button
-                          onClick={productShareOption}
-                          className="flex gap-4 ml-3 "
-                        >
-                          <FaLink />
-                          {copy ? "Link Copied" : "Copy Link"}
-                        </button>
-                      </div>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
               </ol>
             </nav>
-            {/* Image gallery */}
-            <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-              <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-                <img
-                  src={
-                    product.images && product.images[0]
-                      ? product.images[0]
-                      : product.thumbnail
-                  }
-                  alt={product.title}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-              <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                  <img
-                    src={
-                      product.images && product.images[1]
-                        ? product.images[1]
-                        : product.thumbnail
-                    }
-                    alt={product.title}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-                  <img
-                    src={
-                      product.images && product.images[2]
-                        ? product.images[2]
-                        : product.thumbnail
-                    }
-                    alt={product.title}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-              </div>
-              <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-                <img
-                  src={
-                    product.images && product.images[3]
-                      ? product.images[3]
-                      : product.thumbnail
-                  }
-                  alt={product.title}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-            </div>
 
-            {/* Product info */}
-            <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-              <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+            <Menu
+              as="div"
+              className="absolute z-10 right-2 top-[5.5rem] sm:top-2 ml-3"
+            >
+              <div>
+                <Menu.Button
+                  className={`${
+                    darkMode ? bg_white : bg_black
+                  } bg-white relative p-[0.5rem] flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2`}
+                >
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">Open user menu</span>
+                  <TbLocationShare
+                    className={`${
+                      darkMode ? whiteColor : blackColor
+                    } text-[1.5rem] rounded-[0.5rem]`}
+                  />
+                </Menu.Button>
+              </div>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-opacity-5 focus:outline-none">
+                  <div className="flex flex-col gap-3 py-2">
+                    <WhatsappShareButton
+                      className="flex gap-4 ml-3"
+                      url={pathname}
+                      title={product.title}
+                      separator=" - "
+                    >
+                      <WhatsappIcon size={22} round />
+                      WhatsApp
+                    </WhatsappShareButton>
+
+                    <FacebookShareButton
+                      className="flex gap-4 ml-3"
+                      url={pathname}
+                      title={product.title}
+                      separator=" - "
+                    >
+                      <FacebookIcon size={22} round />
+                      Facebook
+                    </FacebookShareButton>
+
+                    <EmailShareButton
+                      className="flex gap-4 ml-3"
+                      url={pathname}
+                      title={product.title}
+                      separator=" - "
+                    >
+                      <EmailIcon size={22} round />
+                      Email
+                    </EmailShareButton>
+
+                    <LinkedinShareButton
+                      className="flex gap-4 ml-3"
+                      url={pathname}
+                      title={product.title}
+                      separator=" - "
+                    >
+                      <LinkedinIcon size={22} round />
+                      Linkedin
+                    </LinkedinShareButton>
+
+                    <button
+                      onClick={productShareOption}
+                      className="flex gap-4 ml-3"
+                    >
+                      <FaLink />
+                      {copy ? "Link Copied" : "Copy Link"}
+                    </button>
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu>
+
+            <div className="flex mt-6">
+              {/* Image Gallery */}
+              <div className="flex-col space-y-[1rem] overflow-x-auto mt-2">
+                {product.images.map((image, index) => (
+                  <div key={index} className="flex-shrink-0 w-22 h-20 mr-2">
+                    <img
+                      src={image}
+                      alt={`Gallery Image ${index + 1}`}
+                      className="rounded-md w-full h-full object-cover cursor-pointer hover:opacity-75"
+                      onClick={() => setMainImage(image)} // Set the clicked image as the main image
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Left Side - Main Image */}
+              <div className="flex-basis-[70%] mt-2  flex flex-col">
+                {/* Main Image */}
+                <div className="hidden md:block w-[45rem] mx-5  h-[35rem] overflow-hidden">
+                  <img
+                    src={mainImage}
+                    alt="Main"
+                    className="rounded-md w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Mobile Swipeable Images */}
+                <div className="md:hidden mt-2">
+                  <Swiper
+                    pagination={true}
+                    modules={[Pagination]}
+                    loop={true}
+                    spaceBetween={1}
+                    slidesPerView={1}
+                  >
+                    {product.images.map((image, index) => (
+                      <SwiperSlide
+                        key={index}
+                        onClick={() => setMainImage(image)}
+                      >
+                        <img
+                          src={image}
+                          alt={`Swipe Image ${index + 1}`}
+                          className="cursor-pointer hover:opacity-75 w-full h-[18rem] object-cover rounded-md"
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+              </div>
+
+              {/* Right Side - Product Info */}
+              <div className="flex-basis-[30%] px-4">
                 <h1
                   className={`${
                     darkMode ? blackColor : whiteColor
-                  } text-2xl font-bold tracking-tight  sm:text-3xl`}
+                  } text-2xl font-bold tracking-tight sm:text-4xl`}
                 >
                   {product.title}
                 </h1>
-              </div>
 
-              {/* Options */}
-              <div className="mt-4 lg:row-span-3 lg:mt-0">
-                <h2 className="sr-only">Product information</h2>
-                {product.stock <= 0 ? (
-                  <p
-                    className={"text-4xl font-bold tracking-tight text-red-500"}
-                  >
-                    Out of Stock
-                  </p>
-                ) : (
-                  <p
-                    className={`${
-                      darkMode ? blackColor : whiteColor
-                    } text-3xl tracking-tight `}
-                  >
-                    ₹{product.price}
-                  </p>
-                )}
-                {/* Reviews */}
-                <div className="mt-6">
-                  <h3 className="sr-only">Reviews</h3>
-                  <div className="flex items-center">
-                    <div className="flex items-center">
-                      {[0, 1, 2, 3, 4].map((rating) => (
-                        <StarIcon
-                          key={rating}
-                          className={classNames(
-                            product.rating > rating
-                              ? "text-gray-500"
-                              : "text-gray-500",
-                            "h-5 w-5 flex-shrink-0"
-                          )}
-                          aria-hidden="true"
-                        />
-                      ))}
-                    </div>
-                    <p className="sr-only">{product.rating} out of 5 stars</p>
-                    <a
-                      href={product.rating}
-                      className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      {product.rating} reviews / {product.stock} Stock
-                    </a>
-                  </div>
-                </div>
-
-                <form className="mt-10">
-                  {/* Colors */}
-                  <div>
-                    <h3
+                <div className="mt-4 lg:row-span-3 lg:mt-2">
+                  {product.stock <= 0 ? (
+                    <p className="text-4xl font-bold tracking-tight text-red-500">
+                      Out of Stock
+                    </p>
+                  ) : (
+                    <p
                       className={`${
                         darkMode ? blackColor : whiteColor
-                      } text-sm font-medium text-gray-900`}
+                      } text-3xl tracking-tight`}
                     >
-                      Color
-                    </h3>
+                      ₹{product.price}
+                    </p>
+                  )}
 
-                    <RadioGroup
-                      value={selectedColor}
-                      onChange={handleSelectColor}
-                      className="mt-4"
-                    >
-                      <RadioGroup.Label className="sr-only">
-                        Choose a color
-                      </RadioGroup.Label>
-                      <div className="flex items-center space-x-3">
-                        {product.colors &&
-                          product.colors.map((color) => (
-                            <RadioGroup.Option
+                  {/* Reviews */}
+                  <div className="mt-6">
+                    <h3 className="sr-only">Reviews</h3>
+                    <div className="flex items-center">
+                      <div className="flex items-center">
+                        {[0, 1, 2, 3, 4].map((rating) => (
+                          <StarIcon
+                            key={rating}
+                            className={classNames(
+                              product.rating > rating
+                                ? "text-gray-500"
+                                : "text-gray-500",
+                              "h-5 w-5 flex-shrink-0"
+                            )}
+                            aria-hidden="true"
+                          />
+                        ))}
+                      </div>
+                      <p className="sr-only">{product.rating} out of 5 stars</p>
+                      <a
+                        href={product.rating}
+                        className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                      >
+                        {product.rating} reviews / {product.stock} Stock
+                      </a>
+                    </div>
+                  </div>
+
+                  <form className="mt-10">
+                    {/* Colors */}
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-900">
+                        Color
+                      </h3>
+
+                      <fieldset aria-label="Choose a color" className="mt-4">
+                        <RadioGroup
+                          value={selectedColor}
+                          onChange={setSelectedColor}
+                          className="flex items-center space-x-3"
+                        >
+                          {product.colors.map((color) => (
+                            <Radio
                               key={color.name}
                               value={color}
-                              className={({ active, checked }) =>
-                                classNames(
-                                  color.selectedClass,
-                                  active && checked ? "ring ring-offset-1" : "",
-                                  !active && checked ? "ring-2" : "",
-                                  "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none"
-                                )
-                              }
+                              aria-label={color.name}
+                              className={classNames(
+                                color.selectedClass,
+                                "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1"
+                              )}
                             >
-                              <RadioGroup.Label as="span" className="sr-only">
-                                {color.name}
-                              </RadioGroup.Label>
                               <span
                                 aria-hidden="true"
                                 className={classNames(
                                   color.class,
-                                  "h-8 w-8 rounded-full border border-black border-opacity-10"
+                                  "h-8 w-8 bg-red-800 rounded-full border-2 border-gray-700 border-opacity-10"
                                 )}
                               />
-                            </RadioGroup.Option>
+                            </Radio>
                           ))}
-                      </div>
-                    </RadioGroup>
-                  </div>
-
-                  {/* Sizes */}
-                  <div className="mt-10">
-                    <div className="flex items-center justify-between">
-                      <h3
-                        className={`${
-                          darkMode ? blackColor : whiteColor
-                        } text-sm font-medium `}
-                      >
-                        Size
-                      </h3>
-                      <a
-                        href="#"
-                        className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                      >
-                        Size guide
-                      </a>
+                        </RadioGroup>
+                      </fieldset>
                     </div>
 
-                    <RadioGroup
-                      value={selectedSize}
-                      onChange={handleSelectSizes}
-                      className="mt-4"
-                    >
-                      <RadioGroup.Label className="sr-only">
-                        Choose a size
-                      </RadioGroup.Label>
-                      <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                        {product.sizes &&
-                          product.sizes.map((size) => (
-                            <RadioGroup.Option
+                    {/* Sizes */}
+                    <div className="mt-10">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-sm font-medium text-gray-900">
+                          Size
+                        </h3>
+                        <a
+                          href="#"
+                          className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                        >
+                          Size guide
+                        </a>
+                      </div>
+
+                      <fieldset aria-label="Choose a size" className="mt-4">
+                        <RadioGroup
+                          value={selectedSize}
+                          onChange={setSelectedSize}
+                          className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+                        >
+                          {product.sizes.map((size) => (
+                            <Radio
                               key={size.name}
                               value={size}
                               disabled={!size.inStock}
-                              className={({ isActive }) =>
-                                classNames(
-                                  size.inStock
-                                    ? "cursor-pointer bg-white text-gray-900 shadow-sm"
-                                    : "cursor-not-allowed bg-gray-50 text-gray-200",
-                                  isActive ? "ring-2 ring-indigo-500" : "",
-                                  "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                                )
-                              }
-                            >
-                              {({ isActive, checked }) => (
-                                <>
-                                  <RadioGroup.Label as="span">
-                                    {size.name}
-                                  </RadioGroup.Label>
-                                  {size.inStock ? (
-                                    <span
-                                      className={classNames(
-                                        isActive ? "border" : "border-2",
-                                        checked
-                                          ? "border-indigo-500"
-                                          : "border-transparent",
-                                        "pointer-events-none absolute -inset-px rounded-md"
-                                      )}
-                                      aria-hidden="true"
-                                    />
-                                  ) : (
-                                    <span
-                                      aria-hidden="true"
-                                      className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
-                                    >
-                                      <svg
-                                        className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
-                                        viewBox="0 0 100 100"
-                                        preserveAspectRatio="none"
-                                        stroke="currentColor"
-                                      >
-                                        <line
-                                          x1={0}
-                                          y1={100}
-                                          x2={100}
-                                          y2={0}
-                                          vectorEffect="non-scaling-stroke"
-                                        />
-                                      </svg>
-                                    </span>
-                                  )}
-                                </>
+                              className={classNames(
+                                size.inStock
+                                  ? "cursor-pointer border-gray-500 bg-transparent text-gray-900 shadow-sm"
+                                  : "cursor-not-allowed bg-gray-50 text-gray-200",
+                                "group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:flex-1 sm:py-6"
                               )}
-                            </RadioGroup.Option>
+                            >
+                              <span>{size.name}</span>
+                              {size.inStock ? (
+                                <span
+                                  aria-hidden="true"
+                                  className="pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-indigo-500"
+                                />
+                              ) : (
+                                <span
+                                  aria-hidden="true"
+                                  className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
+                                >
+                                  <svg
+                                    stroke="currentColor"
+                                    viewBox="0 0 100 100"
+                                    preserveAspectRatio="none"
+                                    className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
+                                  >
+                                    <line
+                                      x1={0}
+                                      x2={100}
+                                      y1={100}
+                                      y2={0}
+                                      vectorEffect="non-scaling-stroke"
+                                    />
+                                  </svg>
+                                </span>
+                              )}
+                            </Radio>
                           ))}
-                      </div>
-                    </RadioGroup>
-                  </div>
-                  {product.stock <= 0 ? null : (
-                    <div className="flex gap-[1rem] justify-around">
+                        </RadioGroup>
+                      </fieldset>
+                    </div>
+
+                    <div className="mt-10 flex">
                       <button
-                        onClick={handleAddToCart}
-                        disabled={cartStatus}
-                        type="button"
-                        className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        onClick={() => addToCart(product)}
+                        className={`${
+                          darkMode ? whiteColor : blackColor
+                        } flex justify-center rounded-md border border-transparent bg-[#e95827] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#852201] transition-colors ease-out`}
                       >
-                        {cartStatus ? (
-                          <div
-                            role="status"
-                            class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                          >
-                            <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
-                          </div>
-                        ) : (
-                          "Add to Card"
-                        )}
+                        Add to Cart
+                      </button>
+                      <button
+                        onClick={() => addToWishlist(product)}
+                        className={`${
+                          darkMode ? whiteColor : blackColor
+                        } ml-4 flex justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm bg-[#e95827] hover:bg-[#852201] transition-colors ease-out`}
+                      >
+                        Buy Now
                       </button>
 
-                      {ProductData && 0 ? (
-                        <NavLink to="/checkout">
-                          <button
-                            type="button"
-                            className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                          >
-                            Buy now
-                          </button>
-                        </NavLink>
-                      ) : (
-                        <NavLink to="/checkout">
-                          <button
-                            // onClick={handleBuyProduct}
-                            type="button"
-                            className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                          >
-                            Buy now
-                          </button>
-                        </NavLink>
-                      )}
+                      {/* {share button} */}
                     </div>
-                  )}
-                </form>
-              </div>
-
-              <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
-                {/* Description and details */}
-                <div>
-                  <h3 className="sr-only">Description</h3>
-
-                  <div className="space-y-6">
-                    <p
-                      className={`${
-                        darkMode ? blackColor : whiteColor
-                      } text-base`}
-                    >
-                      {product.description}
-                    </p>
-                  </div>
+                  </form>
                 </div>
+                {/* {accordion} */}
+                <>
+                  <div className="mt-10">
+                    <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+                      {/* Accordion for Product Highlights */}
+                      <Accordion title="Product Highlights">
+                        <ul className="list-disc space-y-2 pl-4 text-sm">
+                          {product.highlights &&
+                            product.highlights.map((highlight) => (
+                              <li key={highlight} className="text-gray-900">
+                                {highlight}
+                              </li>
+                            ))}
+                        </ul>
+                      </Accordion>
 
-                <div className="mt-10">
-                  <h3
-                    className={`${
-                      darkMode ? blackColor : whiteColor
-                    } text-sm font-medium text-gray-900`}
-                  >
-                    Highlights
-                  </h3>
-                  <div className="mt-4">
-                    <ul
-                      role="list"
-                      className="list-disc space-y-2 pl-4 text-sm"
-                    >
-                      {product.highlights &&
-                        product.highlights.map((highlight) => (
-                          <li
-                            key={highlight}
-                            className={darkMode ? blackColor : whiteColor}
-                          >
-                            <span
-                              className={darkMode ? blackColor : whiteColor}
-                            >
-                              {highlight}
-                            </span>
-                          </li>
-                        ))}
-                    </ul>
+                      {/* Add more accordions as needed */}
+                      <Accordion title="Additional Details">
+                        <p className={`text-base text-gray-900`}>
+                          Here you can add additional product details or
+                          specifications.
+                        </p>
+                      </Accordion>
+                    </div>
                   </div>
-                </div>
-
-                <div className="mt-10">
-                  <h2
-                    className={`${
-                      darkMode ? blackColor : whiteColor
-                    } text-sm font-medium text-gray-900`}
-                  >
-                    Details
-                  </h2>
-
-                  <div className="mt-4 space-y-6">
-                    <p
-                      className={`${
-                        darkMode ? blackColor : whiteColor
-                      } text-sm`}
-                    >
-                      {product.description}
-                    </p>
-                  </div>
-                </div>
+                </>
               </div>
             </div>
           </div>
