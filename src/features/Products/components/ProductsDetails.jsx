@@ -41,7 +41,7 @@ function classNames(...classes) {
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Accordion from "../../common/Accordion";
 // ==========================================================================
 
@@ -210,13 +210,11 @@ const ProductsDetails = () => {
 
             <Menu
               as="div"
-              className="absolute z-10 right-2 top-[5.5rem] sm:top-2 ml-3"
+              className="absolute z-10 right-7  top-[5.5rem] sm:top-[1rem] ml-3"
             >
               <div>
                 <Menu.Button
-                  className={`${
-                    darkMode ? bg_white : bg_black
-                  } bg-white relative p-[0.5rem] flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2`}
+                  className={`bg-gray-300 relative p-[0.5rem] flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2`}
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
@@ -292,53 +290,57 @@ const ProductsDetails = () => {
 
             <div className="flex mt-6">
               {/* Image Gallery */}
-              <div className="flex-col space-y-[1rem] overflow-x-auto mt-2">
-                {product.images.map((image, index) => (
-                  <div key={index} className="flex-shrink-0 w-22 h-20 mr-2">
-                    <img
-                      src={image}
-                      alt={`Gallery Image ${index + 1}`}
-                      className="rounded-md w-full h-full object-cover cursor-pointer hover:opacity-75"
-                      onClick={() => setMainImage(image)} // Set the clicked image as the main image
-                    />
-                  </div>
-                ))}
+              <div className="flex-basis-[20%] mt-2  hidden  md:flex flex-col">
+                <div className="flex flex-col space-y-4 overflow-y-auto mt-2">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="w-[6rem] h-[6rem] mr-2">
+                      <img
+                        src={image}
+                        alt={`Gallery Image ${index + 1}`}
+                        className="rounded-md w-full h-full object-cover cursor-pointer hover:opacity-75"
+                        onMouseEnter={() => setMainImage(image)} // Set the hovered image as the main image
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Left Side - Main Image */}
-              <div className="flex-basis-[70%] mt-2  flex flex-col">
+              <div className="basis-[50%] rounded-md mt-2  hidden  md:flex flex-col">
                 {/* Main Image */}
-                <div className="hidden md:block w-[45rem] mx-5  h-[35rem] overflow-hidden">
+                <div className="w-[40rem] h-[35rem] object-contain mx-5 overflow-hidden">
                   <img
                     src={mainImage}
                     alt="Main"
-                    className="rounded-md w-full h-full object-cover"
+                    className="rounded-md w-full h-full object-contain"
                   />
                 </div>
-
-                {/* Mobile Swipeable Images */}
-                <div className="md:hidden mt-2">
-                  <Swiper
-                    pagination={true}
-                    modules={[Pagination]}
-                    loop={true}
-                    spaceBetween={1}
-                    slidesPerView={1}
-                  >
-                    {product.images.map((image, index) => (
-                      <SwiperSlide
-                        key={index}
-                        onClick={() => setMainImage(image)}
-                      >
-                        <img
-                          src={image}
-                          alt={`Swipe Image ${index + 1}`}
-                          className="cursor-pointer hover:opacity-75 w-full h-[18rem] object-cover rounded-md"
-                        />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </div>
+              </div>
+              {/* Mobile Swipeable Images */}
+              <div className="md:hidden flex-col">
+                <Swiper
+                  pagination={true}
+                  loop={true}
+                  spaceBetween={1}
+                  slidesPerView={1}
+                  autoplay={{
+                    delay: 300,
+                
+                  }}
+                  
+                  modules={[Autoplay, Pagination, ]}
+                  className="mySwiper"
+                >
+                  {product.images.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <img
+                        src={image}
+                        alt={`Swipe Image ${index + 1}`}
+                        className="cursor-pointer hover:opacity-75 w-[18rem] h-[18rem] object-contain rounded-md"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
 
               {/* Right Side - Product Info */}
