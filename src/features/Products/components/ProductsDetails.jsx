@@ -1,6 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
+import { FaStarHalfStroke } from "react-icons/fa6";
 import { Menu, Radio, RadioGroup, Transition } from "@headlessui/react";
+import { BsCartCheckFill } from "react-icons/bs";
+import { SlEnergy } from "react-icons/sl";
 import {
   selectProductsById,
   FetchProductsByIdAsync,
@@ -43,6 +46,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Accordion from "../../common/Accordion";
+import { FaStar } from "react-icons/fa";
 // ==========================================================================
 
 const ProductsDetails = () => {
@@ -349,26 +353,38 @@ const ProductsDetails = () => {
                       <div className="flex items-center">
                         <div className="flex items-center">
                           {[0, 1, 2, 3, 4].map((rating) => (
-                            <StarIcon
+                            <span
                               key={rating}
-                              className={classNames(
-                                product.rating > rating
-                                  ? "text-gray-500"
-                                  : "text-gray-500",
-                                "h-5 w-5 flex-shrink-0"
+                              className="h-5 w-5 flex-shrink-0"
+                            >
+                              {product.rating >= rating + 1 ? (
+                                <FaStar
+                                  className="text-yellow-500"
+                                  aria-hidden="true"
+                                />
+                              ) : product.rating >= rating + 0.5 ? (
+                                <FaStarHalfStroke
+                                  className="text-yellow-500"
+                                  aria-hidden="true"
+                                />
+                              ) : (
+                                <FaStar
+                                  className="text-gray-300"
+                                  aria-hidden="true"
+                                />
                               )}
-                              aria-hidden="true"
-                            />
+                            </span>
                           ))}
                         </div>
                         <p className="sr-only">
                           {product.rating} out of 5 stars
                         </p>
                         <a
-                          href={product.rating}
+                          href="#reviews"
                           className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
                         >
-                          {product.rating} reviews / {product.stock} Stock
+                          {product.rating.toFixed(1)} reviews / {product.stock}{" "}
+                          in stock
                         </a>
                       </div>
                     </div>
@@ -427,7 +443,7 @@ const ProductsDetails = () => {
                           <RadioGroup
                             value={selectedSize}
                             onChange={setSelectedSize}
-                            className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+                            className="flex flex-wrap gap-5"
                           >
                             {product.sizes.map((size) => (
                               <Radio
@@ -438,7 +454,7 @@ const ProductsDetails = () => {
                                   size.inStock
                                     ? "cursor-pointer border-gray-500 bg-transparent text-gray-900 shadow-sm"
                                     : "cursor-not-allowed bg-gray-50 text-gray-200",
-                                  "group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:flex-1 sm:py-6"
+                                  "group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-orange-100  focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:px-8 sm:py-4"
                                 )}
                               >
                                 <span>{size.name}</span>
@@ -479,19 +495,21 @@ const ProductsDetails = () => {
                           onClick={() => addToCart(product)}
                           className={`${
                             darkMode ? whiteColor : blackColor
-                          } flex justify-center rounded-md border border-transparent bg-[#e95827] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#852201] transition-colors ease-out`}
+                          } flex justify-center rounded-md border border-transparent bg-[#e95827] px-4 py-4 text-base font-medium text-white shadow-sm hover:bg-[#852201] transition-colors ease-out`}
                         >
-                          Add to Cart
+                          <BsCartCheckFill className="text-[1.5rem] mr-2" /> ADD
+                          TO CART
                         </button>
-                        <button
-                          onClick={() => addToWishlist(product)}
-                          className={`${
-                            darkMode ? whiteColor : blackColor
-                          } ml-4 flex justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm bg-[#e95827] hover:bg-[#852201] transition-colors ease-out`}
-                        >
-                          Buy Now
-                        </button>
-
+                        <Link to="/checkout">
+                          <button
+                            onClick={() => addToWishlist(product)}
+                            className={`${
+                              darkMode ? whiteColor : blackColor
+                            } ml-4 flex justify-center rounded-md border border-transparent px-4 py-4 text-base font-medium text-white shadow-sm bg-[#e95827] hover:bg-[#852201] transition-colors ease-out`}
+                          >
+                            <SlEnergy className="text-[1.5rem] mr-2 text-yellow-500" /> BUY NOW
+                          </button>
+                        </Link>
                         {/* {share button} */}
                       </div>
                     </form>
@@ -513,12 +531,14 @@ const ProductsDetails = () => {
                         </Accordion>
 
                         {/* Add more accordions as needed */}
-                        <Accordion title="Additional Details">
-                          <p className={`text-base text-gray-900`}>
-                            Here you can add additional product details or
-                            specifications.
-                          </p>
-                        </Accordion>
+                        <div className="border-b border-gray-800">
+                          <Accordion title="Additional Details">
+                            <p className={`text-base text-gray-900`}>
+                              Here you can add additional product details or
+                              specifications.
+                            </p>
+                          </Accordion>
+                        </div>
                       </div>
                     </div>
                   </>
@@ -578,24 +598,33 @@ const ProductsDetails = () => {
                     <div className="flex items-center">
                       <div className="flex items-center">
                         {[0, 1, 2, 3, 4].map((rating) => (
-                          <StarIcon
-                            key={rating}
-                            className={classNames(
-                              product.rating > rating
-                                ? "text-gray-500"
-                                : "text-gray-500",
-                              "h-5 w-5 flex-shrink-0"
+                          <span key={rating} className="h-5 w-5 flex-shrink-0">
+                            {product.rating >= rating + 1 ? (
+                              <FaStar
+                                className="text-yellow-500"
+                                aria-hidden="true"
+                              />
+                            ) : product.rating >= rating + 0.5 ? (
+                              <FaStarHalfStroke
+                                className="text-yellow-500"
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <FaStar
+                                className="text-gray-300"
+                                aria-hidden="true"
+                              />
                             )}
-                            aria-hidden="true"
-                          />
+                          </span>
                         ))}
                       </div>
                       <p className="sr-only">{product.rating} out of 5 stars</p>
                       <a
-                        href={product.rating}
+                        href="#reviews"
                         className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
                       >
-                        {product.rating} reviews / {product.stock} Stock
+                        {product.rating.toFixed(1)} reviews / {product.stock} in
+                        stock
                       </a>
                     </div>
                   </div>
@@ -665,7 +694,7 @@ const ProductsDetails = () => {
                                 size.inStock
                                   ? "cursor-pointer border-gray-500 bg-transparent text-gray-900 shadow-sm"
                                   : "cursor-not-allowed bg-gray-50 text-gray-200",
-                                "group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:flex-1 sm:py-6"
+                                "group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-orange-100  focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:flex-1 sm:py-6"
                               )}
                             >
                               <span>{size.name}</span>
@@ -704,11 +733,12 @@ const ProductsDetails = () => {
                     <div className="mt-10 flex">
                       <button
                         onClick={() => addToCart(product)}
-                        className={`${
-                          darkMode ? whiteColor : blackColor
-                        } flex justify-center rounded-md border border-transparent bg-[#e95827] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#852201] transition-colors ease-out`}
+                        className={
+                          "flex justify-center rounded-md border border-transparent bg-[#e95827] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#852201] transition-colors ease-out"
+                        }
                       >
-                        Add to Cart
+                        <BsCartCheckFill className="text-[1.5rem] mr-2" /> ADD
+                        TO CART
                       </button>
                       <button
                         onClick={() => addToWishlist(product)}

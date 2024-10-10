@@ -8,7 +8,7 @@ const Accordion = ({ title, children }) => {
   };
 
   return (
-    <div className="border-t border-b border-gray-600 mb-2">
+    <div className="border-t border-gray-800 mb-2 py-3">
       <button
         onClick={toggleAccordion}
         className={`flex justify-between items-center w-full p-4 text-left focus:outline-none transition ${
