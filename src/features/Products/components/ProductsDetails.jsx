@@ -290,7 +290,7 @@ const ProductsDetails = () => {
 
             <div className="flex mt-6">
               {/* Image Gallery */}
-              <div className="flex-basis-[20%] mt-2  hidden  md:flex flex-col">
+              <div className="flex-basis-[20%] mt-2  hidden  lg:flex flex-col">
                 <div className="flex flex-col space-y-4 overflow-y-auto mt-2">
                   {product.images.map((image, index) => (
                     <div key={index} className="w-[6rem] h-[6rem] mr-2">
@@ -306,29 +306,234 @@ const ProductsDetails = () => {
               </div>
 
               {/* Left Side - Main Image */}
-              <div className="basis-[50%] rounded-md mt-2  hidden  md:flex flex-col">
-                {/* Main Image */}
-                <div className="w-[40rem] h-[35rem] object-contain mx-5 overflow-hidden">
-                  <img
-                    src={mainImage}
-                    alt="Main"
-                    className="rounded-md w-full h-full object-contain"
-                  />
+              <div className="flex-col lg:flex lg:flex-row hidden">
+                <div className="basis-[50%] rounded-md mt-2  hidden  md:flex flex-col">
+                  {/* Main Image */}
+                  <div className="w-[40rem] h-[35rem] object-contain mx-5 overflow-hidden">
+                    <img
+                      src={mainImage}
+                      alt="Main"
+                      className="rounded-md w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+
+                {/* Right Side - Product Info */}
+                <div className="my-10 md:w-full lg:w-auto">
+                  <h1
+                    className={`${
+                      darkMode ? blackColor : whiteColor
+                    } text-2xl font-bold tracking-tight sm:text-4xl`}
+                  >
+                    {product.title}
+                  </h1>
+
+                  <div className="mt-4 lg:row-span-3 lg:mt-2">
+                    {product.stock <= 0 ? (
+                      <p className="text-4xl font-bold tracking-tight text-red-500">
+                        Out of Stock
+                      </p>
+                    ) : (
+                      <p
+                        className={`${
+                          darkMode ? blackColor : whiteColor
+                        } text-3xl tracking-tight`}
+                      >
+                        ₹{product.price}
+                      </p>
+                    )}
+
+                    {/* Reviews */}
+                    <div className="mt-6">
+                      <h3 className="sr-only">Reviews</h3>
+                      <div className="flex items-center">
+                        <div className="flex items-center">
+                          {[0, 1, 2, 3, 4].map((rating) => (
+                            <StarIcon
+                              key={rating}
+                              className={classNames(
+                                product.rating > rating
+                                  ? "text-gray-500"
+                                  : "text-gray-500",
+                                "h-5 w-5 flex-shrink-0"
+                              )}
+                              aria-hidden="true"
+                            />
+                          ))}
+                        </div>
+                        <p className="sr-only">
+                          {product.rating} out of 5 stars
+                        </p>
+                        <a
+                          href={product.rating}
+                          className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                        >
+                          {product.rating} reviews / {product.stock} Stock
+                        </a>
+                      </div>
+                    </div>
+
+                    <form className="mt-10">
+                      {/* Colors */}
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-900">
+                          Color
+                        </h3>
+
+                        <fieldset aria-label="Choose a color" className="mt-4">
+                          <RadioGroup
+                            value={selectedColor}
+                            onChange={setSelectedColor}
+                            className="flex items-center space-x-3"
+                          >
+                            {product.colors.map((color) => (
+                              <Radio
+                                key={color.name}
+                                value={color}
+                                aria-label={color.name}
+                                className={classNames(
+                                  color.selectedClass,
+                                  "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1"
+                                )}
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className={classNames(
+                                    color.class,
+                                    "h-8 w-8 bg-red-800 rounded-full border-2 border-gray-700 border-opacity-10"
+                                  )}
+                                />
+                              </Radio>
+                            ))}
+                          </RadioGroup>
+                        </fieldset>
+                      </div>
+
+                      {/* Sizes */}
+                      <div className="mt-10">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-sm font-medium text-gray-900">
+                            Size
+                          </h3>
+                          <a
+                            href="#"
+                            className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                          >
+                            Size guide
+                          </a>
+                        </div>
+
+                        <fieldset aria-label="Choose a size" className="mt-4">
+                          <RadioGroup
+                            value={selectedSize}
+                            onChange={setSelectedSize}
+                            className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+                          >
+                            {product.sizes.map((size) => (
+                              <Radio
+                                key={size.name}
+                                value={size}
+                                disabled={!size.inStock}
+                                className={classNames(
+                                  size.inStock
+                                    ? "cursor-pointer border-gray-500 bg-transparent text-gray-900 shadow-sm"
+                                    : "cursor-not-allowed bg-gray-50 text-gray-200",
+                                  "group relative flex items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500 sm:flex-1 sm:py-6"
+                                )}
+                              >
+                                <span>{size.name}</span>
+                                {size.inStock ? (
+                                  <span
+                                    aria-hidden="true"
+                                    className="pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-indigo-500"
+                                  />
+                                ) : (
+                                  <span
+                                    aria-hidden="true"
+                                    className="pointer-events-none absolute -inset-px rounded-md border-2 border-gray-200"
+                                  >
+                                    <svg
+                                      stroke="currentColor"
+                                      viewBox="0 0 100 100"
+                                      preserveAspectRatio="none"
+                                      className="absolute inset-0 h-full w-full stroke-2 text-gray-200"
+                                    >
+                                      <line
+                                        x1={0}
+                                        x2={100}
+                                        y1={100}
+                                        y2={0}
+                                        vectorEffect="non-scaling-stroke"
+                                      />
+                                    </svg>
+                                  </span>
+                                )}
+                              </Radio>
+                            ))}
+                          </RadioGroup>
+                        </fieldset>
+                      </div>
+
+                      <div className="mt-10 flex">
+                        <button
+                          onClick={() => addToCart(product)}
+                          className={`${
+                            darkMode ? whiteColor : blackColor
+                          } flex justify-center rounded-md border border-transparent bg-[#e95827] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#852201] transition-colors ease-out`}
+                        >
+                          Add to Cart
+                        </button>
+                        <button
+                          onClick={() => addToWishlist(product)}
+                          className={`${
+                            darkMode ? whiteColor : blackColor
+                          } ml-4 flex justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm bg-[#e95827] hover:bg-[#852201] transition-colors ease-out`}
+                        >
+                          Buy Now
+                        </button>
+
+                        {/* {share button} */}
+                      </div>
+                    </form>
+                  </div>
+                  {/* {accordion} */}
+                  <>
+                    <div className="mt-10">
+                      <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+                        {/* Accordion for Product Highlights */}
+                        <Accordion title="Product Highlights">
+                          <ul className="list-disc space-y-2 pl-4 text-sm">
+                            {product.highlights &&
+                              product.highlights.map((highlight) => (
+                                <li key={highlight} className="text-gray-900">
+                                  {highlight}
+                                </li>
+                              ))}
+                          </ul>
+                        </Accordion>
+
+                        {/* Add more accordions as needed */}
+                        <Accordion title="Additional Details">
+                          <p className={`text-base text-gray-900`}>
+                            Here you can add additional product details or
+                            specifications.
+                          </p>
+                        </Accordion>
+                      </div>
+                    </div>
+                  </>
                 </div>
               </div>
-              {/* Mobile Swipeable Images */}
-              <div className="md:hidden flex-col">
+            </div>
+            {/* Mobile Swipeable Images */}
+            <div className="flex-col">
+              <div className="lg:hidden">
                 <Swiper
                   pagination={true}
                   loop={true}
                   spaceBetween={1}
                   slidesPerView={1}
-                  autoplay={{
-                    delay: 300,
-                
-                  }}
-                  
-                  modules={[Autoplay, Pagination, ]}
+                  modules={[Pagination]}
                   className="mySwiper"
                 >
                   {product.images.map((image, index) => (
@@ -336,15 +541,14 @@ const ProductsDetails = () => {
                       <img
                         src={image}
                         alt={`Swipe Image ${index + 1}`}
-                        className="cursor-pointer hover:opacity-75 w-[18rem] h-[18rem] object-contain rounded-md"
+                        className="cursor-pointer hover:opacity-75 w-full sm:h-[25rem]  h-[18rem] object-contain rounded-md"
                       />
                     </SwiperSlide>
                   ))}
                 </Swiper>
               </div>
-
-              {/* Right Side - Product Info */}
-              <div className="flex-basis-[30%] px-4">
+              {/* Product Description */}
+              <div className="lg:hidden px-2 mt-5">
                 <h1
                   className={`${
                     darkMode ? blackColor : whiteColor

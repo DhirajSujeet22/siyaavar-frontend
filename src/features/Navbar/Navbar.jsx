@@ -147,7 +147,7 @@ const Navbar = ({ Children }) => {
                       <Link to="/">
                         <img
                           className="h-auto w-[15rem]"
-                          src="https://i.imgur.com/HfWWL7R.png"
+                          src="https://i.imgur.com/pSKtH5i.png"
                           alt="Our Company"
                         />
                       </Link>
