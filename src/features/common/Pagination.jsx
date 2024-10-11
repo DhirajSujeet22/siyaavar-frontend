@@ -31,7 +31,7 @@ const Pagination = ({ totalItems, Page, setPage }) => {
           <button
             onClick={() => setPage((next) => next + 1)}
             disabled={Page >= totalPages}
-            className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-400"
           >
             Next
           </button>
@@ -60,7 +60,7 @@ const Pagination = ({ totalItems, Page, setPage }) => {
               <button
                 onClick={() => setPage((pre) => pre - 1)}
                 disabled={Page <= 1}
-                className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                className="relative inline-flex items-center rounded-l-md px-2 py-2 bg-gray-300 text-white ring-1 ring-inset ring-gray-300 hover:bg-gray-400 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Previous</span>
                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -73,7 +73,7 @@ const Pagination = ({ totalItems, Page, setPage }) => {
                   onClick={() => handlePagination(index + 1)}
                   className={`relative ${
                     Page === index + 1
-                      ? `bg-red-500 text-white`
+                      ? `bg-[#f97316]  text-white`
                       : "text-gray-400"
                   }  z-10 inline-flex items-center  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                 >
@@ -84,7 +84,7 @@ const Pagination = ({ totalItems, Page, setPage }) => {
               <button
                 onClick={() => setPage((next) => next + 1)}
                 disabled={Page >= totalPages}
-                className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                className="relative inline-flex items-center rounded-r-md px-2 py-2 bg-gray-300 text-white ring-1 ring-inset ring-gray-300 hover:bg-gray-400 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Next</span>
                 <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />

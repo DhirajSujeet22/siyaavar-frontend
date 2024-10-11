@@ -36,6 +36,7 @@ import {
   bg_white,
   bg_black,
 } from "../../../app/Constant";
+import "../../../App.css";
 // ==========================================================================
 
 function classNames(...classes) {
@@ -83,7 +84,7 @@ const ProductsDetails = () => {
     "https://contents.mediadecathlon.com/p2567760/06cf21e3f5a8a75af7ac0659729255e7/p2567760.jpg", // Image 2
     "https://nobero.com/cdn/shop/files/og.jpg?v=1722234051", // Image 3
     "https://chriscross.in/cdn/shop/files/ChrisCrossPlainBlackcottonT-Shirt.jpg?v=1695634950&width=2048", // Image 4
-    "https://d1xv5jidmf7h0f.cloudfront.net/circleone/images/products_gallery_images/Custom-Printed-T-Shirt-Round-Neck.jpg",
+    "https://nobero.com/cdn/shop/files/black_e4d19185-c19d-4e7c-a14a-8d2a29c7bad3.jpg?v=1711976456",
   ];
 
   const product = {
@@ -214,11 +215,11 @@ const ProductsDetails = () => {
 
             <Menu
               as="div"
-              className="absolute z-10 right-7  top-[5.5rem] sm:top-[1rem] ml-3"
+              className="absolute z-10 right-4 sm:right-7  top-[5.5rem] sm:top-[1rem] ml-3"
             >
               <div>
                 <Menu.Button
-                  className={`bg-gray-300 relative p-[0.5rem] flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2`}
+                  className={`sm:bg-white bg-gray-300 relative p-[0.3rem] flex max-w-xs items-center rounded-full text-sm outline-none ring-1 sm:ring-2 ring-white sm:ring-[#e95827] ring-offset-2`}
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
@@ -294,10 +295,10 @@ const ProductsDetails = () => {
 
             <div className="flex mt-6">
               {/* Image Gallery */}
-              <div className="flex-basis-[20%] mt-2  hidden  lg:flex flex-col">
+              <div className="basis-[2%] mt-2  hidden  lg:flex flex-col">
                 <div className="flex flex-col space-y-4 overflow-y-auto mt-2">
                   {product.images.map((image, index) => (
-                    <div key={index} className="w-[6rem] h-[6rem] mr-2">
+                    <div key={index} className="w-[4rem] h-[4rem] mr-2">
                       <img
                         src={image}
                         alt={`Gallery Image ${index + 1}`}
@@ -383,8 +384,7 @@ const ProductsDetails = () => {
                           href="#reviews"
                           className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
                         >
-                          {product.rating.toFixed(1)} reviews / {product.stock}{" "}
-                          in stock
+                          {product.rating} reviews / {product.stock} in stock
                         </a>
                       </div>
                     </div>
@@ -495,7 +495,7 @@ const ProductsDetails = () => {
                           onClick={() => addToCart(product)}
                           className={`${
                             darkMode ? whiteColor : blackColor
-                          } flex justify-center rounded-md border border-transparent bg-[#e95827] px-4 py-4 text-base font-medium text-white shadow-sm hover:bg-[#852201] transition-colors ease-out`}
+                          } w-[12rem] flex justify-center rounded-md border border-transparent bg-[#e95827] px-4 py-4 text-base font-medium text-white shadow-sm hover:bg-[#852201] transition-colors ease-out`}
                         >
                           <BsCartCheckFill className="text-[1.5rem] mr-2" /> ADD
                           TO CART
@@ -505,9 +505,10 @@ const ProductsDetails = () => {
                             onClick={() => addToWishlist(product)}
                             className={`${
                               darkMode ? whiteColor : blackColor
-                            } ml-4 flex justify-center rounded-md border border-transparent px-4 py-4 text-base font-medium text-white shadow-sm bg-[#e95827] hover:bg-[#852201] transition-colors ease-out`}
+                            } w-[12rem] ml-4 flex justify-center rounded-md border border-transparent px-4 py-4 text-base font-medium text-white shadow-sm bg-[#e95827] hover:bg-[#852201] transition-colors ease-out`}
                           >
-                            <SlEnergy className="text-[1.5rem] mr-2 text-yellow-500" /> BUY NOW
+                            <SlEnergy className="text-[1.5rem] mr-2 text-yellow-500" />{" "}
+                            BUY NOW
                           </button>
                         </Link>
                         {/* {share button} */}
@@ -549,7 +550,7 @@ const ProductsDetails = () => {
             <div className="flex-col">
               <div className="lg:hidden">
                 <Swiper
-                  pagination={true}
+                  pagination={{ clickable: true }}
                   loop={true}
                   spaceBetween={1}
                   slidesPerView={1}
@@ -561,7 +562,7 @@ const ProductsDetails = () => {
                       <img
                         src={image}
                         alt={`Swipe Image ${index + 1}`}
-                        className="cursor-pointer hover:opacity-75 w-full sm:h-[25rem]  h-[18rem] object-contain rounded-md"
+                        className="cursor-pointer hover:opacity-75 w-full sm:h-[50rem]  h-[25rem] object-cover rounded-md"
                       />
                     </SwiperSlide>
                   ))}
@@ -623,8 +624,7 @@ const ProductsDetails = () => {
                         href="#reviews"
                         className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
                       >
-                        {product.rating.toFixed(1)} reviews / {product.stock} in
-                        stock
+                        {product.rating} reviews / {product.stock} in stock
                       </a>
                     </div>
                   </div>
@@ -742,11 +742,10 @@ const ProductsDetails = () => {
                       </button>
                       <button
                         onClick={() => addToWishlist(product)}
-                        className={`${
-                          darkMode ? whiteColor : blackColor
-                        } ml-4 flex justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm bg-[#e95827] hover:bg-[#852201] transition-colors ease-out`}
+                        className={`ml-4 flex justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm bg-[#e95827] hover:bg-[#852201] transition-colors ease-out`}
                       >
-                        Buy Now
+                        <SlEnergy className="text-[1.5rem] mr-2 text-yellow-500" />{" "}
+                        BUY NOW
                       </button>
 
                       {/* {share button} */}
@@ -770,12 +769,14 @@ const ProductsDetails = () => {
                       </Accordion>
 
                       {/* Add more accordions as needed */}
-                      <Accordion title="Additional Details">
-                        <p className={`text-base text-gray-900`}>
-                          Here you can add additional product details or
-                          specifications.
-                        </p>
-                      </Accordion>
+                      <div className="border-b border-gray-800">
+                        <Accordion title="Additional Details">
+                          <p className={`text-base text-gray-900`}>
+                            Here you can add additional product details or
+                            specifications.
+                          </p>
+                        </Accordion>
+                      </div>
                     </div>
                   </div>
                 </>

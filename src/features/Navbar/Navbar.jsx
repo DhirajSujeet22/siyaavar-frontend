@@ -210,7 +210,7 @@ const Navbar = ({ Children }) => {
 
                         {/* Dialog Box */}
                         {isOpen && (
-                          <div className="fixed inset-0 flex items-center justify-center z-50">
+                          <div className="fixed inset-0  flex items-center justify-center z-50">
                             <div className="absolute inset-0 bg-black opacity-50"></div>
 
                             <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 z-10">
@@ -392,7 +392,7 @@ const Navbar = ({ Children }) => {
                   </div>
                   <div className="-mr-2 flex md:hidden">
                     {/* Mobile menu button */}
-                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-[#f56d40] p-2 text-white">
                       <span className="absolute -inset-0.5" />
                       <span className="sr-only">Open main menu</span>
                       {open ? (
@@ -425,7 +425,7 @@ const Navbar = ({ Children }) => {
                           className={
                             item.current
                               ? "bg-blue-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                              : "text-[#9a9d9f] hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                              : "text-black  hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-[600]"
                           }
                           aria-current={item.current ? "page" : undefined}
                         >
@@ -434,13 +434,13 @@ const Navbar = ({ Children }) => {
 
                         {/* Dropdown */}
                         {item.children && openDropdown === index && (
-                          <div className="absolute w-[12rem] z-50 left-0 mt-2 bg-gray-700 rounded-lg shadow-lg">
+                          <div className="absolute w-[20rem] z-50 left-0 mt-2 bg-[#f8ecd6] rounded-lg shadow-lg">
                             <div className="py-2">
                               {item.children.map((child) => (
                                 <Link
                                   key={child.name}
                                   to={child.link}
-                                  className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 hover:text-white"
+                                  className="block px-4 py-2 text-sm hover:bg-gray-600 hover:text-white"
                                 >
                                   {child.name}
                                 </Link>
@@ -471,7 +471,7 @@ const Navbar = ({ Children }) => {
 
                       {/* Dialog Box */}
                       {isOpen && (
-                        <div className="fixed inset-0 flex items-center justify-center z-50">
+                        <div className="fixed inset-0 px-2 flex items-center justify-center z-50">
                           <div className="absolute inset-0 bg-black opacity-50"></div>
 
                           <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 z-10">
@@ -504,13 +504,13 @@ const Navbar = ({ Children }) => {
                               <input
                                 type="text"
                                 placeholder="Type to search..."
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-300"
                               />
                             </div>
 
                             <div className="mt-4 flex justify-end">
                               <button
-                                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                                className="bg-[#e95827] hover:bg-[#852201] text-white px-4 py-2 rounded-lg"
                                 onClick={() => setIsOpen(false)}
                               >
                                 Search
