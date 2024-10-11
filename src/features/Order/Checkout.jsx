@@ -176,7 +176,7 @@ const Checkout = () => {
             </div>
           </form>
         </div>
-        <div className="mt-10 bg-[#fffbf2] px-4 pt-8 lg:mt-0">
+        <div className="bg-[#fffbf2] px-4 lg:mt-0">
           <p className="mt-8 text-lg font-medium">Addresses</p>
           <h1
             className={`${!!addresses.length ? "hidden" : "block"}
@@ -191,7 +191,7 @@ const Checkout = () => {
           >
             Add Address
           </button>
-          <div className="p-6">
+          <div className="py-6">
             <form className="my-1 grid gap-6">
               {addresses.map((address) => (
                 <div

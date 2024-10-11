@@ -5,7 +5,7 @@ const DashboardLayout = ({ Children }) => {
   return (
     <>
       <div className="flex-grow text-gray-800">
-        <header className="flex items-center h-20 px-6 sm:px-10 bg-white">
+        <header className="flex items-center h-20 px-6 sm:px-10 bg-[#f8ecd6]">
           <button className="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
             <span className="sr-only">Menu</span>
             <svg
@@ -60,24 +60,24 @@ const DashboardLayout = ({ Children }) => {
             </button>
           </div>
         </header>
-        <main className="p-6 sm:p-10 space-y-6">
+        <main className="bg-[#fffbf2] p-6 sm:p-10 space-y-6">
           <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
             <div className="mr-6">
               <h1 className="text-4xl font-semibold mb-2">DASHBOARD</h1>
             </div>
             <div className="flex flex-wrap items-start justify-end -mb-3">
               <Link to="/userDashboard">
-                <button className="inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
+                <button className="inline-flex px-5 py-3 text-white bg-[#e95827] hover:bg-[#852201] transition-colors ease-in rounded-md ml-6 mb-3">
                   Dashboard
                 </button>
               </Link>
               <Link to="/orders">
-                <button className="inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
+                <button className="inline-flex px-5 py-3 text-white bg-[#e95827] hover:bg-[#852201] transition-colors ease-in rounded-md ml-6 mb-3">
                   My Orders
                 </button>
               </Link>
               <Link to="/wishlist">
-                <button className="inline-flex px-5 py-3 text-white bg-purple-600 hover:bg-purple-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
+                <button className="inline-flex px-5 py-3 text-white bg-[#e95827] hover:bg-[#852201] transition-colors ease-in rounded-md ml-6 mb-3">
                   My Wishlist
                 </button>
               </Link>

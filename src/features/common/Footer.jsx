@@ -18,7 +18,7 @@ const Footer = () => {
       <WhatsAppIcon />
       <section className="pt-16 pb-7 bg-[#f8ecd6]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="sm:flex  justify-between pb-12 border-b-2 border-gray-700">
+          <div className="sm:flex  justify-between pb-12 border-b-2 border-gray-500">
             <div className="flex  sm:my-0 my-5 justify-center sm:justify-start col-span-12 lg:col-span-7">
               <img src="https://i.imgur.com/pSKtH5i.png" className="w-[16rem] sm:w-[20rem]" alt="siyaavar_logo" />
             </div>
@@ -35,7 +35,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="grid px-[0rem] sm:px-[5rem] md:sm:px-[2rem] grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-4  py-14 border-b-2 border-gray-700">
+          <div className="grid px-[0rem] sm:px-[5rem] md:sm:px-[2rem] grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-4  py-14 border-b-2 border-gray-500">
             <div className="my-5">
               <h6 className="text-sm md:text-md lg:text-lg font-bold text-gray-500 mb-7">About Us</h6>
               <ul className="flex flex-col gap-6">

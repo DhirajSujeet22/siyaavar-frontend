@@ -221,7 +221,7 @@ const Product_home = () => {
       <section className="p-3 sm:px-[8rem] bg-[#f8ecd6]">
         <div className="flex mt-8 flex-col md:flex-row justify-between gap-6">
           {/* Box 1 */}
-          <div className="flex flex-col justify-between border-yellow-400 border-2 bg-white p-6 rounded-lg shadow-md flex-grow">
+          <div className="flex flex-col justify-between border-yellow-400 border-2 bg-transparent p-6 rounded-lg shadow-md flex-grow">
             <h3 className="text-lg font-medium text-gray-800 mb-4">Siyaavar</h3>
             <p className="text-gray-500 text-base font-medium">
               "Explore Unmatched Style with Siyaavar: Exclusive Offers on Men's
@@ -235,7 +235,7 @@ const Product_home = () => {
           </div>
 
           {/* Box 2 */}
-          <div className="flex flex-col justify-between border-yellow-400 border-2 bg-white p-6 rounded-lg shadow-md flex-grow">
+          <div className="flex flex-col justify-between border-yellow-400 border-2 bg-transparent p-6 rounded-lg shadow-md flex-grow">
             <h3 className="text-lg font-medium text-gray-800 mb-4">Siyaa</h3>
             <p className="text-gray-500 text-base font-medium">
               "Explore Unmatched Style with Siyaa: Exclusive Offers on Women's

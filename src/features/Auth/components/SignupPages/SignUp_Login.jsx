@@ -22,13 +22,13 @@ const SignUp_Login = () => {
             {/* Logo and Close Button */}
             <div className="flex justify-between items-center mb-6">
               <img
-                src="https://i.imgur.com/HfWWL7R.png"
+                src="https://i.imgur.com/pSKtH5i.png"
                 alt="Company Logo"
                 className="w-[10rem] sm:w-[15rem] md:w-[18rem]"
               />
               <button
                 onClick={() => dispatch(signUp_Login_Model(false))}
-                className=" text-gray-800 text-[2rem]"
+                className="text-[#e95827] text-[2rem]"
               >
                 <MdCancel />
               </button>
@@ -110,7 +110,7 @@ const SignUp_Login = () => {
                 <div className="text-center mt-5">
                   <button
                     type="button"
-                    className="bg-orange-500 w-full sm:w-[20rem] text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 hover:bg-orange-600"
+                    className="bg-[#e95827] hover:bg-[#852201] transition-colors ease-in w-full sm:w-[20rem] text-white px-6 py-3 rounded-lg shadow-lg duration-300"
                   >
                     Sign Up
                   </button>
@@ -162,7 +162,7 @@ const SignUp_Login = () => {
                 <div className="text-center mt-6">
                   <button
                     type="button"
-                    className="bg-blue-500 w-full sm:w-[20rem] text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 hover:bg-blue-600"
+                    className="bg-[#e95827] hover:bg-[#852201] transition-colors ease-in w-full sm:w-[20rem] text-white px-6 py-3 rounded-lg shadow-lg duration-300"
                   >
                     Login
                   </button>

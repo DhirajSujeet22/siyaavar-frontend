@@ -219,7 +219,7 @@ const ProductsDetails = () => {
             >
               <div>
                 <Menu.Button
-                  className={`sm:bg-white bg-gray-300 relative p-[0.3rem] flex max-w-xs items-center rounded-full text-sm outline-none ring-1 sm:ring-2 ring-white sm:ring-[#e95827] ring-offset-2`}
+                  className={`sm:bg-white bg-gray-300 relative p-[0.3rem] flex max-w-xs items-center rounded-full text-sm outline-none ring-1 sm:ring-2 ring-white sm:ring-[#ffa587] ring-offset-2`}
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>

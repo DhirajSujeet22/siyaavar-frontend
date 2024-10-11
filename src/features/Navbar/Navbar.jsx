@@ -249,7 +249,7 @@ const Navbar = ({ Children }) => {
 
                               <div className="mt-4 flex justify-end">
                                 <button
-                                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                                  className="bg-[#e95827] hover:bg-[#852201] transition-colors ease-in text-white px-4 py-2 rounded-lg"
                                   onClick={() => setIsOpen(false)}
                                 >
                                   Search
@@ -510,7 +510,7 @@ const Navbar = ({ Children }) => {
 
                             <div className="mt-4 flex justify-end">
                               <button
-                                className="bg-[#e95827] hover:bg-[#852201] text-white px-4 py-2 rounded-lg"
+                                className="bg-[#e95827] hover:bg-[#852201] transition-colors ease-in text-white px-4 py-2 rounded-lg"
                                 onClick={() => setIsOpen(false)}
                               >
                                 Search
