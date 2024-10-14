@@ -15,6 +15,7 @@ import LogOut from "./features/Auth/components/LogOut";
 import ErrorPage from "./features/common/ErrorPage";
 import PageOnTop from "./Home/PageUp";
 import LoadingSpinner from "./features/common/LoadingSpinner";
+import Size_GuidePage from "./Pages/Size_GuidePage";
 // ----------------------------------------------------------------
 const HomePage = React.lazy(() => import("./Pages/HomePage"));
 const ProductsDetailsPage = React.lazy(() =>
@@ -214,6 +215,19 @@ const router = createBrowserRouter([
           <ErrorBoundary>
             <PageOnTop />
             <ContactUsPage />
+          </ErrorBoundary>
+        </Suspense>
+      </>
+    ),
+  },
+  {
+    path: "/sizeGuide",
+    element: (
+      <>
+        <Suspense fallback={<LoadingSpinner />}>
+          <ErrorBoundary>
+            <PageOnTop />
+            <Size_GuidePage />
           </ErrorBoundary>
         </Suspense>
       </>

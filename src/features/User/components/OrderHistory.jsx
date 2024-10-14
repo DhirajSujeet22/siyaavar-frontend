@@ -159,12 +159,12 @@ const dummyOrderData = [
 
 const OrderHistory = () => {
   return (
-    <div className="max-w-4xl mx-auto p-4 space-y-8">
+    <div className="max-w-4xl mx-auto p-4 space-y-8 ">
       <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">
         Order History
       </h1>
       {dummyOrderData.map((order) => (
-        <div key={order.orderId} className="bg-white shadow-lg rounded-lg p-6">
+        <div key={order.orderId} className="bg-transparent border-[1px] rounded-md border-gray-400 p-6">
           <div className="flex justify-between items-center border-b pb-4 mb-4">
             <div>
               <h2 className="text-xl font-semibold text-gray-700">
@@ -181,7 +181,7 @@ const OrderHistory = () => {
             {order.items.map((item, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between bg-white p-4 rounded-md"
+                className="flex items-center justify-between bg-transparent p-4 rounded-md"
               >
                 <div className="flex items-center">
                   <img
@@ -196,7 +196,7 @@ const OrderHistory = () => {
                 </div>
                 <div className="flex items-center space-x-4">
                   <p className="text-gray-700">{item.price}</p>
-                  <button className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 transition">
+                  <button className="bg-[#e95827] text-white hover:bg-[#852201] transition ease-in px-4 py-2 rounded">
                     Order Again
                   </button>
                 </div>

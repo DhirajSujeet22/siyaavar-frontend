@@ -20,7 +20,11 @@ const Footer = () => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="sm:flex  justify-between pb-12 border-b-2 border-gray-500">
             <div className="flex  sm:my-0 my-5 justify-center sm:justify-start col-span-12 lg:col-span-7">
-              <img src="https://i.imgur.com/pSKtH5i.png" className="w-[16rem] sm:w-[20rem]" alt="siyaavar_logo" />
+              <img
+                src="https://i.imgur.com/pSKtH5i.png"
+                className="w-[16rem] sm:w-[20rem]"
+                alt="siyaavar_logo"
+              />
             </div>
             <div className="col-span-12 lg:col-span-5 flex flex-col gap-4 items-center">
               <div className="flex items-center gap-[2rem] bg-transparent w-[auto] max-w-md mx-auto lg:mr-0 rounded-full md:p-1 p-1 min-[470px]:p-1.5 pl-5 min-[470px]:pl-7 border border-gray-700 transition-all duration-300 hover:border-gray-400 focus-within:border-gray-400 focus:outline-none">
@@ -37,23 +41,17 @@ const Footer = () => {
           </div>
           <div className="grid px-[0rem] sm:px-[5rem] md:sm:px-[2rem] grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-4  py-14 border-b-2 border-gray-500">
             <div className="my-5">
-              <h6 className="text-sm md:text-md lg:text-lg font-bold text-gray-500 mb-7">About Us</h6>
+              <h6 className="text-sm md:text-md lg:text-lg font-bold text-gray-500 mb-7">
+                About Us
+              </h6>
               <ul className="flex flex-col gap-6">
                 <li className="text-black">
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to="/blog"
                     className="text-sm sm:text-lg md:text-sm font-normal text-black focus-within:outline-0"
                   >
-                    Our Story
-                  </a>
-                </li>
-                <li className="text-black">
-                  <a
-                    href="javascript:;"
-                    className="text-sm sm:text-lg md:text-sm  font-normal text-black focus-within:outline-0"
-                  >
-                    Sustainability
-                  </a>
+                    Blogs
+                  </Link>
                 </li>
                 <li className="text-black">
                   <Link
@@ -62,14 +60,6 @@ const Footer = () => {
                   >
                     Careers
                   </Link>
-                </li>
-                <li className="text-black">
-                  <a
-                    href="javascript:;"
-                    className="text-sm sm:text-lg md:text-sm  font-normal text-black focus-within:outline-0"
-                  >
-                    Press
-                  </a>
                 </li>
                 <li className="text-black">
                   <Link
@@ -119,17 +109,19 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className="text-black">
-                  <a
-                    href="javascript:;"
+                  <Link
+                    to="/sizeGuide"
                     className="text-sm sm:text-lg md:text-sm  font-normal text-black focus-within:outline-0"
                   >
                     Size Guide
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
             <div className="my-5">
-              <h6 className="text-sm md:text-md lg:text-lg font-bold text-gray-500 mb-7">Shop</h6>
+              <h6 className="text-sm md:text-md lg:text-lg font-bold text-gray-500 mb-7">
+                Shop
+              </h6>
               <ul className="flex flex-col gap-6">
                 <li className="text-black">
                   <a

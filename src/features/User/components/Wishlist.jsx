@@ -102,7 +102,7 @@ const Wishlist = () => {
 
   return (
     <>
-      <div className="bg-gray-100 p-1 sm:p-8 min-h-screen">
+      <div className="bg-transparent p-1 sm:p-8 min-h-screen">
         <h1 className="text-4xl font-[500] text-center mb-12 text-gray-700">
           Your Wishlist
         </h1>
@@ -110,7 +110,7 @@ const Wishlist = () => {
           {wishlist.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-xl flex flex-col md:flex-row p-6 items-center transition-transform duration-300"
+              className="bg-transparent border-[1px] rounded-md border-gray-400 flex flex-col md:flex-row p-6 items-center transition-transform duration-300"
             >
               {/* Image on Left */}
               <div className="w-full md:w-1/3 pr-0 md:pr-6 mb-6 md:mb-0">

@@ -90,7 +90,7 @@ function classNames(...classes) {
 const Products = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const dispatch = useDispatch();
-  const Products = useSelector(selectProducts);
+  // const Products = useSelector(selectProducts);
   const ProductsStatus = useSelector(selectStatus);
   const TotalProductsLength = useSelector(selectTotalProductsLength);
   const [Page, setPage] = useState(1);
@@ -98,6 +98,217 @@ const Products = () => {
   // -----------------------------------------
   const [searchParams] = useSearchParams();
   const Men_category = searchParams.get("category");
+
+  // -----------------------------------------
+
+  const Products = [
+    {
+      id: 1,
+      title: "Men's Elegant Blue Kurta Pajama",
+      description:
+        "Celebrate in style with our Blue Festive Charm Kurta Pajama. This intricate Chikankari and sequin-embellished viscose set is perfect for engagements or weddings. Stand out during festivities with this elegant pairing.",
+      tag: "men's clothing",
+      category: "kurta pajama",
+      price: 19.99,
+      rating: 4.94,
+      stock: 55,
+      sizes: ["All Size", "S", "M", "L", "XL", "XXL", "XXXL"],
+      colors: ["blue"],
+      images: ["https://i.imgur.com/SP1VHjX.jpeg"],
+      thumbnail: "https://i.imgur.com/SP1VHjX.jpeg",
+    },
+    {
+      id: 2,
+      title: "Men's Classic Black Sherwani",
+      description:
+        "A timeless black sherwani with golden embroidery for the modern groom. Crafted in premium fabric for special occasions.",
+      tag: "men's clothing",
+      category: "sherwani",
+      price: 59.99,
+      rating: 4.85,
+      stock: 25,
+      sizes: ["S", "M", "L", "XL"],
+      colors: ["black"],
+      images: ["https://i.imgur.com/bRQPhXu.jpeg"],
+      thumbnail: "https://i.imgur.com/bRQPhXu.jpeg",
+    },
+    {
+      id: 3,
+      title: "Women's Red Embellished Anarkali",
+      description:
+        "This Anarkali features intricate threadwork and stone embellishments. The red colors complements every festive occasion.",
+      tag: "women's clothing",
+      category: "anarkali",
+      price: 49.99,
+      rating: 4.72,
+      stock: 40,
+      sizes: ["S", "M", "L", "XL"],
+      colors: ["red"],
+      images: ["https://i.imgur.com/G2lh4im.jpeg"],
+      thumbnail: "https://i.imgur.com/G2lh4im.jpeg",
+    },
+    {
+      id: 4,
+      title: "Men's Traditional White Kurta",
+      description:
+        "Classic white kurta in soft cotton for traditional events. Comfortable and stylish for all-day wear.",
+      tag: "men's clothing",
+      category: "kurta",
+      price: 15.99,
+      rating: 4.65,
+      stock: 70,
+      sizes: ["S", "M", "L", "XL"],
+      colors: ["white"],
+      images: ["https://i.imgur.com/VcTSTzm.jpeg"],
+      thumbnail: "https://i.imgur.com/VcTSTzm.jpeg",
+    },
+    {
+      id: 5,
+      title: "Women's Peach Lehenga Choli",
+      description:
+        "Embrace tradition with our peach-colorsed lehenga choli. Perfect for weddings and grand celebrations.",
+      tag: "women's clothing",
+      category: "lehenga",
+      price: 99.99,
+      rating: 4.89,
+      stock: 15,
+      sizes: ["S", "M", "L"],
+      colors: ["peach"],
+      images: [
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      ],
+      thumbnail:
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+      id: 6,
+      title: "Men's Gray Casual Suit",
+      description:
+        "This modern gray casual suit is perfect for semi-formal events. It pairs well with both dress shirts and casual tees.",
+      tag: "men's clothing",
+      category: "suit",
+      price: 79.99,
+      rating: 4.91,
+      stock: 35,
+      sizes: ["M", "L", "XL"],
+      colors: ["gray"],
+      images: [
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      ],
+      thumbnail:
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+      id: 7,
+      title: "Women's Green Silk Saree",
+      description:
+        "This silk saree in a striking green hue is perfect for weddings and traditional ceremonies.",
+      tag: "women's clothing",
+      category: "saree",
+      price: 39.99,
+      rating: 4.77,
+      stock: 60,
+      sizes: ["Free Size"],
+      colors: ["green"],
+      images: [
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      ],
+      thumbnail:
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+      id: 8,
+      title: "Men's Royal Blue Bandhgala",
+      description:
+        "A royal blue bandhgala with silver detailing. Perfect for formal occasions and events.",
+      tag: "men's clothing",
+      category: "bandhgala",
+      price: 89.99,
+      rating: 4.83,
+      stock: 20,
+      sizes: ["M", "L", "XL"],
+      colors: ["blue"],
+      images: [
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      ],
+      thumbnail:
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+      id: 9,
+      title: "Women's Maroon Sharara Set",
+      description:
+        "Elegant maroon sharara set with golden embroidery, perfect for festive celebrations.",
+      tag: "women's clothing",
+      category: "sharara",
+      price: 59.99,
+      rating: 4.68,
+      stock: 30,
+      sizes: ["S", "M", "L"],
+      colors: ["maroon"],
+      images: [
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      ],
+      thumbnail:
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+      id: 10,
+      title: "Men's Olive Green Nehru Jacket",
+      description:
+        "A stylish olive green Nehru jacket to pair with traditional kurta or western attire.",
+      tag: "men's clothing",
+      category: "nehru jacket",
+      price: 29.99,
+      rating: 4.58,
+      stock: 45,
+      sizes: ["M", "L", "XL"],
+      colors: ["olive green"],
+      images: [
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      ],
+      thumbnail:
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+      id: 11,
+      title: "Women's Light Blue Denim Kurti",
+      description:
+        "A casual yet chic light blue denim kurti. Perfect for everyday wear or casual outings.",
+      tag: "women's clothing",
+      category: "kurti",
+      price: 24.99,
+      rating: 4.72,
+      stock: 50,
+      sizes: ["S", "M", "L", "XL"],
+      colors: ["light blue"],
+      images: [
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      ],
+      thumbnail:
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+      id: 12,
+      title: "Men's Charcoal Grey Waistcoat",
+      description:
+        "A classic charcoal grey waistcoat to add sophistication to any formal outfit.",
+      tag: "men's clothing",
+      category: "waistcoat",
+      price: 39.99,
+      rating: 4.8,
+      stock: 30,
+      sizes: ["M", "L", "XL"],
+      colors: ["charcoal grey"],
+      images: [
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      ],
+      thumbnail:
+        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+  ];
+
+  console.log(Products);
 
   // -----------------------------------------
 
@@ -281,14 +492,11 @@ const Products = () => {
                 Products
               </h2>
 
-              {ProductsStatus ? (
-                <LoadingSpinner />
-              ) : (
-                <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-                  {/* Filters */}
-                  <form className="hidden lg:block">
-                    <h3 className="sr-only">Categories</h3>
-                    {/* <ul
+              <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+                {/* Filters */}
+                <form className="hidden lg:block">
+                  <h3 className="sr-only">Categories</h3>
+                  {/* <ul
                     role="list"
                     className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
                   >
@@ -299,108 +507,107 @@ const Products = () => {
                     ))}
                   </ul> */}
 
-                    {filters.map((section) => (
-                      <Disclosure
-                        key={section.id}
-                        as="div"
-                        className="border-b border-gray-200 py-6"
-                      >
-                        <h3 className="-my-3 flow-root">
-                          <DisclosureButton className="group flex w-full items-center justify-between bg-[#fffbf2] py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">
-                              {section.name}
-                            </span>
-                            <span className="ml-6 flex items-center">
-                              <PlusIcon
-                                aria-hidden="true"
-                                className="h-5 w-5 group-data-[open]:hidden"
+                  {filters.map((section) => (
+                    <Disclosure
+                      key={section.id}
+                      as="div"
+                      className="border-b border-gray-200 py-6"
+                    >
+                      <h3 className="-my-3 flow-root">
+                        <DisclosureButton className="group flex w-full items-center justify-between bg-[#fffbf2] py-3 text-sm text-gray-400 hover:text-gray-500">
+                          <span className="font-medium text-gray-900">
+                            {section.name}
+                          </span>
+                          <span className="ml-6 flex items-center">
+                            <PlusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 group-data-[open]:hidden"
+                            />
+                            <MinusIcon
+                              aria-hidden="true"
+                              className="h-5 w-5 [.group:not([data-open])_&]:hidden"
+                            />
+                          </span>
+                        </DisclosureButton>
+                      </h3>
+                      <DisclosurePanel className="pt-6">
+                        <div className="space-y-4">
+                          {section.options.map((option, optionIdx) => (
+                            <div
+                              key={option.value}
+                              className="flex items-center"
+                            >
+                              <input
+                                defaultValue={option.value}
+                                defaultChecked={option.checked}
+                                id={`filter-${section.id}-${optionIdx}`}
+                                name={`${section.id}[]`}
+                                type="checkbox"
+                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
-                              <MinusIcon
-                                aria-hidden="true"
-                                className="h-5 w-5 [.group:not([data-open])_&]:hidden"
-                              />
-                            </span>
-                          </DisclosureButton>
-                        </h3>
-                        <DisclosurePanel className="pt-6">
-                          <div className="space-y-4">
-                            {section.options.map((option, optionIdx) => (
-                              <div
-                                key={option.value}
-                                className="flex items-center"
+                              <label
+                                htmlFor={`filter-${section.id}-${optionIdx}`}
+                                className="ml-3 text-sm text-gray-600"
                               >
-                                <input
-                                  defaultValue={option.value}
-                                  defaultChecked={option.checked}
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  type="checkbox"
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600"
-                                >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
-                        </DisclosurePanel>
-                      </Disclosure>
-                    ))}
-                  </form>
+                                {option.label}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
+                      </DisclosurePanel>
+                    </Disclosure>
+                  ))}
+                </form>
 
-                  {/* Product grid products list */}
+                {/* Product grid products list */}
 
-                  <div className="lg:col-span-3">
-                    <div className="bg-[#fffbf2]">
-                      <div className="mx-auto h-full max-w-2xl px-4 py-16 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
-                        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-                          products
-                        </h2>
+                <div className="lg:col-span-3">
+                  <div className="bg-[#fffbf2]">
+                    <div className="mx-auto h-full max-w-2xl px-4 py-16 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
+                      <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+                        products
+                      </h2>
 
-                        <div className="mt-6  grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                          {Products &&
-                            Products.map((product, index) => (
-                              <Link
-                                key={index}
-                                to={`/ProductsDetails/${product.id}`}
-                              >
-                                <div className="group relative">
-                                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none">
-                                    <img
-                                      alt={product.title}
-                                      src={product.images}
-                                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                                    />
-                                  </div>
-                                  <div className="mt-4 flex justify-between">
-                                    <div>
-                                      <h3 className="text-sm text-gray-700">
-                                        <span
-                                          aria-hidden="true"
-                                          className="absolute inset-0"
-                                        />
-                                        {product.title}
-                                      </h3>
-                                      <p className="mt-3 text-sm text-gray-500">
-                                        {product.category}
-                                      </p>
-                                    </div>
-                                    <p className="text-sm font-medium text-gray-900">
-                                      {product.price}
+                      <div className="mt-6  grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                        {Products &&
+                          Products.map((product, index) => (
+                            <Link
+                              key={index}
+                              to={`/ProductsDetails/${product.id}`}
+                            >
+                              <div className="group relative">
+                                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none">
+                                  <img
+                                    alt={product.title}
+                                    src={product.images}
+                                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                  />
+                                </div>
+                                <div className="mt-4 flex justify-between">
+                                  <div>
+                                    <h3 className="text-sm text-gray-700">
+                                      <span
+                                        aria-hidden="true"
+                                        className="absolute inset-0"
+                                      />
+                                      {product.title}
+                                    </h3>
+                                    <p className="mt-3 text-sm text-gray-500">
+                                      {product.category}
                                     </p>
                                   </div>
+                                  <p className="text-sm font-medium text-gray-900">
+                                    {product.price}
+                                  </p>
                                 </div>
-                              </Link>
-                            ))}
-                        </div>
+                              </div>
+                            </Link>
+                          ))}
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </section>
             {
               // =========== This is Pagination Layout start ================

@@ -92,7 +92,7 @@ const Dashboard = () => {
           <div className="flex-1">
             <div className="flex justify-between items-center">
               <h2 className="text-3xl font-bold mb-2">{userData.name}</h2>
-              <button className="bg-[#e95827] hover:bg-[#852201] transition ease-in px-4 py-2 rounded ">
+              <button className="bg-[#e95827] hover:bg-[#852201] transition ease-in px-4 py-2 rounded">
                 Edit Profile
               </button>
             </div>
@@ -126,19 +126,8 @@ const Dashboard = () => {
                 className="relative flex flex-col justify-between border border-gray-300 rounded-lg p-4 transition-colors duration-200 peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50  cursor-pointer select-none"
               >
                 {/* Radio Input */}
-                <input
-                  className="peer absolute opacity-0"
-                  id={address.id}
-                  type="radio"
-                  name="address"
-                  defaultChecked={address.id === "address1"} // Default first address checked
-                />
-                {/* Visual Radio Button */}
-                <span
-                  className="absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8
-                  
-                  peer-checked:border-gray-700 peer-checked:bg-gray-50  cursor-pointer select-none"
-                />
+                <input className="peer absolute opacity-0" name="address" />
+
                 {/* Address Information */}
                 <label
                   htmlFor={address.id}
